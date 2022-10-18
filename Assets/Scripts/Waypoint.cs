@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-    public List<Waypoint> nextCandidates = new List<Waypoint>();
+    public List<Waypoint> nextCandidates = new();
     
     public Waypoint GetNextWaypoint()
     {

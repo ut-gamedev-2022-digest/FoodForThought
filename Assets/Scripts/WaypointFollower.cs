@@ -4,10 +4,11 @@ public class WaypointFollower : MonoBehaviour
 {
     public Waypoint waypoint;
     public float speed = 1f;
+    public bool isActivated = true;
     
     private void Update()
     {
-        if (waypoint is null) return;
+        if (waypoint is null || !isActivated) return;
 
         transform.position =
             Vector3.MoveTowards(transform.position, waypoint.transform.position, speed * Time.deltaTime);
