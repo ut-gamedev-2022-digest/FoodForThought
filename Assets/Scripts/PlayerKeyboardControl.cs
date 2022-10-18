@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-public class FPSInput : MonoBehaviour
+public class PlayerKeyboardControl : MonoBehaviour
 {
     public bool isActivated = true;
     public float speed = 5f;
@@ -30,10 +29,5 @@ public class FPSInput : MonoBehaviour
         movement *= Time.deltaTime;
         movement = transform.TransformDirection(movement);
         _characterController.Move(movement);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Collision");
     }
 }
