@@ -9,6 +9,28 @@ public class PlayerKeyboardControl : MonoBehaviour
     
     private CharacterController _characterController;
 
+    private void Awake()
+    {
+        Events.OnTimeRunOut += Deactivate;
+        Events.OnRestartGame += Activate;
+    }
+
+    private void OnDestroy()
+    {
+        Events.OnTimeRunOut -= Deactivate;
+        Events.OnRestartGame -= Activate;
+    }
+
+    private void Deactivate()
+    {
+        isActivated = false;
+    }
+
+    private void Activate()
+    {
+        isActivated = true;
+    }
+
     private void Start()
     {
         _characterController = GetComponent<CharacterController>();

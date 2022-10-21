@@ -8,10 +8,38 @@ public class Timer : MonoBehaviour
     public float TimeRemaining = 60;
     public bool IsRunning = false;
     public Text TimeText;
+
+    private float _timeRemaining;
+
+    private void Awake()
+    {
+        _timeRemaining = TimeRemaining;
+        Events.OnTimeRunOut += TimeRunOut;
+        Events.OnRestartGame += RestartTimer;
+    }
+
+    private void OnDestroy()
+    {
+        Events.OnTimeRunOut -= TimeRunOut;
+        Events.OnRestartGame -= RestartTimer;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         IsRunning = true;   
+    }
+
+    private void TimeRunOut()
+    {
+        TimeRemaining = 0;
+        IsRunning = false;
+    }
+
+    private void RestartTimer()
+    {
+        TimeRemaining = _timeRemaining;
+        IsRunning = true;
     }
 
     // Update is called once per frame
@@ -26,9 +54,7 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Time has run out!");
-                TimeRemaining = 0;
-                IsRunning = false;
+                Events.TimeRunOut();
             }
         }
     }
