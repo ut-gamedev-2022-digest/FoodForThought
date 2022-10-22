@@ -13,12 +13,14 @@ public class PlayerKeyboardControl : MonoBehaviour
     {
         Events.OnTimeRunOut += Deactivate;
         Events.OnRestartGame += Activate;
+        Events.OnReachFinish += Deactivate;
     }
 
     private void OnDestroy()
     {
         Events.OnTimeRunOut -= Deactivate;
         Events.OnRestartGame -= Activate;
+        Events.OnReachFinish -= Deactivate;
     }
 
     private void Deactivate()

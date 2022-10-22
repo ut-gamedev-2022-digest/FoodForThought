@@ -11,6 +11,7 @@ public class WaypointFollower : MonoBehaviour
     {
         Events.OnTimeRunOut += Deactivate;
         Events.OnRestartGame += Activate;
+        Events.OnReachFinish += Deactivate;
         
     }
 
@@ -18,6 +19,7 @@ public class WaypointFollower : MonoBehaviour
     {
         Events.OnTimeRunOut -= Deactivate;
         Events.OnRestartGame -= Activate;
+        Events.OnReachFinish -= Deactivate;
     }
 
     private void Deactivate()

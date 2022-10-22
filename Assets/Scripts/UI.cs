@@ -8,17 +8,23 @@ public class UI : MonoBehaviour
 {
     public GameObject WinLosePanel;
     public Text WinLoseMsg;
+    public Text RemainingTimeMsg;
+
 
     private void Awake()
     {
         Events.OnTimeRunOut += TimeRunOut;
         Events.OnRestartGame += HideWinLosePanel;
+        Events.OnReachFinish += ReachFinish;
+        Events.OnShowTime += ShowTime;
     }
 
     private void OnDestroy()
     {
         Events.OnTimeRunOut -= TimeRunOut;
         Events.OnRestartGame -= HideWinLosePanel;
+        Events.OnReachFinish -= ReachFinish;
+        Events.OnShowTime -= ShowTime;
     }
 
 
@@ -32,22 +38,33 @@ public class UI : MonoBehaviour
         ShowWinLosePanel(false);
     }
 
-    private void SetWinLoseMsg(Text winLoseMsg, bool win)
+    private void ReachFinish()
+    {
+        ShowWinLosePanel(true);
+    }
+
+    private void ShowTime(float time)
+    {
+        float minutes = Mathf.FloorToInt(time / 60);
+        float seconds = Mathf.FloorToInt(time % 60);
+        RemainingTimeMsg.text = string.Format("Remaining time: {0:00}:{1:00}", minutes, seconds);
+    }
+
+    private void SetWinLoseMsg(bool win)
     {
         if (win)
         {
-            winLoseMsg.text = "You won!";
+            WinLoseMsg.text = "You won!";
         }
         else
         {
-            winLoseMsg.text = "You lost!";
+            WinLoseMsg.text = "You lost!";
         }
     }
 
     public void ShowWinLosePanel(bool win)
     {
-       
-        SetWinLoseMsg(WinLoseMsg, win);
+        SetWinLoseMsg(win);
         WinLosePanel.SetActive(true);
     }
 

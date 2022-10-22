@@ -16,12 +16,14 @@ public class Timer : MonoBehaviour
         _timeRemaining = TimeRemaining;
         Events.OnTimeRunOut += TimeRunOut;
         Events.OnRestartGame += RestartTimer;
+        Events.OnReachFinish += ReachFinish;
     }
 
     private void OnDestroy()
     {
         Events.OnTimeRunOut -= TimeRunOut;
         Events.OnRestartGame -= RestartTimer;
+        Events.OnReachFinish -= ReachFinish;
     }
 
     // Start is called before the first frame update
@@ -34,12 +36,19 @@ public class Timer : MonoBehaviour
     {
         TimeRemaining = 0;
         IsRunning = false;
+        Events.ShowTime(0);
     }
 
     private void RestartTimer()
     {
         TimeRemaining = _timeRemaining;
         IsRunning = true;
+    }
+
+    private void ReachFinish()
+    {
+        IsRunning = false;
+        Events.ShowTime(TimeRemaining + 1);
     }
 
     // Update is called once per frame
