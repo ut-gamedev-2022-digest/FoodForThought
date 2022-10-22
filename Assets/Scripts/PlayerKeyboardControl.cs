@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerKeyboardControl : MonoBehaviour
@@ -6,8 +7,11 @@ public class PlayerKeyboardControl : MonoBehaviour
     public float speed = 5f;
     public float gravity = -9.8f;
     public float jumpSpeed = 5f;
-    
+    public bool useCharacterController = true;
+
     private CharacterController _characterController;
+    private Rigidbody _rigidbody;
+    private Vector3 _movement;
 
     private void Awake()
     {
@@ -36,22 +40,49 @@ public class PlayerKeyboardControl : MonoBehaviour
     private void Start()
     {
         _characterController = GetComponent<CharacterController>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
         if (!isActivated) return;
 
+        // WASD movements
         var deltaX = Input.GetAxis("Horizontal") * speed;
         var deltaZ = Input.GetAxis("Vertical") * speed;
-        
         var movement = new Vector3(deltaX, 0, deltaZ);
         movement = Vector3.ClampMagnitude(movement, speed);
-
         movement.y = gravity;
-        
         movement *= Time.deltaTime;
-        movement = transform.TransformDirection(movement);
-        _characterController.Move(movement);
+        _movement = movement;
+    }
+
+    private void FixedUpdate()
+    {
+        if (!isActivated) return;
+
+        switch (useCharacterController)
+        {
+            case true:
+                CharacterControllerMovement();
+                break;
+            case false:
+                RigidbodyMovement();
+                break;
+        }
+    }
+
+    private void CharacterControllerMovement()
+    {
+        _movement = transform.TransformDirection(_movement);
+        _characterController.Move(_movement);
+        _movement = Vector3.zero;
+    }
+
+    private void RigidbodyMovement()
+    {
+        _movement = transform.TransformDirection(_movement);
+        _rigidbody.transform.position += _movement;
+        _movement = Vector3.zero;
     }
 }

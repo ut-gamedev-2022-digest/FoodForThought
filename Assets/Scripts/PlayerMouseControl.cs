@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class PlayerMouseControl : MonoBehaviour
 {
-    public float mouseSensitivityHorizontal = 10f;
-    public float mouseSensitivityVertical = 10f;
-    public float clampAngle = 80f;
+    public float mouseSensitivity = 10f;
     public bool isActivated = true;
 
     private float _verticalRotation = 0f;
+    private float _horizontalRotation = 0f;
 
     private void Awake()
     {
@@ -45,13 +44,9 @@ public class PlayerMouseControl : MonoBehaviour
     private void Update()
     {
         if (!isActivated) return;
-        _verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivityVertical;
-        _verticalRotation = Mathf.Clamp(_verticalRotation, -clampAngle, clampAngle);
-        // Camera.main.transform.localRotation = Quaternion.Euler(_verticalRotation, 0, 0);
         
-        var delta = Input.GetAxis("Mouse X") * mouseSensitivityHorizontal;
-        var horizontalRotation = transform.localEulerAngles.y + delta;
-        
-        transform.localEulerAngles = new Vector3(_verticalRotation, horizontalRotation, 0);
+        _verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+        _horizontalRotation -= Input.GetAxis("Mouse X") * mouseSensitivity;
+        transform.localEulerAngles = new Vector3(_verticalRotation, _horizontalRotation, 0);
     }
 }
