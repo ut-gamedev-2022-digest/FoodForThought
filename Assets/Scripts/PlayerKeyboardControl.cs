@@ -55,10 +55,13 @@ public class PlayerKeyboardControl : MonoBehaviour
         movement.y = gravity;
         movement *= Time.deltaTime;
         _movement = movement;
-    }
-
-    private void FixedUpdate()
-    {
+        
+        // Restart screen on Esc
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Events.TimeRunOut();
+        }
+        
         if (!isActivated) return;
 
         switch (useCharacterController)
@@ -71,6 +74,21 @@ public class PlayerKeyboardControl : MonoBehaviour
                 break;
         }
     }
+
+    // private void FixedUpdate()
+    // {
+    //     if (!isActivated) return;
+    //
+    //     switch (useCharacterController)
+    //     {
+    //         case true:
+    //             CharacterControllerMovement();
+    //             break;
+    //         case false:
+    //             RigidbodyMovement();
+    //             break;
+    //     }
+    // }
 
     private void CharacterControllerMovement()
     {

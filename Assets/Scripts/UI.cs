@@ -28,7 +28,7 @@ public class UI : MonoBehaviour
     }
 
 
-    void Start()
+    private void Start()
     {
         WinLosePanel.SetActive(false);
     }
@@ -47,28 +47,21 @@ public class UI : MonoBehaviour
     {
         float minutes = Mathf.FloorToInt(time / 60);
         float seconds = Mathf.FloorToInt(time % 60);
-        RemainingTimeMsg.text = string.Format("Remaining time: {0:00}:{1:00}", minutes, seconds);
+        RemainingTimeMsg.text = $"Remaining time: {minutes:00}:{seconds:00}";
     }
 
     private void SetWinLoseMsg(bool win)
     {
-        if (win)
-        {
-            WinLoseMsg.text = "You won!";
-        }
-        else
-        {
-            WinLoseMsg.text = "You lost!";
-        }
+        WinLoseMsg.text = win ? "You won!" : "You lost!";
     }
 
-    public void ShowWinLosePanel(bool win)
+    private void ShowWinLosePanel(bool win)
     {
         SetWinLoseMsg(win);
         WinLosePanel.SetActive(true);
     }
 
-    public void HideWinLosePanel()
+    private void HideWinLosePanel()
     {
         WinLosePanel.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
