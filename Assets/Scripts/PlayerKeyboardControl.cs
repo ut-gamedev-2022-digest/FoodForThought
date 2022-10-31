@@ -12,6 +12,9 @@ public class PlayerKeyboardControl : MonoBehaviour
     private CharacterController _characterController;
     private Rigidbody _rigidbody;
     private Vector3 _movement;
+    
+    private Animator _animator;
+    private static readonly int Speed = Animator.StringToHash("Speed");
 
     private void Awake()
     {
@@ -41,6 +44,7 @@ public class PlayerKeyboardControl : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         _rigidbody = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -55,6 +59,9 @@ public class PlayerKeyboardControl : MonoBehaviour
         movement.y = gravity;
         movement *= Time.deltaTime;
         _movement = movement;
+        
+        // Walking animation
+        _animator.SetFloat(Speed, Mathf.Abs(deltaX) + Mathf.Abs(deltaZ));
         
         // Restart screen on Esc
         if (Input.GetKeyDown(KeyCode.Escape))
