@@ -9,11 +9,7 @@ public class ObstacleWaypointFollower : MonoBehaviour
 
     void Update()
     {
-        if (ObstacleWaypoint == null)
-        {
-            DestinationReached();
-        }
-        else
+        if (ObstacleWaypoint != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, ObstacleWaypoint.transform.position, Time.deltaTime * Speed);
             float distance = Vector3.SqrMagnitude(transform.position - ObstacleWaypoint.transform.position);
@@ -22,11 +18,6 @@ public class ObstacleWaypointFollower : MonoBehaviour
                 ObstacleWaypoint = ObstacleWaypoint.GetNextObstacleWaypoint();
             }
         }
-    }
-
-    private void DestinationReached()
-    {
-        GameObject.Destroy(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)
