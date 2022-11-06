@@ -64,4 +64,14 @@ public class WaypointFollower : MonoBehaviour
         if (Vector3.Distance(transform.position, waypoint.transform.position) < 1)
             waypoint = waypoint.GetNextWaypoint();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<Bacteria>() != null)
+        {
+            var fj = gameObject.AddComponent<FixedJoint>();
+            fj.connectedBody = other.gameObject.GetComponent<Rigidbody>();
+
+        }
+    }
 }
