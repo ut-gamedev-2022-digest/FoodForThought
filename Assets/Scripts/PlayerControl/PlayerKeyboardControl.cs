@@ -6,7 +6,6 @@ public class PlayerKeyboardControl : MonoBehaviour
     public bool isActivated = true;
     public float speed = 5f;
     public float gravity = -9.8f;
-    public float jumpSpeed = 5f;
     public bool useCharacterController = true;
 
     private CharacterController _characterController;
