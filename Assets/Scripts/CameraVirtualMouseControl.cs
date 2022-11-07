@@ -17,14 +17,16 @@ public class CameraVirtualMouseControl : MonoBehaviour
         var wheel = Input.GetAxis("Mouse ScrollWheel");
         if (wheel != 0)
         {
-            var newZ = Mathf.Clamp(_transposer.m_FollowOffset.z + wheel * 10, -45, 0);
+            // var newZ = Mathf.Clamp(_transposer.m_FollowOffset.z + wheel * 10, -45, 0);
+            var newZ = _transposer.m_FollowOffset.z + wheel * 10;
             _transposer.m_FollowOffset.z = newZ;
         }
         
         var mouseY = Input.GetAxis("Mouse Y") * 10;
         if (mouseY != 0)
         {
-            var newY = Mathf.Clamp(_transposer.m_FollowOffset.y + mouseY, 5, 20);
+            // var newY = Mathf.Clamp(_transposer.m_FollowOffset.y + mouseY, 5, 20);
+            var newY = _transposer.m_FollowOffset.y + mouseY;
             _transposer.m_FollowOffset.y = newY;
         }
     }
