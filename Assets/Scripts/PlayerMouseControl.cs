@@ -47,6 +47,6 @@ public class PlayerMouseControl : MonoBehaviour
         
         _verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;
         _horizontalRotation -= Input.GetAxis("Mouse X") * mouseSensitivity;
-        transform.localEulerAngles = new Vector3(_verticalRotation, _horizontalRotation, 0);
+        transform.localEulerAngles = new Vector3(0, _horizontalRotation, 0);
     }
 }

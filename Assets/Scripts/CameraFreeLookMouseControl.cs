@@ -1,7 +1,7 @@
 using Cinemachine;
 using UnityEngine;
 
-public class CameraMouseControl : MonoBehaviour
+public class CameraFreeLookMouseControl : MonoBehaviour
 {
     private CinemachineFreeLook _camera;
 
@@ -19,7 +19,7 @@ public class CameraMouseControl : MonoBehaviour
         // On right mouse click, modify X axis
         if (Input.GetMouseButton(1))
         {
-            var mouseX = Input.GetAxis("Mouse X");
+            var mouseX = Input.GetAxis("Mouse Y");
             _camera.m_XAxis.Value += mouseX;
         }
     }
