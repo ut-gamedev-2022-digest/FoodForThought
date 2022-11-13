@@ -71,4 +71,8 @@ public class UI : MonoBehaviour
     {
         Events.RestartGame();
     }
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
 }
