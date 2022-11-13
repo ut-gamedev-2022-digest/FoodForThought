@@ -15,6 +15,8 @@ public class PlayerKeyboardControl : MonoBehaviour
     private Animator _animator;
     private static readonly int Speed = Animator.StringToHash("Speed");
 
+    private bool _isGravityEnabled = true;
+
     private void Awake()
     {
         Events.OnTimeRunOut += Deactivate;
@@ -55,7 +57,7 @@ public class PlayerKeyboardControl : MonoBehaviour
         var deltaZ = Input.GetAxis("Vertical") * speed;
         var movement = new Vector3(deltaX, 0, deltaZ);
         movement = Vector3.ClampMagnitude(movement, speed);
-        movement.y = gravity;
+        if (_isGravityEnabled) movement.y = gravity;
         movement *= Time.deltaTime;
         _movement = movement;
 
@@ -81,21 +83,6 @@ public class PlayerKeyboardControl : MonoBehaviour
         }
     }
 
-    // private void FixedUpdate()
-    // {
-    //     if (!isActivated) return;
-    //
-    //     switch (useCharacterController)
-    //     {
-    //         case true:
-    //             CharacterControllerMovement();
-    //             break;
-    //         case false:
-    //             RigidbodyMovement();
-    //             break;
-    //     }
-    // }
-
     private void CharacterControllerMovement()
     {
         _movement = transform.TransformDirection(_movement);
@@ -108,5 +95,15 @@ public class PlayerKeyboardControl : MonoBehaviour
         _movement = transform.TransformDirection(_movement);
         _rigidbody.transform.position += _movement;
         _movement = Vector3.zero;
+    }
+
+    public void EnableGravity()
+    {
+        _isGravityEnabled = true;
+    }
+
+    public void DisableGravity()
+    {
+        _isGravityEnabled = false;
     }
 }

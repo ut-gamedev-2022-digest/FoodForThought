@@ -10,6 +10,7 @@ public class PlayerSlowDown : MonoBehaviour
         if (keyboardControl != null)
         {
             keyboardControl.speed *= SlowDownFactor;
+            keyboardControl.DisableGravity();
         }
     }
     
@@ -19,6 +20,7 @@ public class PlayerSlowDown : MonoBehaviour
         if (keyboardControl != null)
         {
             keyboardControl.speed /= SlowDownFactor;
+            keyboardControl.EnableGravity();
         }
     }
 }
