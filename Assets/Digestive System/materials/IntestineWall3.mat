@@ -40,6 +40,7 @@ Material:
     - _Speed: 0.2
     m_Colors:
     - _Base_Color: {r: 0.5, g: 0, b: 0.19028044, a: 0.8156863}
+    - _Flicker_Vector: {r: 1, g: 1, b: 0.02, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4531353044665118157
 MonoBehaviour:
