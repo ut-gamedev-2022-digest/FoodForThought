@@ -3,11 +3,23 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+<<<<<<< Updated upstream
     public float health = 75f;
 
     private void Awake()
     {
         Events.OnCollisionWithEnemy += OnCollisionWithEnemy;
+=======
+
+    public float maxHealth = 100f;
+    public float currentHealth;
+    public HealthBar healthBar;
+
+    void Start()
+    {
+        currentHealth = 75f;
+        healthBar.SetHealth(currentHealth);
+>>>>>>> Stashed changes
     }
 
     private void OnDestroy()
