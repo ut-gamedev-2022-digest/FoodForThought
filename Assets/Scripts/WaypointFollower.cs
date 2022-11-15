@@ -67,8 +67,11 @@ public class WaypointFollower : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Bacteria>() != null)
+        var bacteria = other.gameObject.GetComponent<Bacteria>();
+        if (bacteria != null && !bacteria.Attached)
         {
+            bacteria.Attached = true;
+            bacteria.audioSource.Play();
             var fj = gameObject.AddComponent<FixedJoint>();
             fj.connectedBody = other.gameObject.GetComponent<Rigidbody>();
 
