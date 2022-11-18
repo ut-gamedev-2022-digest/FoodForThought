@@ -4326,6 +4326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 75
+  maxHealth: 100
+  currentHealth: 0
 --- !u!4 &540261354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1688943936516454954, guid: 815c2bd3071f64b73a95a84f2b5157b3, type: 3}
@@ -7074,6 +7076,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &1211771226
 GameObject:
   m_ObjectHideFlags: 0
@@ -7092,7 +7096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1211771227
 RectTransform:
   m_ObjectHideFlags: 0
