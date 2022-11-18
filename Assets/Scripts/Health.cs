@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
 
     public float health = 75f;
+    public HealthBar healthBar;
 
     private void Awake()
     {
@@ -12,12 +14,12 @@ public class Health : MonoBehaviour
     }
 
     public float maxHealth = 100f;
-    public float currentHealth;
+    public Slider slider;
 
     void Start()
     {
-        currentHealth = 75f;
-
+        health = 75f;
+        healthBar.SetHealth(health);
     }
 
     private void OnDestroy()
