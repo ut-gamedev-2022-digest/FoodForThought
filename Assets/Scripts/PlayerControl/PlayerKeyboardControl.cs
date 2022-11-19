@@ -49,6 +49,7 @@ public class PlayerKeyboardControl : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+        PausePanel.SetActive(false);
     }
 
     private void Update()
