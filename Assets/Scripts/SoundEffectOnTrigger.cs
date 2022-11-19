@@ -20,6 +20,8 @@ public class SoundEffectOnTrigger : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
+        if (clipOnEnter == null) return;
+        
         var keyboardControl = other.GetComponent<PlayerKeyboardControl>();
         if (keyboardControl != null)
         {
@@ -29,6 +31,8 @@ public class SoundEffectOnTrigger : MonoBehaviour
     
     private void OnTriggerExit(Collider other)
     {
+        if (clipOnExit == null) return;
+        
         var keyboardControl = other.GetComponent<PlayerKeyboardControl>();
         if (keyboardControl != null)
         {

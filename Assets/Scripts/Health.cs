@@ -1,10 +1,8 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-
     public float health = 75f;
     public HealthBar healthBar;
 
@@ -16,9 +14,9 @@ public class Health : MonoBehaviour
     public float maxHealth = 100f;
     public Slider slider;
 
-    void Start()
+    private void Start()
     {
-        health = 75f;
+        Debug.Log("Initial health: " + health);
         healthBar.SetHealth(health);
     }
 
@@ -29,9 +27,9 @@ public class Health : MonoBehaviour
 
     private void OnCollisionWithEnemy(float damage)
     {
-        Debug.Log("Collision with enemy");
         health -= damage;
-        Debug.Log("Health: " + health);
+        healthBar.SetHealth(health);
+        Debug.Log($"Collision with enemy, damage: {damage}, health: {health}");
         if (health <= 0)
         {
             // TODO: Events.OnPlayerDeath();
