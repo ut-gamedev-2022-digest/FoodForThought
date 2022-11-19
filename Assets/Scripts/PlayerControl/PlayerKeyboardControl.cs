@@ -17,6 +17,9 @@ public class PlayerKeyboardControl : MonoBehaviour
 
     private bool _isGravityEnabled = true;
 
+    private bool isPaused = false;
+    public GameObject PausePanel;
+
     private void Awake()
     {
         Events.OnTimeRunOut += Deactivate;
@@ -67,7 +70,19 @@ public class PlayerKeyboardControl : MonoBehaviour
         // Restart screen on Esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Events.TimeRunOut();
+            if (!isPaused)
+            {
+                Time.timeScale = 0f;
+                isPaused = true;
+                PausePanel.SetActive(true);
+            }
+            else 
+            {
+                Time.timeScale = 1f;
+                isPaused = false;
+                PausePanel.SetActive(false);
+            }
+            //Events.TimeRunOut();
         }
 
         if (!isActivated) return;
