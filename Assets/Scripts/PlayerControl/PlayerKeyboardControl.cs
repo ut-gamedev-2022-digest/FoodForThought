@@ -17,6 +17,9 @@ public class PlayerKeyboardControl : MonoBehaviour
 
     private bool _isGravityEnabled = true;
 
+    private bool isPaused = false;
+    public GameObject PausePanel;
+
     private void Awake()
     {
         Events.OnLost += Deactivate;
@@ -51,6 +54,7 @@ public class PlayerKeyboardControl : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+        PausePanel.SetActive(false);
     }
 
     private void Update()
@@ -72,7 +76,19 @@ public class PlayerKeyboardControl : MonoBehaviour
         // Restart screen on Esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Events.Lost(LoseReason.TimeRunOut);
+            if (!isPaused)
+            {
+                Time.timeScale = 0f;
+                isPaused = true;
+                PausePanel.SetActive(true);
+            }
+            else 
+            {
+                Time.timeScale = 1f;
+                isPaused = false;
+                PausePanel.SetActive(false);
+            }
+            //Events.TimeRunOut();
         }
 
         if (!isActivated) return;
