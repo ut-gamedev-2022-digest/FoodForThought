@@ -19,16 +19,21 @@ public class PlayerKeyboardControl : MonoBehaviour
 
     private void Awake()
     {
-        Events.OnTimeRunOut += Deactivate;
+        Events.OnLost += Deactivate;
         Events.OnRestartGame += Activate;
         Events.OnReachFinish += Deactivate;
     }
 
     private void OnDestroy()
     {
-        Events.OnTimeRunOut -= Deactivate;
+        Events.OnLost -= Deactivate;
         Events.OnRestartGame -= Activate;
         Events.OnReachFinish -= Deactivate;
+    }
+
+    private void Deactivate(LoseReason loseReason)
+    {
+        isActivated = false;
     }
 
     private void Deactivate()
@@ -67,7 +72,7 @@ public class PlayerKeyboardControl : MonoBehaviour
         // Restart screen on Esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Events.TimeRunOut();
+            Events.Lost(LoseReason.TimeRunOut);
         }
 
         if (!isActivated) return;

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1655246395227660195}
   - component: {fileID: 6700555548927593296}
   - component: {fileID: 1863947043242828330}
-  - component: {fileID: 7338110869694149525}
   - component: {fileID: 1672388009759311222}
   - component: {fileID: 8183926410902386322}
+  - component: {fileID: 1845822250001721281}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -28,15 +28,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191608679853375325}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.83241, y: 69.90095, z: 86.28514}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1770253208527030016}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &6700555548927593296
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -87,20 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7338110869694149525
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191608679853375325}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!54 &1672388009759311222
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -109,10 +95,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191608679853375325}
   serializedVersion: 2
-  m_Mass: 0.1
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -130,7 +116,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObstacleWaypoint: {fileID: 0}
-  Speed: 25
+  AudioSource: {fileID: 7075526131923479742}
+  Speed: 35
+  DistanceToWaypoint: 0.5
+  GravityModifier: 7
+--- !u!136 &1845822250001721281
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191608679853375325}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.50000024
+  m_Height: 2.491215
+  m_Direction: 1
+  m_Center: {x: 0.00000007947286, y: 0.09167369, z: -0.000000079472855}
 --- !u!1 &9060385986982218923
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +222,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

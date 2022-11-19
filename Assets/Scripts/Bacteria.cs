@@ -6,7 +6,7 @@ public class Bacteria : MonoBehaviour
 {
     public AudioSource audioSource;
     public bool Attached;
-    public int Damage;
+    public float Damage;
     public float TimeBetweenDamage;
 
     private float nextDamageTime;

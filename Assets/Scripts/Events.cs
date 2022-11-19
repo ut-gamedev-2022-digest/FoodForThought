@@ -2,8 +2,10 @@ using System;
 
 public static class Events
 {
-    public static event Action OnTimeRunOut;
-    public static void TimeRunOut() => OnTimeRunOut?.Invoke();
+
+    public static event Action<LoseReason> OnLost;
+
+    public static void Lost(LoseReason loseReason) => OnLost?.Invoke(loseReason);
 
     public static event Action OnRestartGame;
     public static void RestartGame() => OnRestartGame?.Invoke();

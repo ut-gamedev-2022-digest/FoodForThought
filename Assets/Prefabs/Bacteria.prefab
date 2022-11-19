@@ -130,6 +130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 601926741882839438}
+  Attached: 0
+  Damage: 0.1
+  TimeBetweenDamage: 0
 --- !u!1 &5909437515514583458
 GameObject:
   m_ObjectHideFlags: 0

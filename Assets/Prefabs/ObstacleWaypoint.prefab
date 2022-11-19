@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Next: {fileID: 0}
-  PositionBoundary: 0.2
+  PositionBoundary: 0.05
   OriginalPosition: {x: 0, y: 0, z: 0}

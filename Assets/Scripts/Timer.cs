@@ -12,14 +12,14 @@ public class Timer : MonoBehaviour
     private void Awake()
     {
         _timeRemaining = TimeRemaining;
-        Events.OnTimeRunOut += TimeRunOut;
+        Events.OnLost += Lost;
         Events.OnRestartGame += RestartTimer;
         Events.OnReachFinish += ReachFinish;
     }
 
     private void OnDestroy()
     {
-        Events.OnTimeRunOut -= TimeRunOut;
+        Events.OnLost -= Lost;
         Events.OnRestartGame -= RestartTimer;
         Events.OnReachFinish -= ReachFinish;
     }
@@ -30,11 +30,13 @@ public class Timer : MonoBehaviour
         IsRunning = true;   
     }
 
-    private void TimeRunOut()
+    private void Lost(LoseReason loseReason)
     {
-        TimeRemaining = 0;
+        if (loseReason == LoseReason.TimeRunOut) {
+            TimeRemaining = 0;
+        }
         IsRunning = false;
-        Events.ShowTime(0);
+        Events.ShowTime(TimeRemaining + 1);
     }
 
     private void RestartTimer()
@@ -61,7 +63,7 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                Events.TimeRunOut();
+                Events.Lost(LoseReason.TimeRunOut);
             }
         }
     }

@@ -42,6 +42,7 @@ public class ObstacleSpawner : MonoBehaviour
         if (other.gameObject.GetComponent<WaypointFollower>() != null)
         {
             Active = true;
+            nextSpawnTime = Time.time + TimeBetweenSpawns;
         }
     }
 }

@@ -13,7 +13,7 @@ public class UI : MonoBehaviour
 
     private void Awake()
     {
-        Events.OnTimeRunOut += TimeRunOut;
+        Events.OnLost += Lost;
         Events.OnRestartGame += HideWinLosePanel;
         Events.OnReachFinish += ReachFinish;
         Events.OnShowTime += ShowTime;
@@ -21,7 +21,7 @@ public class UI : MonoBehaviour
 
     private void OnDestroy()
     {
-        Events.OnTimeRunOut -= TimeRunOut;
+        Events.OnLost -= Lost;
         Events.OnRestartGame -= HideWinLosePanel;
         Events.OnReachFinish -= ReachFinish;
         Events.OnShowTime -= ShowTime;
@@ -33,7 +33,7 @@ public class UI : MonoBehaviour
         WinLosePanel.SetActive(false);
     }
 
-    private void TimeRunOut()
+    private void Lost(LoseReason loseReason)
     {
         ShowWinLosePanel(false);
     }
