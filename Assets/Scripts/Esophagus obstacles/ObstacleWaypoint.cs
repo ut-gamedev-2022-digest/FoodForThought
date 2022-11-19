@@ -39,7 +39,7 @@ public class ObstacleWaypoint : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<WaypointFollower>() != null)
+        if (other.gameObject.GetComponent<WaypointFollower>() != null && ObstacleSpawner.Instance != null)
         {
             ObstacleSpawner.Instance.Active = false;
         }

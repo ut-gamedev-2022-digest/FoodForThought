@@ -19,7 +19,7 @@ public class Bacteria : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time > nextDamageTime)
+        if (Attached && Time.time > nextDamageTime)
         {
             DoDamage();
             nextDamageTime = Time.time + TimeBetweenDamage;
