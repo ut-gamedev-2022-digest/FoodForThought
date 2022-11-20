@@ -32,7 +32,7 @@ public class Health : MonoBehaviour
         Debug.Log($"Collision with enemy, damage: {damage}, health: {health}");
         if (health <= 0)
         {
-            // TODO: Events.OnPlayerDeath();
+            Events.Lost(LoseReason.HealthZero);
         }
     }
 }

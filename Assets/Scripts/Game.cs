@@ -3,7 +3,6 @@ using UnityEngine;
 public enum LoseReason
 {
     TimeRunOut,
-    ObstacleHit,
     HealthZero
 
 }
