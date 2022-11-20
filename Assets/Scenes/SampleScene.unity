@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18386847, g: 0.22872771, b: 0.30143872, a: 1}
+  m_IndirectSpecularColor: {r: 0.18386877, g: 0.22872801, b: 0.30143926, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -147,7 +147,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3765068}
-  m_LocalRotation: {x: -0.0000000012679302, y: 0.9757463, z: -0.21890464, w: 0.00000006468106}
+  m_LocalRotation: {x: 0.0000000049334306, y: 0.9757463, z: -0.21890461, w: 0.0000000062911463}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3881,6 +3881,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540ee64db2bde4038893f41d6ba221dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &697711652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 697711653}
+  - component: {fileID: 697711655}
+  - component: {fileID: 697711654}
+  m_Layer: 0
+  m_Name: Mouth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &697711653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697711652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 382}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1864844875}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &697711654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697711652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e700b8e5d3b41c4f8a33c9a55d29b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationLabel: {fileID: 139644380}
+  locationText: Mouth
+--- !u!65 &697711655
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697711652}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 50, y: 70, z: 0}
+  m_Center: {x: 8.85, y: -54.71, z: 74.1}
 --- !u!1001 &700803489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4651,7 +4711,7 @@ GameObject:
   - component: {fileID: 812512247}
   - component: {fileID: 812512246}
   m_Layer: 0
-  m_Name: StomachAcid
+  m_Name: StomachAcidIn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4670,7 +4730,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1864844875}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &812512246
 MonoBehaviour:
@@ -4813,6 +4873,66 @@ PrefabInstance:
       objectReference: {fileID: 798688247}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 815c2bd3071f64b73a95a84f2b5157b3, type: 3}
+--- !u!1 &836775525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 836775526}
+  - component: {fileID: 836775528}
+  - component: {fileID: 836775527}
+  m_Layer: 0
+  m_Name: EsophagusOut
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &836775526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836775525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.5, y: 13.8, z: -89.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1864844875}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &836775527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836775525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e700b8e5d3b41c4f8a33c9a55d29b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationLabel: {fileID: 139644380}
+  locationText: Esophagus
+--- !u!65 &836775528
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836775525}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 80, y: 70, z: 0}
+  m_Center: {x: 8.6, y: -54.8, z: 71.01}
 --- !u!1 &849842003
 GameObject:
   m_ObjectHideFlags: 0
@@ -5205,7 +5325,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884143864}
-  m_LocalRotation: {x: -1.7362244e-10, y: 0.9718615, z: -0.23555318, w: 0.00000006504959}
+  m_LocalRotation: {x: 0.0000000051405507, y: 0.9718615, z: -0.23555318, w: 0.0000000050072164}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5884,7 +6004,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.07440291, y: 0.0023435194, z: -0.00017484982, w: 0.9972255}
+  m_LocalRotation: {x: 0.07440292, y: 0.0023435638, z: -0.00017485315, w: 0.9972255}
   m_LocalPosition: {x: 5.3100977, y: -43.688515, z: 555.77185}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6899,6 +7019,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63936a747a2b7794ea6dfc4d7140bc1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1109750982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1109750983}
+  - component: {fileID: 1109750985}
+  - component: {fileID: 1109750984}
+  m_Layer: 0
+  m_Name: StomachAcidOut
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1109750983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109750982}
+  m_LocalRotation: {x: 0, y: -0.09436904, z: 0, w: 0.9955373}
+  m_LocalPosition: {x: 124.3, y: 85.6, z: -154.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1864844875}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: -10.83, z: 0}
+--- !u!114 &1109750984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109750982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e700b8e5d3b41c4f8a33c9a55d29b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationLabel: {fileID: 139644380}
+  locationText: Stomach acid
+--- !u!65 &1109750985
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109750982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 80, y: 70, z: 0}
+  m_Center: {x: 8.6, y: -54.8, z: 71.01}
 --- !u!1001 &1113171382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8053,7 +8233,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260377235}
-  m_LocalRotation: {x: 0.0000000019818147, y: 0.96768254, z: -0.25217175, w: 0.00000005009821}
+  m_LocalRotation: {x: 0.000000004957397, y: 0.9676825, z: -0.25217173, w: 0.000000008415191}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10737,7 +10917,7 @@ GameObject:
   - component: {fileID: 1740088080}
   - component: {fileID: 1740088079}
   m_Layer: 0
-  m_Name: Esophagus
+  m_Name: EsophagusIn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10756,7 +10936,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1864844875}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1740088079
 MonoBehaviour:
@@ -11745,9 +11925,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 697711653}
   - {fileID: 1740088078}
   - {fileID: 812512245}
+  - {fileID: 836775526}
   - {fileID: 2037994716}
+  - {fileID: 1109750983}
   m_Father: {fileID: 1171160295}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12521,7 +12704,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1864844875}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -10.83, z: 0}
 --- !u!114 &2037994717
 MonoBehaviour:
