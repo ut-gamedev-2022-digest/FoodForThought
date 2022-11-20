@@ -147,7 +147,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3765068}
-  m_LocalRotation: {x: 4.7744003e-10, y: 0.9757463, z: -0.21890461, w: 0.00000006198966}
+  m_LocalRotation: {x: 0.0000000029718894, y: 0.9757463, z: -0.21890461, w: 0.00000003192905}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -452,6 +452,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1655246395227660195, guid: 32b9e920fd8b9fd45ae3d34bde6bfadd, type: 3}
   m_PrefabInstance: {fileID: 21884660}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &65284393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 782628376}
+  m_Layer: 0
+  m_Name: Health Power-Ups
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &83511641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2839,8 +2855,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourcePrefab: {fileID: 8825427555124516481, guid: 6fc686e2be0254914ab1250e54126f67, type: 3}
-  clipOnEnter: {fileID: 8300000, guid: a7a25e2453b584e21b14709d2c526528, type: 3}
-  clipOnExit: {fileID: 8300000, guid: dfd97c75675d745a5a329c1e5a645e2d, type: 3}
+  clipOnEnter: {fileID: 8300000, guid: 1cb8ce6a46be44d14a9a04bdb6c54758, type: 3}
+  clipOnExit: {fileID: 8300000, guid: cf9af0e840d7146e284970edd3cc29fc, type: 3}
 --- !u!114 &446244801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4280,29 +4296,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1655246395227660195, guid: 32b9e920fd8b9fd45ae3d34bde6bfadd, type: 3}
   m_PrefabInstance: {fileID: 781032758}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &782628375
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 782628376}
-  m_Layer: 0
-  m_Name: Health Power-Ups
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &782628376
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782628375}
+  m_GameObject: {fileID: 65284393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -9688,7 +9688,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5e000c531fb21dd478ae431aaa526e06, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
