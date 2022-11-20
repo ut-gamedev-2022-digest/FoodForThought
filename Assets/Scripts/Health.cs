@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public float health = 75f;
+    public float health = 100f;
     public HealthBar healthBar;
 
     private void Awake()
