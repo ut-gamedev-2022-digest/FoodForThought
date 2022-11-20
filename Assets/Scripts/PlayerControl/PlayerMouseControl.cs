@@ -13,6 +13,8 @@ public class PlayerMouseControl : MonoBehaviour
         Events.OnLost += Deactivate;
         Events.OnRestartGame += Activate;
         Events.OnReachFinish += Deactivate;
+        Events.OnPauseGame += Deactivate;
+        Events.OnResumeGame += Activate;
     }
 
     private void OnDestroy()
@@ -20,6 +22,8 @@ public class PlayerMouseControl : MonoBehaviour
         Events.OnLost -= Deactivate;
         Events.OnRestartGame -= Activate;
         Events.OnReachFinish -= Deactivate;
+        Events.OnPauseGame -= Deactivate;
+        Events.OnResumeGame -= Activate;
     }
 
     private void Deactivate(LoseReason loseReason)
