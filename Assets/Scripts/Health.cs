@@ -33,6 +33,7 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             Events.Lost(LoseReason.HealthZero);
+            Events.EndGame();
         }
     }
 }

@@ -29,6 +29,7 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1f;
         PausePanel.SetActive(false);
         audioSource.Play();
+        Events.ResumeGame();
     }
 
     public void RestartGame()

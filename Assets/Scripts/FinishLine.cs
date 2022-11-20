@@ -7,6 +7,7 @@ public class FinishLine : MonoBehaviour
         if (other.gameObject.GetComponent<WaypointFollower>() != null)
         {
             Events.ReachFinish();
+            Events.EndGame();
         }
     }
 }

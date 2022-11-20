@@ -9,8 +9,7 @@ public class UI : MonoBehaviour
     public GameObject WinLosePanel;
     public Text WinLoseMsg;
     public Text RemainingTimeMsg;
-
-
+    
     private void Awake()
     {
         Events.OnLost += Lost;
@@ -26,7 +25,6 @@ public class UI : MonoBehaviour
         Events.OnReachFinish -= ReachFinish;
         Events.OnShowTime -= ShowTime;
     }
-
 
     private void Start()
     {
@@ -71,6 +69,7 @@ public class UI : MonoBehaviour
     {
         Events.RestartGame();
     }
+
     public void BackToMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);

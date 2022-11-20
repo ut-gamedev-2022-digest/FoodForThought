@@ -84,12 +84,14 @@ public class PlayerKeyboardControl : MonoBehaviour
                 Time.timeScale = 0f;
                 isPaused = true;
                 PausePanel.SetActive(true);
+                Events.PauseGame();
             }
             else 
             {
                 Time.timeScale = 1f;
                 isPaused = false;
                 PausePanel.SetActive(false);
+                Events.ResumeGame();
             }
             //Events.TimeRunOut();
         }
