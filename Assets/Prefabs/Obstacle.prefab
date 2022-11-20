@@ -120,6 +120,8 @@ MonoBehaviour:
   Speed: 35
   DistanceToWaypoint: 0.5
   GravityModifier: 7
+  Damage: 30
+  CooldownTime: 1
 --- !u!136 &1845822250001721281
 CapsuleCollider:
   m_ObjectHideFlags: 0
