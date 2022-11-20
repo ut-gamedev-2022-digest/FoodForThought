@@ -15,6 +15,7 @@ public class PlayerKeyboardControl : MonoBehaviour
     private Animator _animator;
     private static readonly int Speed = Animator.StringToHash("Speed");
 
+    private float _gravity;
     private bool _isGravityEnabled = true;
 
     private bool isPaused = false;
@@ -55,6 +56,7 @@ public class PlayerKeyboardControl : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         PausePanel.SetActive(false);
+        _gravity = gravity;
     }
 
     private void Update()
@@ -66,7 +68,8 @@ public class PlayerKeyboardControl : MonoBehaviour
         var deltaZ = Input.GetAxis("Vertical") * speed;
         var movement = new Vector3(deltaX, 0, deltaZ);
         movement = Vector3.ClampMagnitude(movement, speed);
-        if (_isGravityEnabled) movement.y = gravity;
+        // if (_isGravityEnabled) movement.y = _gravity;
+        movement.y = _gravity;
         movement *= Time.deltaTime;
         _movement = movement;
 
@@ -121,10 +124,12 @@ public class PlayerKeyboardControl : MonoBehaviour
     public void EnableGravity()
     {
         _isGravityEnabled = true;
+        _gravity = gravity;
     }
 
     public void DisableGravity()
     {
         _isGravityEnabled = false;
+        _gravity = 1;
     }
 }
