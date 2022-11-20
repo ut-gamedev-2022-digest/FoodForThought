@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstacleWaypointFollower : MonoBehaviour
@@ -18,10 +16,21 @@ public class ObstacleWaypointFollower : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        Events.OnPauseGame += OnPauseGame;
+        Events.OnResumeGame += OnResumeGame;
     }
+
+    private void OnDestroy()
+    {
+        Events.OnPauseGame -= OnPauseGame;
+        Events.OnResumeGame -= OnResumeGame;
+    }
+
     private void Start()
     {
         AudioSource.Play();
+        AudioSource.volume = 0.7f;
         AudioSource.loop = true;
     }
 
@@ -30,7 +39,8 @@ public class ObstacleWaypointFollower : MonoBehaviour
         rb.AddForce(new Vector3(0, -1.0f, 0) * rb.mass * GravityModifier);
         if (ObstacleWaypoint != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, ObstacleWaypoint.transform.position, Time.deltaTime * Speed);
+            transform.position = Vector3.MoveTowards(transform.position, ObstacleWaypoint.transform.position,
+                Time.deltaTime * Speed);
             float distance = Vector3.SqrMagnitude(transform.position - ObstacleWaypoint.transform.position);
             if (distance <= DistanceToWaypoint + float.Epsilon)
             {
@@ -46,5 +56,15 @@ public class ObstacleWaypointFollower : MonoBehaviour
             Events.CollisionWithEnemy(Damage);
             nextDamageTime = Time.time + CooldownTime;
         }
+    }
+    
+    private void OnPauseGame()
+    {
+        AudioSource.Pause();
+    }
+    
+    private void OnResumeGame()
+    {
+        AudioSource.UnPause();
     }
 }
