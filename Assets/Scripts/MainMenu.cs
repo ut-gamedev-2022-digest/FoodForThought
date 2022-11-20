@@ -25,4 +25,11 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1f;
         PausePanel.SetActive(false);
     }
+
+    public void RestartGame()
+    {
+        PausePanel.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+    }
 }
