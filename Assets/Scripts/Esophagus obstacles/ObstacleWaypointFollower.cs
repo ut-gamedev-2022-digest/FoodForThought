@@ -9,14 +9,14 @@ public class ObstacleWaypointFollower : MonoBehaviour
     public float GravityModifier = 0.01f;
     public float Damage = 30f;
     public float CooldownTime = 1f;
-
+    public float DistanceToPlayerToPlaySound = 10f;
+    public GameObject Player;
     private Rigidbody rb;
     private float nextDamageTime = 0f;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
         Events.OnPauseGame += OnPauseGame;
         Events.OnResumeGame += OnResumeGame;
     }
@@ -29,9 +29,7 @@ public class ObstacleWaypointFollower : MonoBehaviour
 
     private void Start()
     {
-        AudioSource.Play();
         AudioSource.volume = 0.7f;
-        AudioSource.loop = true;
     }
 
     void Update()
@@ -39,6 +37,7 @@ public class ObstacleWaypointFollower : MonoBehaviour
         rb.AddForce(new Vector3(0, -1.0f, 0) * rb.mass * GravityModifier);
         if (ObstacleWaypoint != null)
         {
+            ManageSound();
             transform.position = Vector3.MoveTowards(transform.position, ObstacleWaypoint.transform.position,
                 Time.deltaTime * Speed);
             float distance = Vector3.SqrMagnitude(transform.position - ObstacleWaypoint.transform.position);
@@ -46,6 +45,14 @@ public class ObstacleWaypointFollower : MonoBehaviour
             {
                 ObstacleWaypoint = ObstacleWaypoint.GetNextObstacleWaypoint();
             }
+        }
+    }
+
+    private void ManageSound()
+    {
+        if (Vector3.Distance(transform.position, Player.transform.position) < DistanceToPlayerToPlaySound && !AudioSource.isPlaying)
+        {
+            AudioSource.Play();
         }
     }
 

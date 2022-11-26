@@ -122,6 +122,8 @@ MonoBehaviour:
   GravityModifier: 7
   Damage: 30
   CooldownTime: 1
+  DistanceToPlayerToPlaySound: 10
+  Player: {fileID: 919132149155446097, guid: e007a2833dbd34f45a55861145c442a7, type: 3}
 --- !u!136 &1845822250001721281
 CapsuleCollider:
   m_ObjectHideFlags: 0
