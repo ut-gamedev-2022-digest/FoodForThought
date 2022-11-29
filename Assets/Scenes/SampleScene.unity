@@ -147,7 +147,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3765068}
-  m_LocalRotation: {x: 0.000000012773252, y: 0.9757463, z: -0.2189046, w: -0.000000050024646}
+  m_LocalRotation: {x: 0.0000000064266796, y: 0.9757463, z: -0.21890461, w: 0.000000009767506}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5163,11 +5163,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locationLabel: {fileID: 139644380}
   locationText: Stomach acid
-  backwardsLocationText: 
+  backwardsLocationText: Esophagus
   educationalLabel: {fileID: 1978799540}
   copyrightLabel: {fileID: 515844645}
   copyrightText: 
-  educationalText: 
+  educationalText: TEST TEXT
   educational: {fileID: 2144871121}
   educated: 0
   organ: {fileID: 56781081}
@@ -5608,7 +5608,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884143864}
-  m_LocalRotation: {x: 0.000000012154599, y: 0.9718615, z: -0.23555318, w: -0.00000005031087}
+  m_LocalRotation: {x: 0.0000000033688012, y: 0.9718615, z: -0.23555318, w: 0.00000004722158}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6287,7 +6287,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.07417677, y: -0.07773581, z: 0.0057998654, w: 0.99419385}
+  m_LocalRotation: {x: 0.07417678, y: -0.07773588, z: 0.005799871, w: 0.99419385}
   m_LocalPosition: {x: 8.032299, y: -43.688515, z: 555.9783}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8499,7 +8499,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260377235}
-  m_LocalRotation: {x: 0.000000008477968, y: 0.96768254, z: -0.25217173, w: -0.000000036010594}
+  m_LocalRotation: {x: 0.0000000049571955, y: 0.96768254, z: -0.25217173, w: 0.00000003979905}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11266,7 +11266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locationLabel: {fileID: 139644380}
   locationText: Esophagus
-  backwardsLocationText: 
+  backwardsLocationText: Mouth
   educationalLabel: {fileID: 1978799540}
   copyrightLabel: {fileID: 515844645}
   copyrightText: https://en.wikipedia.org/wiki/Esophagus
@@ -11290,7 +11290,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 50, y: 70, z: 0}
+  m_Size: {x: 50, y: 83.38, z: 0}
   m_Center: {x: 8.6, y: -54.8, z: 71.01}
 --- !u!1001 &1745084497
 PrefabInstance:
@@ -13191,7 +13191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   locationLabel: {fileID: 139644380}
   locationText: Intestine
-  backwardsLocationText: 
+  backwardsLocationText: Stomach acid
   educationalLabel: {fileID: 1978799540}
   copyrightLabel: {fileID: 515844645}
   copyrightText: 
@@ -13426,7 +13426,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PausePanel: {fileID: 2057120805}
   audioSource: {fileID: 557512625}
-  UsernameInputField: {fileID: 0}
 --- !u!1 &2067939068
 GameObject:
   m_ObjectHideFlags: 0
@@ -13997,7 +13996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2144871122
 RectTransform:
   m_ObjectHideFlags: 0
