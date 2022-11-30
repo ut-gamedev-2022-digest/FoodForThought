@@ -15,8 +15,21 @@ public class Bacteria : MonoBehaviour
     {
         Attached = false;
         nextDamageTime = 0;
+        CheckLaunchMode();
     }
 
+    private void CheckLaunchMode()
+    {
+        int mode = PlayerPrefs.GetInt("LaunchMode", 1);
+        if (mode == 0)
+        {
+            gameObject.SetActive(false);
+        }
+        else if (mode == 1)
+        {
+            gameObject.SetActive(true);
+        }
+    }
     private void Update()
     {
         if (Attached && Time.time > nextDamageTime)

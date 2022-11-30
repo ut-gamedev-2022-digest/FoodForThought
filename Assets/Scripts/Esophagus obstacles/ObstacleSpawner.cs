@@ -17,7 +17,21 @@ public class ObstacleSpawner : MonoBehaviour
         Instance = this;
         Active = false;
         obstacleWaypoint = GetComponent<ObstacleWaypoint>();
+        CheckLaunchMode();
     }
+
+    private void CheckLaunchMode()
+    {
+        int mode = PlayerPrefs.GetInt("LaunchMode", 1);
+        if (mode == 0){
+            gameObject.SetActive(false);
+        }
+        else if (mode == 1)
+        {
+            gameObject.SetActive(true);
+        }
+    }
+
     private void Update()
     {
         if (Active)
