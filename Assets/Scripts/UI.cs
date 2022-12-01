@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+public enum EndState
+{
+    LOST,
+    WIN,
+    WIN_WITH_RECORD
+}
 public class UI : MonoBehaviour
 {
     public GameObject WinLosePanel;
@@ -33,16 +40,24 @@ public class UI : MonoBehaviour
 
     private void Lost(LoseReason loseReason)
     {
-        ShowWinLosePanel(false);
+        ShowWinLosePanel(EndState.LOST, 0);
     }
 
     private void ReachFinish()
     {
-        CheckTimeForRecord();
-        ShowWinLosePanel(true);
+        int place = CheckTimeForRecord();
+        if (place == 0)
+        {
+            ShowWinLosePanel(EndState.WIN, 0);
+        }
+        else
+        {
+            ShowWinLosePanel(EndState.WIN_WITH_RECORD, place);
+        }
+        
     }
 
-    private void CheckTimeForRecord()
+    private int CheckTimeForRecord()
     {
         float currentTime = Events.GetTime();
         float minutes = Mathf.FloorToInt(currentTime / 60);
@@ -50,12 +65,14 @@ public class UI : MonoBehaviour
         string prevTime = $"{minutes:00}:{seconds:00}";
         string prevUsername = PlayerPrefs.GetString("current_username", "default");
         bool found = false;
+        int place = 0;
         for (int i = 1; i <= 5; i++)
         {
             string tmpTime = PlayerPrefs.GetString("time_" + i, "-");
             if (!found && (string.Compare(prevTime, tmpTime) < 0) || tmpTime.Equals("-"))
             {
                 found = true;
+                place = i;
             }
             if (found)
             {
@@ -67,6 +84,7 @@ public class UI : MonoBehaviour
             }
         }
         PlayerPrefs.Save();
+        return place;
     }
 
     private void ShowTime(float time)
@@ -76,14 +94,36 @@ public class UI : MonoBehaviour
         RemainingTimeMsg.text = $"Remaining time: {minutes:00}:{seconds:00}";
     }
 
-    private void SetWinLoseMsg(bool win)
+    private void SetWinLoseMsg(EndState endState, int place)
     {
-        WinLoseMsg.text = win ? "You won!" : "You lost!";
+        WinLoseMsg.text = ConstructWinLoseMsg(endState, place);
     }
 
-    private void ShowWinLosePanel(bool win)
+    private string ConstructWinLoseMsg(EndState endState, int place)
     {
-        SetWinLoseMsg(win);
+        switch (endState)
+        {
+            case EndState.LOST: return "You lost!";
+            case EndState.WIN: return "You won!";
+            case EndState.WIN_WITH_RECORD: 
+                switch (place)
+                {
+                    case 1: return "You won!\n1-st best time!";
+                    case 2: return "You won!\n2-nd best time!";
+                    case 3: return "You won!\n3-rd best time!";
+                    case 4: return "You won!\n4-th best time!";
+                    case 5: return "You won!\n5-th sbest time!";
+                    default: return "You won!";
+                }
+                
+            default: return "You lost!";
+        }
+        
+    }
+
+    private void ShowWinLosePanel(EndState endState, int place)
+    {
+        SetWinLoseMsg(endState, place);
         WinLosePanel.SetActive(true);
     }
 
