@@ -38,7 +38,35 @@ public class UI : MonoBehaviour
 
     private void ReachFinish()
     {
+        CheckTimeForRecord();
         ShowWinLosePanel(true);
+    }
+
+    private void CheckTimeForRecord()
+    {
+        float currentTime = Events.GetTime();
+        float minutes = Mathf.FloorToInt(currentTime / 60);
+        float seconds = Mathf.FloorToInt(currentTime % 60);
+        string prevTime = $"{minutes:00}:{seconds:00}";
+        string prevUsername = PlayerPrefs.GetString("current_username", "default");
+        bool found = false;
+        for (int i = 1; i <= 5; i++)
+        {
+            string tmpTime = PlayerPrefs.GetString("time_" + i, "-");
+            if (!found && (string.Compare(prevTime, tmpTime) < 0) || tmpTime.Equals("-"))
+            {
+                found = true;
+            }
+            if (found)
+            {
+                string tmpUsername = PlayerPrefs.GetString("username_" + i, "username_" + i);
+                PlayerPrefs.SetString("username_" + i, prevUsername);
+                PlayerPrefs.SetString("time_" + i, prevTime);
+                prevUsername = tmpUsername;
+                prevTime = tmpTime;
+            }
+        }
+        PlayerPrefs.Save();
     }
 
     private void ShowTime(float time)

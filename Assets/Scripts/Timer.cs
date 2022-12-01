@@ -15,6 +15,7 @@ public class Timer : MonoBehaviour
         Events.OnLost += Lost;
         Events.OnRestartGame += RestartTimer;
         Events.OnReachFinish += ReachFinish;
+        Events.OnGetTime += GetTime;
     }
 
     private void OnDestroy()
@@ -22,6 +23,7 @@ public class Timer : MonoBehaviour
         Events.OnLost -= Lost;
         Events.OnRestartGame -= RestartTimer;
         Events.OnReachFinish -= ReachFinish;
+        Events.OnGetTime -= GetTime;
     }
 
     // Start is called before the first frame update
@@ -43,6 +45,11 @@ public class Timer : MonoBehaviour
     {
         TimeRemaining = _timeRemaining;
         IsRunning = true;
+    }
+
+    private float GetTime()
+    {
+        return TimeRemaining;
     }
 
     private void ReachFinish()

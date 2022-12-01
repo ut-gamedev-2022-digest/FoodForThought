@@ -29,4 +29,8 @@ public static class Events
 
     public static event Action<float> OnCollisionWithEnemy;
     public static void CollisionWithEnemy(float damage) => OnCollisionWithEnemy?.Invoke(damage);
+
+    public static event Func<float> OnGetTime;
+
+    public static float GetTime() => (float)(OnGetTime?.Invoke());
 }
