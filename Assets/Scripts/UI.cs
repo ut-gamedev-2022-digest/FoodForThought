@@ -69,7 +69,7 @@ public class UI : MonoBehaviour
         for (int i = 1; i <= 5; i++)
         {
             string tmpTime = PlayerPrefs.GetString("time_" + i, "-");
-            if (!found && (string.Compare(prevTime, tmpTime) < 0) || tmpTime.Equals("-"))
+            if (!found && (string.Compare(prevTime, tmpTime) < 0 || tmpTime.Equals("-")))
             {
                 found = true;
                 place = i;
@@ -112,7 +112,7 @@ public class UI : MonoBehaviour
                     case 2: return "You won!\n2-nd best time!";
                     case 3: return "You won!\n3-rd best time!";
                     case 4: return "You won!\n4-th best time!";
-                    case 5: return "You won!\n5-th sbest time!";
+                    case 5: return "You won!\n5-th best time!";
                     default: return "You won!";
                 }
                 
