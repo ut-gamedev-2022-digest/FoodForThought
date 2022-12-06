@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18386847, g: 0.22872771, b: 0.30143872, a: 1}
+  m_IndirectSpecularColor: {r: 0.18386877, g: 0.22872801, b: 0.30143926, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9421,12 +9421,17 @@ MonoBehaviour:
   backwardsLocationText: Esophagus
   educationalLabel: {fileID: 1978799540}
   copyrightLabel: {fileID: 515844645}
-  copyrightText: 
-  educationalText: TEST TEXT
+  copyrightText: https://en.wikipedia.org/wiki/Gastric_acid
+  educationalText: Gastric acid, gastric juice, or stomach acid is a digestive fluid
+    formed within the stomach lining. With a pH between 1 and 3, gastric acid plays
+    a key role in digestion of proteins by activating digestive enzymes, which together
+    break down the long chains of amino acids of proteins. The active components
+    of gastric acid are protons and chloride. The highly acidic environment in the
+    stomach lumen degrades proteins (e.g., food).
   educational: {fileID: 2144871121}
   educated: 0
   organ: {fileID: 56781081}
-  organSprite: {fileID: 0}
+  organSprite: {fileID: 21300000, guid: 5a2e4aa9cb6019046a7396c218f674af, type: 3}
 --- !u!65 &812512247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22352,8 +22357,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -23245,14 +23250,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037994715}
-  m_LocalRotation: {x: 0, y: -0.09436904, z: 0, w: 0.9955373}
-  m_LocalPosition: {x: 125.6, y: 85.6, z: -161.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.03928952, y: -0.4123107, z: -0.00022882993, w: 0.9101957}
+  m_LocalPosition: {x: 177.2713, y: 102.97277, z: -159.8534}
+  m_LocalScale: {x: 1, y: 1.2142372, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1864844875}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -10.83, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.091, y: -48.808, z: -1.885}
 --- !u!114 &2037994717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23270,12 +23275,17 @@ MonoBehaviour:
   backwardsLocationText: Stomach acid
   educationalLabel: {fileID: 1978799540}
   copyrightLabel: {fileID: 515844645}
-  copyrightText: 
-  educationalText: 
+  copyrightText: https://en.wikipedia.org/wiki/Large_intestine
+  educationalText: The large intestine, also known as the large bowel, is the last
+    part of the gastrointestinal tract and of the digestive system in tetrapods.
+    Water is absorbed here and the remaining waste material is stored in the rectum
+    as feces before being removed by defecation. In humans, the large intestine begins
+    in the right iliac region of the pelvis, just at or below the waist, where it
+    is joined to the end of the small intestine at the cecum.
   educational: {fileID: 2144871121}
   educated: 0
   organ: {fileID: 56781081}
-  organSprite: {fileID: 0}
+  organSprite: {fileID: 21300000, guid: 5711c09544db34641b02e4af200f68cb, type: 3}
 --- !u!65 &2037994718
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25566,7 +25576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 7
-  SprintSpeed: 12
+  SprintSpeed: 25
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
   LandingAudioClip: {fileID: 0}
