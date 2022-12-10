@@ -58,7 +58,7 @@ public class ObstacleWaypointFollower : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<WaypointFollower>() != null && Time.time > nextDamageTime)
+        if (collision.gameObject.GetComponent<Timer>() != null && Time.time > nextDamageTime)
         {
             Events.CollisionWithEnemy(Damage);
             nextDamageTime = Time.time + CooldownTime;

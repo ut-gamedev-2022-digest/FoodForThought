@@ -43,4 +43,17 @@ public class Bacteria : MonoBehaviour
     {
         Events.CollisionWithEnemy(Damage);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var timer = other.gameObject.GetComponent<Timer>();
+        if (timer != null && !Attached)
+        {
+            Attached = true;
+            audioSource.Play();
+            var fj = other.gameObject.AddComponent<FixedJoint>();
+            fj.connectedBody = gameObject.GetComponent<Rigidbody>();
+
+        }
+    }
 }
