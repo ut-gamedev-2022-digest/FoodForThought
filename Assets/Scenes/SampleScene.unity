@@ -13800,6 +13800,7 @@ GameObject:
   - component: {fileID: 1211771230}
   - component: {fileID: 1211771229}
   - component: {fileID: 1211771228}
+  - component: {fileID: 1211771231}
   m_Layer: 0
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -13895,6 +13896,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1211771231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211771226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed0be82894cc894ca1b06e821fbdeda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WinLosePanel: {fileID: 1514672149}
+  WinLoseMsg: {fileID: 285345444}
+  RemainingTimeMsg: {fileID: 1031445890}
 --- !u!1 &1215383403
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ public class Health : MonoBehaviour
 {
     public float health = 100f;
     public HealthBar healthBar;
+    
+    private bool _isDead = false;
 
     private void Awake()
     {
@@ -29,11 +31,12 @@ public class Health : MonoBehaviour
     {
         health -= damage;
         healthBar.SetHealth(health);
-        Debug.Log($"Collision with enemy, damage: {damage}, health: {health}");
-        if (health <= 0)
-        {
-            Events.Lost(LoseReason.HealthZero);
-            Events.EndGame();
-        }
+        
+        if (!(health <= 0) || _isDead) return;
+        Debug.Log($"Deadly collision with enemy, damage: {damage}, health: {health}");
+        
+        _isDead = true;
+        Events.Lost(LoseReason.HealthZero);
+        Events.EndGame();
     }
 }
