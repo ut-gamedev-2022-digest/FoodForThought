@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -14,15 +15,13 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
-        [Header("Player")]
-        [Tooltip("Move speed of the character in m/s")]
+        [Header("Player")] [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
 
         [Tooltip("Sprint speed of the character in m/s")]
         public float SprintSpeed = 5.335f;
 
-        [Tooltip("How fast the character turns to face movement direction")]
-        [Range(0.0f, 0.3f)]
+        [Tooltip("How fast the character turns to face movement direction")] [Range(0.0f, 0.3f)]
         public float RotationSmoothTime = 0.12f;
 
         [Tooltip("Acceleration and deceleration")]
@@ -32,8 +31,7 @@ namespace StarterAssets
         public AudioClip[] FootstepAudioClips;
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
 
-        [Space(10)]
-        [Tooltip("The height the player can jump")]
+        [Space(10)] [Tooltip("The height the player can jump")]
         public float JumpHeight = 1.2f;
 
         [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
@@ -50,8 +48,7 @@ namespace StarterAssets
         [Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
         public bool Grounded = true;
 
-        [Tooltip("Useful for rough ground")]
-        public float GroundedOffset = -0.14f;
+        [Tooltip("Useful for rough ground")] public float GroundedOffset = -0.14f;
 
         [Tooltip("The radius of the grounded check. Should match the radius of the CharacterController")]
         public float GroundedRadius = 0.28f;
@@ -105,11 +102,13 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
+        private GameObject _cinemachineCamera;
 
         private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
         private static readonly int Speed = Animator.StringToHash("Speed");
+
 
         private bool IsCurrentDeviceMouse
         {
@@ -123,21 +122,39 @@ namespace StarterAssets
             }
         }
 
-
         private void Awake()
         {
             // get a reference to our main camera
             if (_mainCamera == null)
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+                _cinemachineCamera = GameObject.FindWithTag("CinemachineCamera");
             }
+
+            Events.OnEndGame += EndGame;
+        }
+
+        private void OnDestroy()
+        {
+            Events.OnEndGame -= EndGame;
+        }
+
+        private void EndGame()
+        {
+            Debug.Log("ThirdPersonController disabled because the game ended");
+            
+            enabled = false;
+            if (_hasAnimator && _animator != null) _animator.enabled = false;
+            if (_controller != null) _controller.enabled = false;
+            if (_cinemachineCamera != null) _cinemachineCamera.SetActive(false);
         }
 
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            
-            _hasAnimator = TryGetComponent(out _animator);  // NOTE: switched off because we don't use Starter Asset animator
+
+            _hasAnimator =
+                TryGetComponent(out _animator); // NOTE: switched off because we don't use Starter Asset animator
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -189,7 +206,7 @@ namespace StarterAssets
             // update animator if using character
             // if (_hasAnimator)
             // {
-                // _animator.SetBool(_animIDGrounded, Grounded);
+            // _animator.SetBool(_animIDGrounded, Grounded);
             // }
         }
 
@@ -281,7 +298,7 @@ namespace StarterAssets
                 //
                 // _animator.SetFloat(_animIDSpeed, _animationBlend);
                 // _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
-                
+
                 // Custom animator
                 _animator.SetFloat(Speed, currentHorizontalSpeed);
             }
@@ -299,8 +316,8 @@ namespace StarterAssets
                 // update animator if using character
                 // if (_hasAnimator)
                 // {
-                    // _animator.SetBool(_animIDJump, false);
-                    // _animator.SetBool(_animIDFreeFall, false);
+                // _animator.SetBool(_animIDJump, false);
+                // _animator.SetBool(_animIDFreeFall, false);
                 // }
 
                 // stop our velocity dropping infinitely when grounded
@@ -321,7 +338,7 @@ namespace StarterAssets
                     // update animator if using character
                     // if (_hasAnimator)
                     // {
-                        // _animator.SetBool(_animIDJump, true);
+                    // _animator.SetBool(_animIDJump, true);
                     // }
                 }
 
@@ -348,7 +365,7 @@ namespace StarterAssets
                     // update animator if using character
                     // if (_hasAnimator)
                     // {
-                        // _animator.SetBool(_animIDFreeFall, true);
+                    // _animator.SetBool(_animIDFreeFall, true);
                     // }
                 }
 
@@ -391,7 +408,8 @@ namespace StarterAssets
                 if (FootstepAudioClips.Length > 0)
                 {
                     var index = Random.Range(0, FootstepAudioClips.Length);
-                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center),
+                        FootstepAudioVolume);
                 }
             }
         }
@@ -400,7 +418,8 @@ namespace StarterAssets
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
-                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center),
+                    FootstepAudioVolume);
             }
         }
     }
