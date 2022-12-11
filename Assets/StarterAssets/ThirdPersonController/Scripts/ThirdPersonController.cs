@@ -109,6 +109,8 @@ namespace StarterAssets
         private bool _hasAnimator;
         private static readonly int Speed = Animator.StringToHash("Speed");
 
+        private float _speedUpFactor = 1.0f;
+
 
         private bool IsCurrentDeviceMouse
         {
@@ -132,21 +134,15 @@ namespace StarterAssets
             }
 
             Events.OnEndGame += EndGame;
+            Events.OnGravityChange += ChangeGravity;
+            Events.OnSpeedChange += ChangeSpeed;
         }
 
         private void OnDestroy()
         {
             Events.OnEndGame -= EndGame;
-        }
-
-        private void EndGame()
-        {
-            Debug.Log("ThirdPersonController disabled because the game ended");
-            
-            enabled = false;
-            if (_hasAnimator && _animator != null) _animator.enabled = false;
-            if (_controller != null) _controller.enabled = false;
-            if (_cinemachineCamera != null) _cinemachineCamera.SetActive(false);
+            Events.OnGravityChange -= ChangeGravity;
+            Events.OnSpeedChange -= ChangeSpeed;
         }
 
         private void Start()
@@ -234,7 +230,7 @@ namespace StarterAssets
         private void Move()
         {
             // set target speed based on move speed, sprint speed and if sprint is pressed
-            float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+            float targetSpeed = (_input.sprint ? SprintSpeed : MoveSpeed) * _speedUpFactor;
 
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
@@ -304,6 +300,7 @@ namespace StarterAssets
             }
         }
 
+
         private void JumpAndGravity()
         {
             if (Grounded)
@@ -320,16 +317,15 @@ namespace StarterAssets
                 // _animator.SetBool(_animIDFreeFall, false);
                 // }
 
-                // stop our velocity dropping infinitely when grounded
-                if (_verticalVelocity < 0.0f)
-                {
-                    _verticalVelocity = -2f;
-                }
+                // // stop our velocity dropping infinitely when grounded
+                // if (_verticalVelocity < 0.0f)
+                // {
+                //     _verticalVelocity = -2f;
+                // }
 
                 // Jump
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
-                    Debug.Log("Jump");
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 
@@ -377,6 +373,13 @@ namespace StarterAssets
             if (_verticalVelocity < _terminalVelocity)
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
+                if (_verticalVelocity < -2f)
+                {
+                    _verticalVelocity = -2f;
+                }
+
+                Debug.Log(
+                    $"vertical velocity: {_verticalVelocity}, gravity: {Gravity}, terminal velocity: {_terminalVelocity}");
             }
         }
 
@@ -421,6 +424,28 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center),
                     FootstepAudioVolume);
             }
+        }
+
+        private void EndGame()
+        {
+            Debug.Log("ThirdPersonController disabled because the game ended");
+
+            enabled = false;
+            if (_hasAnimator && _animator != null) _animator.enabled = false;
+            if (_controller != null) _controller.enabled = false;
+            if (_cinemachineCamera != null) _cinemachineCamera.SetActive(false);
+        }
+
+        private float ChangeGravity(float gravity)
+        {
+            var previousGravity = Gravity;
+            Gravity = gravity;
+            return previousGravity;
+        }
+
+        private void ChangeSpeed(float speedUpFactor)
+        {
+            _speedUpFactor = speedUpFactor;
         }
     }
 }

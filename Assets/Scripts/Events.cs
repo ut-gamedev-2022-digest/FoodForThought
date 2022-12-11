@@ -37,4 +37,10 @@ public static class Events
     
     public static event Action OnEducationalWindowClose;
     public static void EducationalWindowClose() => OnEducationalWindowClose?.Invoke();
+
+    public static event Func<float, float> OnGravityChange;
+    public static float? GravityChange(float gravity) => OnGravityChange?.Invoke(gravity);
+    
+    public static event Action<float> OnSpeedChange;
+    public static void SpeedChange(float speedUpFactor) => OnSpeedChange?.Invoke(speedUpFactor);
 }
