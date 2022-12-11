@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Location : MonoBehaviour
@@ -18,30 +16,57 @@ public class Location : MonoBehaviour
     public Image organ;
     public Sprite organSprite;
 
+    private void Awake()
+    {
+        Events.OnEducationalWindowOpen += OnEducationalWindowOpen;
+        Events.OnEducationalWindowClose += OnEducationalWindowClose;
+    }
+
+    private void OnDestroy()
+    {
+        Events.OnEducationalWindowOpen -= OnEducationalWindowOpen;
+        Events.OnEducationalWindowClose -= OnEducationalWindowClose;
+    }
+
     private void Start()
     {
         educational.SetActive(false);
         educated = false;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Events.EducationalWindowClose();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Banana")
-        {
-            if (locationLabel.text == locationText)
-            {
-                locationLabel.text = backwardsLocationText;
-            }
-            else locationLabel.text = locationText;
-            if (!educated)
-            {
-                educated = true;
-                Time.timeScale = 0f;
-                educationalLabel.text = educationalText;
-                organ.sprite = organSprite;
-                copyrightLabel.text = copyrightText;
-                educational.SetActive(true);
-            }
-        }
+        if (other.name != "Banana") return;
+
+        locationLabel.text = locationLabel.text == locationText ? backwardsLocationText : locationText;
+
+        if (educated) return;
+
+        educated = true;
+        educationalLabel.text = educationalText;
+        organ.sprite = organSprite;
+        copyrightLabel.text = copyrightText;
+
+        Events.EducationalWindowOpen();
+    }
+
+    private void OnEducationalWindowOpen()
+    {
+        Time.timeScale = 0f;
+        educational.SetActive(true);
+    }
+
+    private void OnEducationalWindowClose()
+    {
+        Time.timeScale = 1f;
+        educational.SetActive(false);
     }
 }
