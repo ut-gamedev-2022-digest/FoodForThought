@@ -1,20 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Powerup : MonoBehaviour
 {
     public PowerupEffect powerupEffect;
     public AudioSource audioSource;
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.name == "Banana")
-        {
-            audioSource.Play();
-            Destroy(gameObject);
-            powerupEffect.Apply(collision.gameObject);
-        }
+        if (!other.CompareTag("Player")) return;
+        
+        audioSource.Play();
+        Destroy(gameObject);
+        powerupEffect.Apply(other.gameObject);
     }
 }

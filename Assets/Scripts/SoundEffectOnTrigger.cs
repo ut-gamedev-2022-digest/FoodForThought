@@ -12,31 +12,25 @@ public class SoundEffectOnTrigger : MonoBehaviour
     {
         _audioSource = Instantiate(audioSourcePrefab);
     }
-    
+
     private void PlaySound(AudioClip audioClip)
     {
         _audioSource.PlayOneShot(audioClip);
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (clipOnEnter == null) return;
-        
-        var keyboardControl = other.GetComponent<PlayerKeyboardControl>();
-        if (keyboardControl != null)
-        {
-            PlaySound(clipOnEnter);
-        }
+        if (!other.CompareTag("Player")) return;
+
+        PlaySound(clipOnEnter);
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
         if (clipOnExit == null) return;
-        
-        var keyboardControl = other.GetComponent<PlayerKeyboardControl>();
-        if (keyboardControl != null)
-        {
-            PlaySound(clipOnExit);
-        }
+        if (!other.CompareTag("Player")) return;
+
+        PlaySound(clipOnExit);
     }
 }
