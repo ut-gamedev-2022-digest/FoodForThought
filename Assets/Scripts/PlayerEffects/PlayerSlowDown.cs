@@ -4,26 +4,27 @@ public class PlayerSlowDown : MonoBehaviour
 {
     private const float SlowDownFactor = 0.5f;
     private const float NormalSpeedUp = 0.5f;
-    private const float LowGravity = 1f;
+    private const float LowGravity = 0.5f;
     private float? _originalGravity;
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        
-        Debug.Log($"Player entered slow down zone. Setting gravity to {LowGravity}");
-        
+
+
         _originalGravity = Events.GravityChange(LowGravity);
+        Debug.Log(
+            $"Player entered slow down zone. Setting gravity to {LowGravity}. Original gravity was {_originalGravity}");
         Events.SpeedChange(SlowDownFactor);
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        
+
         var newGravity = _originalGravity ?? -10f;
         Debug.Log($"Player exited slow down zone. Setting gravity to {newGravity}");
-        
+
         Events.GravityChange(newGravity);
         Events.SpeedChange(NormalSpeedUp);
     }

@@ -82,7 +82,8 @@ namespace StarterAssets
         private float _targetRotation = 0.0f;
         private float _rotationVelocity;
         private float _verticalVelocity;
-        private float _terminalVelocity = 53.0f;
+        private float _terminalVelocityPositive = 2.0f;
+        private float _terminalVelocityNegative = -20.0f;
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
@@ -370,17 +371,8 @@ namespace StarterAssets
             }
 
             // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
-            if (_verticalVelocity < _terminalVelocity)
-            {
-                _verticalVelocity += Gravity * Time.deltaTime;
-                if (_verticalVelocity < -2f)
-                {
-                    _verticalVelocity = -2f;
-                }
-
-                Debug.Log(
-                    $"vertical velocity: {_verticalVelocity}, gravity: {Gravity}, terminal velocity: {_terminalVelocity}");
-            }
+            var value = _verticalVelocity + Gravity * Time.deltaTime;
+            _verticalVelocity = Mathf.Clamp(value, _terminalVelocityNegative, _terminalVelocityPositive);
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
@@ -440,6 +432,11 @@ namespace StarterAssets
         {
             var previousGravity = Gravity;
             Gravity = gravity;
+
+            // When gravity changes to positive, we reset the vertical velocity closer to 0 to make the positive
+            // gravity effect appear faster.
+            if (gravity > 0 && _verticalVelocity < -2f) _verticalVelocity = -2f;
+            
             return previousGravity;
         }
 
