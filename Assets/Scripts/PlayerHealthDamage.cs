@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-public class Villi : MonoBehaviour
+public class PlayerHealthDamage : MonoBehaviour
 {
     public float damage = 10f;
     public float cooldown = 2f;
@@ -10,10 +9,11 @@ public class Villi : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var health = other.GetComponent<Health>();
-        if (health == null) return;
+        if (!other.CompareTag("Player")) return;
         if (Time.time - _lastAttackTime < cooldown) return;
+        
         _lastAttackTime = Time.time;
+        
         Events.CollisionWithEnemy(damage);
     }
 }

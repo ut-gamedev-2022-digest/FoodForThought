@@ -4,7 +4,7 @@ public class PlayerHealthDegrading : MonoBehaviour
 {
     public float damagePerSecond = 1f;
 
-    private bool _isPlayerInZone = false;
+    private bool _isPlayerInZone;
 
     private void Update()
     {
@@ -15,19 +15,15 @@ public class PlayerHealthDegrading : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var keyboardControl = other.GetComponent<PlayerKeyboardControl>();
-        if (keyboardControl != null)
-        {
-            _isPlayerInZone = true;
-        }
+        if (!other.CompareTag("Player")) return;
+        
+        _isPlayerInZone = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        var keyboardControl = other.GetComponent<PlayerKeyboardControl>();
-        if (keyboardControl != null)
-        {
-            _isPlayerInZone = false;
-        }
+        if (!other.CompareTag("Player")) return;
+        
+        _isPlayerInZone = false;
     }
 }
