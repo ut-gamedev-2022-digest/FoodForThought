@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1863947043242828330}
   - component: {fileID: 1672388009759311222}
   - component: {fileID: 8183926410902386322}
-  - component: {fileID: 3545696665898701924}
+  - component: {fileID: 2751933435343141203}
   m_Layer: 0
-  m_Name: Obstacle
+  m_Name: Obstacle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191608679853375325}
-  m_Mesh: {fileID: 4300000, guid: faa8b5b910f46e64e98b2a548ac7a277, type: 3}
+  m_Mesh: {fileID: 4300000, guid: e365b4b0a80f40d42ad44635e73c60e5, type: 3}
 --- !u!23 &1863947043242828330
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 585ab62c9207a4e40b8a8d6ccf55d5c1, type: 2}
+  - {fileID: 2100000, guid: e068cd9f61272274fbc7abdad5803e1e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,8 +124,8 @@ MonoBehaviour:
   CooldownTime: 1
   DistanceToPlayerToPlaySound: 10
   Player: {fileID: 919132149155446097, guid: e007a2833dbd34f45a55861145c442a7, type: 3}
---- !u!135 &3545696665898701924
-SphereCollider:
+--- !u!65 &2751933435343141203
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -135,8 +135,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.117
-  m_Center: {x: -0.000000007450581, y: 0.09520307, z: -0.0000000037252903}
+  m_Size: {x: 0.18, y: 0.2, z: 0.14}
+  m_Center: {x: 0.000000018626451, y: 0.113017336, z: -0.000000011175871}
 --- !u!1 &9060385986982218923
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class ObstacleSpawner : MonoBehaviour
     public static ObstacleSpawner Instance;
     public bool Active;
     public float TimeBetweenSpawns;
-    public GameObject ObstaclePrefab;
+    public List<GameObject> ObstaclePrefabs;
 
     private float nextSpawnTime;
     private ObstacleWaypoint obstacleWaypoint;
@@ -43,9 +43,15 @@ public class ObstacleSpawner : MonoBehaviour
         }    
     }
 
+    private GameObject ChooseObstaclePrefab()
+    {
+        int idx = Random.Range(0, ObstaclePrefabs.Count);
+        return ObstaclePrefabs[idx];
+    }
+
     private void SpawnObstacle()
     {
-        GameObject obstacle = GameObject.Instantiate(ObstaclePrefab, transform.position, Quaternion.identity, null);
+        GameObject obstacle = GameObject.Instantiate(ChooseObstaclePrefab(), transform.position, Quaternion.identity, null);
         ObstacleWaypointFollower obstacleWaypointFollower = obstacle.GetComponent<ObstacleWaypointFollower>();
         obstacleWaypointFollower.ObstacleWaypoint = obstacleWaypoint;
 
