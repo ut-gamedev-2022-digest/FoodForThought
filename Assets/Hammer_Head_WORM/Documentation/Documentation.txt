@@ -1,0 +1,51 @@
+	
+--------------Hammer head Worm(Bipalium)low poly----------------------------
+
+Bipalium is a genus of large predatory land planarians.They are often loosely called
+"Hammerhead worms", "Broadhead planarians" or "Showel headed garden worms" because of the distinctive shape of their head region.
+
+About pack:
+This pack contains 3d Model and Animation's of "Hammer head worm".You can use this package in your game.
+
+Technical Details:-
+				
+		- Vertex count : 770
+		- Tris count : 1536
+		- Animations : 9 (Idle-1, Walk-1, Walk-2, Run-1, Run-2, Tail animation, Fly, Attack, Anim_01)
+		- Texture Variations : 8
+		- Used Material(s) : Unity Standard Shader
+		- Texture maps : Albedo/Base Color
+		- Texture Size : 2048(.png)
+		- Prefabs : 16
+
+Other features:-
+	
+	- Smooth, Unique, Realistic animations
+	- Included static, non-static models
+	- Simple colliders attached
+	- Easy to change colors
+	- Mobile, AR supported
+
+Folder details:-
+
+	Materials : Where the materials for the model located.
+	
+	Meshes : Contain FBX format of the 3d model.
+	
+	Textures : Contains Textures, that are in (.PNG) file format
+	
+	(Other folders - Prefabs, Scenes)
+
+How to use:-
+	
+	Simply drag and drop the prefab to your scene and use it.
+	(Prefab(s) located under 
+	Asset > Hammer_Head_WORM > Prefabs).
+
+..................................................................................
+
+About Us : "SR Studios Kerala", Game developing company located in Alappuzha, Kerala, India
+
+Contact : srstudioskerala@gmail.com
+
+................Thanks for downloading this package................................

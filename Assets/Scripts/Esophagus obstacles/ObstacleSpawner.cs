@@ -59,7 +59,7 @@ public class ObstacleSpawner : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Timer>() != null)
+        if (other.CompareTag("Player"))
         {
             Active = true;
             nextSpawnTime = Time.time + TimeBetweenSpawns;
