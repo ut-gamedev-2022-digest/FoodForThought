@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Powerups/HealthBuff")]
+[CreateAssetMenu(menuName = "Power-Ups/HealthBuff")]
 public class HealthBuff : PowerupEffect
 {
     public float amount;

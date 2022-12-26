@@ -44,7 +44,7 @@ public class Location : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name != "Banana") return;
+        if (!other.CompareTag("Player")) return;
 
         locationLabel.text = locationLabel.text == locationText ? backwardsLocationText : locationText;
 
