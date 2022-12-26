@@ -20,6 +20,11 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
+        if (PausePanel != null)
+        {
+            PausePanel.SetActive(false);
+        }
+        
         if (UsernameInputField != null)
         {
             var defaultUsername = ConstructDefaultUsername();
@@ -29,6 +34,11 @@ public class MainMenu : MonoBehaviour
         if (RecordsPanel != null)
         {
             RecordsPanel.SetActive(false);
+        }
+        
+        if (CharactersPanel != null)
+        {
+            CharactersPanel.SetActive(false);
         }
     }
 
@@ -43,22 +53,20 @@ public class MainMenu : MonoBehaviour
         return PlayerPrefs.GetInt("usernames_nr", 0);
     }
 
-    private void SaveUsername()
+    public void SaveUsername()
     {
-        if (UsernameInputField != null)
-        {
-            var username = UsernameInputField.text;
-            var usernamesNr = GetNumberOfUsernames();
-            PlayerPrefs.SetString("current_username", username);
-            PlayerPrefs.SetInt("usernames_nr", usernamesNr + 1);
-            PlayerPrefs.Save();
-        }
+        if (UsernameInputField == null) return;
+        
+        var username = UsernameInputField.text;
+        var usernamesNr = GetNumberOfUsernames();
+        PlayerPrefs.SetString("current_username", username);
+        PlayerPrefs.SetInt("usernames_nr", usernamesNr + 1);
+        PlayerPrefs.Save();
     }
 
-    public void PlayGame()
+    private void PlayGame(bool silent = true)
     {
-        SaveUsername();
-        audioSource.Play();
+        if (!silent) audioSource.Play();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -132,6 +140,15 @@ public class MainMenu : MonoBehaviour
         audioSource.Play();
         CharactersPanel.SetActive(false);
         MainMenuPanel.SetActive(true);
+    }
+    
+    public void SelectCharacter(int characterIndex)
+    {
+        audioSource.Play();
+        PlayerPrefs.SetInt("SelectedCharacterIndex", characterIndex);
+        PlayerPrefs.Save();
+        
+        PlayGame();
     }
 
     #endregion

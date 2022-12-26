@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Cinemachine;
 using StarterAssets;
 using UnityEngine;
@@ -12,13 +13,14 @@ namespace Player
         [Tooltip("The Cinemachine Virtual Camera that will follow the character.")]
         public CinemachineVirtualCamera virtualCamera;
 
-        [Tooltip("Player's data item.")] public PlayerCharacterDataItem dataItem;
-
-        // [Header("Controller's components")] public ThirdPersonController thirdPersonController;
+        [Tooltip("All available character data items.")]
+        public List<PlayerCharacterDataItem> dataItems;
 
         private const string PlayerTag = "Player";
         private const string LayerName = "Character";
 
+        private int _selectedCharacterIndex;
+        private PlayerCharacterDataItem _dataItem;
         private GameObject _characterInstance;
         private GameObject _lookAtTargetInstance;
         private CharacterController _characterController;
@@ -26,13 +28,17 @@ namespace Player
 
         private void Awake()
         {
+            _selectedCharacterIndex = PlayerPrefs.GetInt("SelectedCharacterIndex", 0);
+            _dataItem = dataItems[_selectedCharacterIndex];
+            dataItems[_selectedCharacterIndex]?.characterPrefab.SetActive(true);
+
             _thirdPersonController = GetComponent<ThirdPersonController>();
             _characterController = GetComponent<CharacterController>();
         }
 
         private void Start()
         {
-            if (dataItem == null)
+            if (_dataItem == null)
             {
                 Debug.LogError("Player's data item must be provided.");
                 return;
@@ -75,7 +81,7 @@ namespace Player
 
             _characterInstance =
                 Instantiate(
-                    dataItem.characterPrefab,
+                    _dataItem.characterPrefab,
                     transform.position,
                     transform.rotation,
                     transform);
@@ -92,9 +98,9 @@ namespace Player
                 return;
             }
 
-            _characterController.center = dataItem.characterControllerCenter;
-            _characterController.radius = dataItem.characterControllerRadius;
-            _characterController.height = dataItem.characterControllerHeight;
+            _characterController.center = _dataItem.characterControllerCenter;
+            _characterController.radius = _dataItem.characterControllerRadius;
+            _characterController.height = _dataItem.characterControllerHeight;
         }
 
         private void SetUpCamera()
@@ -124,7 +130,7 @@ namespace Player
 
             // Set lookAtTarget y position to the half of the characterController height.
             _lookAtTargetInstance.transform.localPosition =
-                new Vector3(0, dataItem.characterControllerHeight / 1.5f, 0);
+                new Vector3(0, _dataItem.characterControllerHeight / 1.5f, 0);
         }
     }
 }

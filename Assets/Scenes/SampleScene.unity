@@ -9708,14 +9708,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebac4914bdd9be94db48c3177efefa96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PausePanel: {fileID: 2057120805}
   audioSource: {fileID: 557512625}
-  UsernameInputField: {fileID: 0}
   MainMenuPanel: {fileID: 0}
+  PausePanel: {fileID: 2057120805}
+  UsernameInputField: {fileID: 0}
   RecordsPanel: {fileID: 0}
   RecordsTable: {fileID: 0}
   RecordsRowPrefab: {fileID: 0}
   ResultsNr: 5
+  CharactersPanel: {fileID: 0}
 --- !u!1 &2067939068
 GameObject:
   m_ObjectHideFlags: 0
@@ -10214,6 +10215,22 @@ PrefabInstance:
       propertyPath: lookAtTargetPrefab
       value: 
       objectReference: {fileID: 1184081410952696811, guid: a409f14b261a64584b6cc84e12c7a87b, type: 3}
+    - target: {fileID: 7158201050913688185, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
+      propertyPath: dataItems.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7158201050913688185, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
+      propertyPath: dataItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e05fef6580274c4f99e3293a395f49a, type: 2}
+    - target: {fileID: 7158201050913688185, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
+      propertyPath: dataItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: f7fc2aef140c94288963cae87ce7f385, type: 2}
+    - target: {fileID: 7158201050913688185, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
+      propertyPath: dataItems.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: b0ede7db70db049dd8b87cecaff4a0e4, type: 2}
     - target: {fileID: 7158201050913688185, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
       propertyPath: characterControllerHeight
       value: 2.89
