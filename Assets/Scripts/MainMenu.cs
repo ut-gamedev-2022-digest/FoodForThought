@@ -1,26 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
+
 public class MainMenu : MonoBehaviour
 {
-    public GameObject PausePanel;
     public AudioSource audioSource;
-    public TMP_InputField UsernameInputField;
+
     public GameObject MainMenuPanel;
+
+    public GameObject PausePanel;
+
+    public TMP_InputField UsernameInputField;
     public GameObject RecordsPanel;
     public GameObject RecordsTable;
     public GameObject RecordsRowPrefab;
     public int ResultsNr = 5;
 
+    public GameObject CharactersPanel;
+
     private void Awake()
     {
         if (UsernameInputField != null)
         {
-            string defaultUsername = ConstructDefaultUsername();
+            var defaultUsername = ConstructDefaultUsername();
             UsernameInputField.text = defaultUsername;
         }
+
         if (RecordsPanel != null)
         {
             RecordsPanel.SetActive(false);
@@ -29,7 +34,7 @@ public class MainMenu : MonoBehaviour
 
     private string ConstructDefaultUsername()
     {
-        int usernamesNr = GetNumberOfUsernames();
+        var usernamesNr = GetNumberOfUsernames();
         return "username_" + usernamesNr;
     }
 
@@ -40,16 +45,16 @@ public class MainMenu : MonoBehaviour
 
     private void SaveUsername()
     {
-        if(UsernameInputField != null)
+        if (UsernameInputField != null)
         {
-            string username = UsernameInputField.text;
-            int usernamesNr = GetNumberOfUsernames();
+            var username = UsernameInputField.text;
+            var usernamesNr = GetNumberOfUsernames();
             PlayerPrefs.SetString("current_username", username);
             PlayerPrefs.SetInt("usernames_nr", usernamesNr + 1);
             PlayerPrefs.Save();
         }
-        
     }
+
     public void PlayGame()
     {
         SaveUsername();
@@ -62,6 +67,7 @@ public class MainMenu : MonoBehaviour
         audioSource.Play();
         Application.Quit();
     }
+
     public void BackToMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
@@ -92,15 +98,15 @@ public class MainMenu : MonoBehaviour
         {
             MainMenuPanel.SetActive(false);
             RecordsPanel.SetActive(true);
-            for (int i = 1; i <= ResultsNr; i++)
+            for (var i = 1; i <= ResultsNr; i++)
             {
-                string username = PlayerPrefs.GetString("username_" + i, "-");
-                string time = PlayerPrefs.GetString("time_" + i, "-");
+                var username = PlayerPrefs.GetString("username_" + i, "-");
+                var time = PlayerPrefs.GetString("time_" + i, "-");
                 var row = Instantiate(RecordsRowPrefab, RecordsTable.transform);
                 var fields = row.GetComponentsInChildren<TextMeshProUGUI>();
-                fields[0].text = i.ToString() + ".";
-                fields[1].text = username.ToString();
-                fields[2].text = time.ToString();
+                fields[0].text = i + ".";
+                fields[1].text = username;
+                fields[2].text = time;
             }
         }
     }
@@ -110,6 +116,24 @@ public class MainMenu : MonoBehaviour
         audioSource.Play();
         RecordsPanel.SetActive(false);
         MainMenuPanel.SetActive(true);
-        
     }
+
+    #region Characters
+
+    public void LoadCharacters()
+    {
+        audioSource.Play();
+        if (MainMenuPanel == null || CharactersPanel == null) return;
+        MainMenuPanel.SetActive(false);
+        CharactersPanel.SetActive(true);
+    }
+    public void BackFromCharacters()
+    {
+        audioSource.Play();
+        CharactersPanel.SetActive(false);
+        MainMenuPanel.SetActive(true);
+    }
+
+    #endregion
+
 }
