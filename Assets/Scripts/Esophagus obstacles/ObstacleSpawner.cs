@@ -51,11 +51,14 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void SpawnObstacle()
     {
-        GameObject obstacle = GameObject.Instantiate(ChooseObstaclePrefab(), transform.position, Quaternion.identity, null);
-        ObstacleWaypointFollower obstacleWaypointFollower = obstacle.GetComponent<ObstacleWaypointFollower>();
-        obstacleWaypointFollower.ObstacleWaypoint = obstacleWaypoint;
+        if (ObstaclePrefabs.Count > 0)
+        {
+            GameObject obstacle = GameObject.Instantiate(ChooseObstaclePrefab(), transform.position, Quaternion.identity, null);
+            ObstacleWaypointFollower obstacleWaypointFollower = obstacle.GetComponent<ObstacleWaypointFollower>();
+            obstacleWaypointFollower.ObstacleWaypoint = obstacleWaypoint;
 
-        nextSpawnTime = Time.time + TimeBetweenSpawns;
+            nextSpawnTime = Time.time + TimeBetweenSpawns;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

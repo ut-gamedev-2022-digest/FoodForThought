@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,8 +19,11 @@ public class MainMenu : MonoBehaviour
 
     public GameObject CharactersPanel;
 
+    private List<GameObject> recordsRows;
+
     private void Awake()
     {
+        recordsRows = new List<GameObject>();
         if (PausePanel != null)
         {
             PausePanel.SetActive(false);
@@ -111,6 +115,7 @@ public class MainMenu : MonoBehaviour
                 var username = PlayerPrefs.GetString("username_" + i, "-");
                 var time = PlayerPrefs.GetString("time_" + i, "-");
                 var row = Instantiate(RecordsRowPrefab, RecordsTable.transform);
+                recordsRows.Add(row);
                 var fields = row.GetComponentsInChildren<TextMeshProUGUI>();
                 fields[0].text = i + ".";
                 fields[1].text = username;
@@ -121,6 +126,10 @@ public class MainMenu : MonoBehaviour
 
     public void BackFromRecords()
     {
+        foreach (var row in recordsRows)
+        {
+            Destroy(row);
+        }
         audioSource.Play();
         RecordsPanel.SetActive(false);
         MainMenuPanel.SetActive(true);
