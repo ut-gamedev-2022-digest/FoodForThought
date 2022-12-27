@@ -10230,7 +10230,7 @@ PrefabInstance:
     - target: {fileID: 7158201050913688185, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
       propertyPath: dataItems.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: b0ede7db70db049dd8b87cecaff4a0e4, type: 2}
+      objectReference: {fileID: 11400000, guid: e6a122a6defc94cf28e5402f92817cbd, type: 2}
     - target: {fileID: 7158201050913688185, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
       propertyPath: characterControllerHeight
       value: 2.89
