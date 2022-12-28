@@ -44,6 +44,14 @@ public class ObstacleWaypointFollower : MonoBehaviour
             if (distance <= DistanceToWaypoint + float.Epsilon)
             {
                 ObstacleWaypoint = ObstacleWaypoint.GetNextObstacleWaypoint();
+                if (ObstacleWaypoint == null)
+                {
+                    int destroyTrigger = Random.Range(0, 2);
+                    if (destroyTrigger == 1)
+                    {
+                        Destroy(this);
+                    }
+                }
             }
         }
     }
