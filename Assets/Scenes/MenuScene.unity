@@ -3014,7 +3014,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ball
+  m_text: Apple
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1553b2ad29302f74d94a309a89d74f50, type: 2}
   m_sharedMaterial: {fileID: 5924891552135372888, guid: 1553b2ad29302f74d94a309a89d74f50, type: 2}
@@ -3286,10 +3286,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.43137255, g: 0.8235294, b: 0.96862745, a: 1}
-    m_PressedColor: {r: 0.15294118, g: 0.5568628, b: 0.67058825, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_NormalColor: {r: 0.96862745, g: 0.7733797, b: 0.1764706, a: 1}
+    m_HighlightedColor: {r: 0.9056604, g: 0.14203192, b: 0.055535804, a: 1}
+    m_PressedColor: {r: 0.7169812, g: 0.07268934, b: 0, a: 1}
+    m_SelectedColor: {r: 0.7176471, g: 0.07450981, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3334,7 +3334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1764706, g: 0.3025961, b: 0.96862745, a: 1}
+  m_Color: {r: 0.96862745, g: 0.37134695, b: 0.1764706, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
