@@ -26721,7 +26721,19 @@ PrefabInstance:
       value: PlayerWrapper
       objectReference: {fileID: 0}
     - target: {fileID: 7441308557363780649, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
+      propertyPath: Gravity
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441308557363780649, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
+      propertyPath: Grounded
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441308557363780649, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
       propertyPath: MoveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441308557363780649, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
+      propertyPath: JumpHeight
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7441308557363780649, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}

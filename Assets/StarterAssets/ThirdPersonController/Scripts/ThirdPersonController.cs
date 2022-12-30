@@ -82,7 +82,7 @@ namespace StarterAssets
         private float _targetRotation = 0.0f;
         private float _rotationVelocity;
         private float _verticalVelocity;
-        private float _terminalVelocityPositive = 2.0f;
+        private float _terminalVelocityPositive = 10.0f;
         private float _terminalVelocityNegative = -20.0f;
 
         // timeout deltatime
@@ -165,6 +165,8 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            _input.jump = false;
         }
 
         private void Update()
@@ -304,75 +306,88 @@ namespace StarterAssets
 
         private void JumpAndGravity()
         {
-            if (Grounded)
+            if (_input.jump && _jumpTimeoutDelta <= 0.0f)
             {
-                // reset the fall timeout timer
-                _fallTimeoutDelta = FallTimeout;
-
-                // NOTE: we don't use Starter Asset animator
-                //
-                // update animator if using character
-                // if (_hasAnimator)
-                // {
-                // _animator.SetBool(_animIDJump, false);
-                // _animator.SetBool(_animIDFreeFall, false);
-                // }
-
-                // // stop our velocity dropping infinitely when grounded
-                // if (_verticalVelocity < 0.0f)
-                // {
-                //     _verticalVelocity = -2f;
-                // }
-
-                // Jump
-                if (_input.jump && _jumpTimeoutDelta <= 0.0f)
-                {
-                    // the square root of H * -2 * G = how much velocity needed to reach desired height
-                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-
-                    // NOTE: we don't use Starter Asset animator
-                    //
-                    // update animator if using character
-                    // if (_hasAnimator)
-                    // {
-                    // _animator.SetBool(_animIDJump, true);
-                    // }
-                }
-
-                // jump timeout
-                if (_jumpTimeoutDelta >= 0.0f)
-                {
-                    _jumpTimeoutDelta -= Time.deltaTime;
-                }
-            }
-            else
-            {
-                // reset the jump timeout timer
-                _jumpTimeoutDelta = JumpTimeout;
-
-                // fall timeout
-                if (_fallTimeoutDelta >= 0.0f)
-                {
-                    _fallTimeoutDelta -= Time.deltaTime;
-                }
-                else
-                {
-                    // NOTE: we don't use Starter Asset animator
-                    //
-                    // update animator if using character
-                    // if (_hasAnimator)
-                    // {
-                    // _animator.SetBool(_animIDFreeFall, true);
-                    // }
-                }
-
-                // if we are not grounded, do not jump
+                // the square root of H * -2 * G = how much velocity needed to reach desired height
+                _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
                 _input.jump = false;
             }
 
+            // jump timeout
+            if (_jumpTimeoutDelta >= 0.0f)
+            {
+                _jumpTimeoutDelta -= Time.deltaTime;
+            }
+            
             // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
             var value = _verticalVelocity + Gravity * Time.deltaTime;
             _verticalVelocity = Mathf.Clamp(value, _terminalVelocityNegative, _terminalVelocityPositive);
+            
+            // if (Grounded)
+            // {
+            //     // reset the fall timeout timer
+            //     _fallTimeoutDelta = FallTimeout;
+            //
+            //     // NOTE: we don't use Starter Asset animator
+            //     //
+            //     // update animator if using character
+            //     // if (_hasAnimator)
+            //     // {
+            //     // _animator.SetBool(_animIDJump, false);
+            //     // _animator.SetBool(_animIDFreeFall, false);
+            //     // }
+            //
+            //     // // stop our velocity dropping infinitely when grounded
+            //     // if (_verticalVelocity < 0.0f)
+            //     // {
+            //     //     _verticalVelocity = -2f;
+            //     // }
+            //
+            //     // Jump
+            //     if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+            //     {
+            //         // the square root of H * -2 * G = how much velocity needed to reach desired height
+            //         _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+            //
+            //         // NOTE: we don't use Starter Asset animator
+            //         //
+            //         // update animator if using character
+            //         // if (_hasAnimator)
+            //         // {
+            //         // _animator.SetBool(_animIDJump, true);
+            //         // }
+            //     }
+            //
+            //     // jump timeout
+            //     if (_jumpTimeoutDelta >= 0.0f)
+            //     {
+            //         _jumpTimeoutDelta -= Time.deltaTime;
+            //     }
+            // }
+            // else
+            // {
+            //     // reset the jump timeout timer
+            //     _jumpTimeoutDelta = JumpTimeout;
+            //
+            //     // fall timeout
+            //     if (_fallTimeoutDelta >= 0.0f)
+            //     {
+            //         _fallTimeoutDelta -= Time.deltaTime;
+            //     }
+            //     else
+            //     {
+            //         // NOTE: we don't use Starter Asset animator
+            //         //
+            //         // update animator if using character
+            //         // if (_hasAnimator)
+            //         // {
+            //         // _animator.SetBool(_animIDFreeFall, true);
+            //         // }
+            //     }
+            //
+            //     // if we are not grounded, do not jump
+            //     _input.jump = false;
+            // }
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
