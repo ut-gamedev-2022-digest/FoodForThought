@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterPrefab: {fileID: 8552924915983767593, guid: 29c8945aca1df413d84b1325711e02c8, type: 3}
   characterControllerCenter: {x: 0, y: 0, z: 0}
-  characterControllerRadius: 1.3
-  characterControllerHeight: 1.3
+  cameraBodyRigShoulderOffset: {x: 0, y: 3, z: -11}
+  characterControllerRadius: 2
+  characterControllerHeight: 2

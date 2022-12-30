@@ -4,6 +4,7 @@ using UnityEngine;
 public class AddInvertedMeshCollider : MonoBehaviour
 {
     public bool removeExistingColliders = true;
+    public bool isTrigger;
 
     private void Start()
     {
@@ -17,6 +18,11 @@ public class AddInvertedMeshCollider : MonoBehaviour
         InvertMesh();
 
         gameObject.AddComponent<MeshCollider>();
+
+        if (!isTrigger) return;
+        var meshCollider = GetComponent<MeshCollider>();
+        meshCollider.convex = true;
+        meshCollider.isTrigger = isTrigger;
     }
 
     private void RemoveExistingColliders()

@@ -111,9 +111,8 @@ namespace Player
                 return;
             }
 
-            // Set camera rig shoulder offset to -11
-            var bodyRigShoulderOffset = new Vector3(0, 0, -11);
-            virtualCamera.GetCinemachineComponent<Cinemachine3rdPersonFollow>().ShoulderOffset = bodyRigShoulderOffset;
+            virtualCamera.GetCinemachineComponent<Cinemachine3rdPersonFollow>().ShoulderOffset =
+                _dataItem.cameraBodyRigShoulderOffset;
 
             // Set LookAt target
             _lookAtTargetInstance = Instantiate(

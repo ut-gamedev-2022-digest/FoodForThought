@@ -10,6 +10,9 @@ namespace Player
 
         [Tooltip("Character controller's center relative location.")]
         public Vector3 characterControllerCenter = new(0, 1.5f, 0);
+        
+        [Tooltip("Camera's body rig shoulder offset. Depends on the characters' size.")]
+        public Vector3 cameraBodyRigShoulderOffset = new(0, 3f, -11);
 
         [Tooltip("Character controller's radius.")]
         public float characterControllerRadius = 0.5f;
