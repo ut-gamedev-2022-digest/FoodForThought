@@ -7,6 +7,9 @@ public class Health : MonoBehaviour
     public HealthBar healthBar;
     
     private bool _isDead = false;
+    public bool _isShielded = false;
+
+    private float shieldCounter;
 
     private void Awake()
     {
@@ -27,11 +30,28 @@ public class Health : MonoBehaviour
         Events.OnCollisionWithEnemy -= OnCollisionWithEnemy;
     }
 
+    private void Update()
+    {
+        if (_isShielded)
+        {
+            shieldCounter += Time.deltaTime;
+        }
+
+        if (shieldCounter > 5f)
+        {
+            shieldCounter = 0;
+            _isShielded = false;
+        }
+    }
+
     private void OnCollisionWithEnemy(float damage)
     {
-        health -= damage;
-        healthBar.SetHealth(health);
-        
+        if (!_isShielded)
+        {
+            health -= damage;
+            healthBar.SetHealth(health);
+        }
+
         if (!(health <= 0) || _isDead) return;
         Debug.Log($"Deadly collision with enemy, damage: {damage}, health: {health}");
         
