@@ -3683,6 +3683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1488506679}
   - component: {fileID: 1488506680}
+  - component: {fileID: 1488506681}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -3736,6 +3737,21 @@ MonoBehaviour:
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
   m_ConstraintCount: 2
+--- !u!114 &1488506681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488506678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd9c4a4185c424f9ff2f0e3de276232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelButtons:
+  - {fileID: 101162406}
+  - {fileID: 678022325}
 --- !u!1 &1575924128
 GameObject:
   m_ObjectHideFlags: 0
