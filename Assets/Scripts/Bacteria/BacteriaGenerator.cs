@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class BacteriaGenerator : MonoBehaviour
 {
-    public GameObject BacteriaPrefab;
+   
     public int NrOfBacteria;
     // Start is called before the first frame update
+
     void Start()
     {
-        for(int i=0; i<NrOfBacteria; i++)
+        var bacteriaPrefabs = Game.Instance.Level.BacteriaPrebabs;
+        int idx = Random.Range(0, bacteriaPrefabs.Count);
+        if (bacteriaPrefabs.Count > 0)
         {
-            Vector3 position = transform.position + new Vector3(i*1f, i*1f, 0);
-            Instantiate(BacteriaPrefab, position, Quaternion.identity);
+            for (int i = 0; i < NrOfBacteria; i++)
+            {
+                Vector3 position = transform.position + new Vector3(i * 1f, i * 1f, 0);
+                Instantiate(bacteriaPrefabs[idx], position, Quaternion.identity);
+            }
         }
     }
 }

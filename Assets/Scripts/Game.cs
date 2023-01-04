@@ -8,5 +8,10 @@ public enum LoseReason
 
 public class Game : MonoBehaviour
 {
-
+    public Level Level;
+    public static Game Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
 }

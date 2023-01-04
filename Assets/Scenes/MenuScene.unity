@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -319,6 +319,7 @@ MonoBehaviour:
   RecordsTable: {fileID: 0}
   RecordsRowPrefab: {fileID: 0}
   ResultsNr: 5
+  Level: {fileID: 0}
   charactersPanel: {fileID: 0}
   levelsPanel: {fileID: 0}
 --- !u!1 &69439145
@@ -517,6 +518,7 @@ MonoBehaviour:
   RecordsTable: {fileID: 0}
   RecordsRowPrefab: {fileID: 0}
   ResultsNr: 5
+  Level: {fileID: 11400000, guid: 6528d5f5ff6697d4c86e74cb15b1c941, type: 2}
   charactersPanel: {fileID: 0}
   levelsPanel: {fileID: 0}
 --- !u!1 &101162406
@@ -3402,6 +3404,7 @@ MonoBehaviour:
   RecordsTable: {fileID: 820394833}
   RecordsRowPrefab: {fileID: 9052794355863831280, guid: 23c91f1c035e3694aaa4b56c74603800, type: 3}
   ResultsNr: 5
+  Level: {fileID: 11400000, guid: 6528d5f5ff6697d4c86e74cb15b1c941, type: 2}
   charactersPanel: {fileID: 68264563}
   levelsPanel: {fileID: 69607210}
 --- !u!1 &1260491093
@@ -4617,6 +4620,7 @@ MonoBehaviour:
   RecordsTable: {fileID: 0}
   RecordsRowPrefab: {fileID: 0}
   ResultsNr: 5
+  Level: {fileID: 0}
   charactersPanel: {fileID: 0}
   levelsPanel: {fileID: 0}
 --- !u!1 &1947510819

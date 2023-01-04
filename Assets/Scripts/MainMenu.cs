@@ -80,7 +80,6 @@ public class MainMenu : MonoBehaviour
         var levelName = PlayerPrefs.GetString("SelectedLevelName");
 
         if (levelName == "") levelName = "Level1";
-
         SceneManager.LoadScene(levelName);
     }
 

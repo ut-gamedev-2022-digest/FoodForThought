@@ -1587,9 +1587,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 0
   TimeBetweenSpawns: 4
-  ObstaclePrefabs:
-  - {fileID: 191608679853375325, guid: ec3c0030af4e1b14088cfd96dd22f325, type: 3}
-  - {fileID: 191608679853375325, guid: b4ac522061fb4cf4890f567aeb4f5c9f, type: 3}
 --- !u!65 &435343842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23185,7 +23182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41666e2d0508c2640834d2e03ccd18c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BacteriaPrefab: {fileID: 7806825393554434373, guid: 4629d05418458504f8c30cc65331dab7, type: 3}
   NrOfBacteria: 8
 --- !u!4 &1065900668 stripped
 Transform:
@@ -23977,6 +23973,7 @@ GameObject:
   - component: {fileID: 1211771229}
   - component: {fileID: 1211771228}
   - component: {fileID: 1211771231}
+  - component: {fileID: 1211771232}
   m_Layer: 0
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -24088,6 +24085,19 @@ MonoBehaviour:
   WinLosePanel: {fileID: 1514672149}
   WinLoseMsg: {fileID: 285345444}
   RemainingTimeMsg: {fileID: 1031445890}
+--- !u!114 &1211771232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211771226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73c7a0424f084d4bb2243979cf3fa14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: {fileID: 11400000, guid: 6528d5f5ff6697d4c86e74cb15b1c941, type: 2}
 --- !u!1 &1215383403
 GameObject:
   m_ObjectHideFlags: 0
@@ -24617,7 +24627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41666e2d0508c2640834d2e03ccd18c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BacteriaPrefab: {fileID: 7806825393554434373, guid: 4629d05418458504f8c30cc65331dab7, type: 3}
   NrOfBacteria: 8
 --- !u!1001 &1459328083
 PrefabInstance:
@@ -25109,7 +25118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41666e2d0508c2640834d2e03ccd18c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BacteriaPrefab: {fileID: 7806825393554434373, guid: 4629d05418458504f8c30cc65331dab7, type: 3}
   NrOfBacteria: 8
 --- !u!1 &1511305166 stripped
 GameObject:
@@ -25875,7 +25883,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41666e2d0508c2640834d2e03ccd18c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BacteriaPrefab: {fileID: 7806825393554434373, guid: 4629d05418458504f8c30cc65331dab7, type: 3}
   NrOfBacteria: 8
 --- !u!1 &1864844874
 GameObject:
@@ -26316,7 +26323,8 @@ MonoBehaviour:
   RecordsTable: {fileID: 0}
   RecordsRowPrefab: {fileID: 0}
   ResultsNr: 5
-  CharactersPanel: {fileID: 0}
+  charactersPanel: {fileID: 0}
+  levelsPanel: {fileID: 0}
 --- !u!1 &2067939068
 GameObject:
   m_ObjectHideFlags: 0
@@ -26540,7 +26548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41666e2d0508c2640834d2e03ccd18c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BacteriaPrefab: {fileID: 7806825393554434373, guid: 4629d05418458504f8c30cc65331dab7, type: 3}
   NrOfBacteria: 8
 --- !u!1 &2144871121
 GameObject:

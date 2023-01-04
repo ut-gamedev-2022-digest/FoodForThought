@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3929b7c43db470244bdba3eb629086b1, type: 3}
+  m_Name: 2 Level
+  m_EditorClassIdentifier: 
+  BacteriaPrebabs:
+  - {fileID: 7806825393554434373, guid: dbd1d88ae51f02d48995eeeac687ea17, type: 3}
+  - {fileID: 7806825393554434373, guid: 4629d05418458504f8c30cc65331dab7, type: 3}
+  - {fileID: 7806825393554434373, guid: 2744bdfe894c42641a07201bed3c4f60, type: 3}
+  - {fileID: 7806825393554434373, guid: 55dfb2ed7be817248a1a321f44963ff8, type: 3}
+  ObstacleFromBehindPrefabs:
+  - {fileID: 191608679853375325, guid: ec3c0030af4e1b14088cfd96dd22f325, type: 3}
+  - {fileID: 191608679853375325, guid: b4ac522061fb4cf4890f567aeb4f5c9f, type: 3}
+  - {fileID: 191608679853375325, guid: 072cb7d1651e864479c615bed9138738, type: 3}
+  - {fileID: 191608679853375325, guid: f92d7d89c3a9a9c44aee4fd9131d9c8b, type: 3}
+  - {fileID: 191608679853375325, guid: 2803b873d4e96f54dbda88aa40b4aaa2, type: 3}
+  WormPrefabs: []
+  DoorPrefab: {fileID: 0}

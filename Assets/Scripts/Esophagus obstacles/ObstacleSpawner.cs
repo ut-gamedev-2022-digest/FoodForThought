@@ -7,8 +7,8 @@ public class ObstacleSpawner : MonoBehaviour
     public static ObstacleSpawner Instance;
     public bool Active;
     public float TimeBetweenSpawns;
-    public List<GameObject> ObstaclePrefabs;
 
+    private List<GameObject> obstaclePrefabs = new List<GameObject>();
     private float nextSpawnTime;
     private ObstacleWaypoint obstacleWaypoint;
 
@@ -18,6 +18,11 @@ public class ObstacleSpawner : MonoBehaviour
         Active = false;
         obstacleWaypoint = GetComponent<ObstacleWaypoint>();
         CheckLaunchMode();
+    }
+
+    private void Start()
+    {
+        obstaclePrefabs = Game.Instance.Level.ObstacleFromBehindPrefabs;
     }
 
     private void CheckLaunchMode()
@@ -45,13 +50,13 @@ public class ObstacleSpawner : MonoBehaviour
 
     private GameObject ChooseObstaclePrefab()
     {
-        int idx = Random.Range(0, ObstaclePrefabs.Count);
-        return ObstaclePrefabs[idx];
+        int idx = Random.Range(0, obstaclePrefabs.Count);
+        return obstaclePrefabs[idx];
     }
 
     private void SpawnObstacle()
     {
-        if (ObstaclePrefabs.Count > 0)
+        if (obstaclePrefabs.Count > 0)
         {
             GameObject obstacle = GameObject.Instantiate(ChooseObstaclePrefab(), transform.position, Quaternion.identity, null);
             ObstacleWaypointFollower obstacleWaypointFollower = obstacle.GetComponent<ObstacleWaypointFollower>();

@@ -22,7 +22,7 @@ public class ModeWindow : EditorWindow
         {
             PlayerPrefs.SetInt("LaunchMode", 0);
             PlayerPrefs.Save();
-            EditorSceneManager.OpenScene("Assets/Scenes/SampleScene.unity");
+            EditorSceneManager.OpenScene("Assets/Scenes/Level1.unity");
         }
         if (GUILayout.Button("Test"))
         {

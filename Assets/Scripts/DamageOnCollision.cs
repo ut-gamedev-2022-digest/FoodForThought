@@ -11,7 +11,6 @@ public class DamageOnCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Oj");
             Events.CollisionWithEnemy(Damage);
             nextDamageTime = Time.time + CooldownTime;
         }
