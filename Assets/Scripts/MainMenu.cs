@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 
 public class MainMenu : MonoBehaviour
 {
@@ -17,8 +19,6 @@ public class MainMenu : MonoBehaviour
     public GameObject RecordsRowPrefab;
     public int ResultsNr = 5;
 
-    public GameObject CharactersPanel;
-
     private List<GameObject> recordsRows;
 
     private void Awake()
@@ -28,7 +28,7 @@ public class MainMenu : MonoBehaviour
         {
             PausePanel.SetActive(false);
         }
-        
+
         if (UsernameInputField != null)
         {
             var defaultUsername = ConstructDefaultUsername();
@@ -39,10 +39,15 @@ public class MainMenu : MonoBehaviour
         {
             RecordsPanel.SetActive(false);
         }
-        
-        if (CharactersPanel != null)
+
+        if (charactersPanel != null)
         {
-            CharactersPanel.SetActive(false);
+            charactersPanel.SetActive(false);
+        }
+
+        if (MainMenuPanel != null)
+        {
+            MainMenuPanel.SetActive(true);
         }
     }
 
@@ -60,7 +65,7 @@ public class MainMenu : MonoBehaviour
     public void SaveUsername()
     {
         if (UsernameInputField == null) return;
-        
+
         var username = UsernameInputField.text;
         var usernamesNr = GetNumberOfUsernames();
         PlayerPrefs.SetString("current_username", username);
@@ -68,10 +73,15 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void PlayGame(bool silent = true)
+    public void PlayGame(bool silent = true)
     {
         if (!silent) audioSource.Play();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        var levelName = PlayerPrefs.GetString("SelectedLevelName");
+
+        if (levelName == "") levelName = "Level1";
+
+        SceneManager.LoadScene(levelName);
     }
 
     public void QuitGame()
@@ -130,6 +140,7 @@ public class MainMenu : MonoBehaviour
         {
             Destroy(row);
         }
+
         audioSource.Play();
         RecordsPanel.SetActive(false);
         MainMenuPanel.SetActive(true);
@@ -137,29 +148,51 @@ public class MainMenu : MonoBehaviour
 
     #region Characters
 
-    public void LoadCharacters()
-    {
-        audioSource.Play();
-        if (MainMenuPanel == null || CharactersPanel == null) return;
-        MainMenuPanel.SetActive(false);
-        CharactersPanel.SetActive(true);
-    }
-    public void BackFromCharacters()
-    {
-        audioSource.Play();
-        CharactersPanel.SetActive(false);
-        MainMenuPanel.SetActive(true);
-    }
-    
+    public GameObject charactersPanel;
+
+    public void LoadCharacters() => GoToMenu(MainMenuPanel, charactersPanel);
+
+    public void BackFromCharacters() => BackToMainMenu(charactersPanel);
+
+
     public void SelectCharacter(int characterIndex)
     {
         audioSource.Play();
         PlayerPrefs.SetInt("SelectedCharacterIndex", characterIndex);
         PlayerPrefs.Save();
-        
-        PlayGame();
     }
 
     #endregion
 
+    #region Levels
+
+    public GameObject levelsPanel;
+    
+    public void LoadLevels() => GoToMenu(charactersPanel, levelsPanel);
+    
+    public void BackFromLevels() => BackToMainMenu(levelsPanel);
+
+    public void SelectLevel(string levelName)
+    {
+        audioSource.Play();
+        PlayerPrefs.SetString("SelectedLevelName", levelName);
+        PlayerPrefs.Save();
+    }
+
+    #endregion
+
+    private void BackToMainMenu(GameObject fromMenu)
+    {
+        audioSource.Play();
+        MainMenuPanel.SetActive(true);
+        fromMenu.SetActive(false);
+    }
+
+    private void GoToMenu(GameObject fromMenu, GameObject toMenu)
+    {
+        audioSource.Play();
+        MainMenuPanel.SetActive(false);
+        fromMenu.SetActive(false);
+        toMenu.SetActive(true);
+    }
 }

@@ -8,14 +8,5 @@ public enum LoseReason
 
 public class Game : MonoBehaviour
 {
-    
-    void Start()
-    {
-        
-    }
 
-    void Update()
-    {
-        
-    }
 }
