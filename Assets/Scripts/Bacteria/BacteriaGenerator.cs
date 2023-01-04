@@ -10,7 +10,7 @@ public class BacteriaGenerator : MonoBehaviour
 
     void Start()
     {
-        var bacteriaPrefabs = Game.Instance.Level.BacteriaPrebabs;
+        var bacteriaPrefabs = LoadLevel.Instance.Level.BacteriaPrebabs;
         int idx = Random.Range(0, bacteriaPrefabs.Count);
         if (bacteriaPrefabs.Count > 0)
         {

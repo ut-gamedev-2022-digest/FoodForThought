@@ -22,7 +22,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void Start()
     {
-        obstaclePrefabs = Game.Instance.Level.ObstacleFromBehindPrefabs;
+        obstaclePrefabs = LoadLevel.Instance.Level.ObstacleFromBehindPrefabs;
     }
 
     private void CheckLaunchMode()
