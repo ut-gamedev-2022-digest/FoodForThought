@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1672388009759311222}
   - component: {fileID: 8183926410902386322}
   - component: {fileID: 2751933435343141203}
+  - component: {fileID: 8656225051487290828}
   m_Layer: 0
   m_Name: Obstacle2
   m_TagString: Untagged
@@ -120,8 +121,6 @@ MonoBehaviour:
   Speed: 35
   DistanceToWaypoint: 0.5
   GravityModifier: 7
-  Damage: 30
-  CooldownTime: 1
   DistanceToPlayerToPlaySound: 10
   Player: {fileID: 919132149155446097, guid: e007a2833dbd34f45a55861145c442a7, type: 3}
 --- !u!65 &2751933435343141203
@@ -137,6 +136,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.2, z: 0.14}
   m_Center: {x: 0.000000018626451, y: 0.113017336, z: -0.000000011175871}
+--- !u!114 &8656225051487290828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191608679853375325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35408e56a8ef1114098b49d09be893a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CooldownTime: 1
+  Damage: 20
 --- !u!1 &9060385986982218923
 GameObject:
   m_ObjectHideFlags: 0
