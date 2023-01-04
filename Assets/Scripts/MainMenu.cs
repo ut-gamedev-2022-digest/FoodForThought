@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
 
 public class MainMenu : MonoBehaviour
 {
@@ -59,7 +57,7 @@ public class MainMenu : MonoBehaviour
 
     private int GetNumberOfUsernames()
     {
-        return PlayerPrefs.GetInt("usernames_nr", 0);
+        return PlayerPrefs.GetInt(PlayerPrefsConstants.NumberOfUserNames, 0);
     }
 
     public void SaveUsername()
@@ -68,8 +66,8 @@ public class MainMenu : MonoBehaviour
 
         var username = UsernameInputField.text;
         var usernamesNr = GetNumberOfUsernames();
-        PlayerPrefs.SetString("current_username", username);
-        PlayerPrefs.SetInt("usernames_nr", usernamesNr + 1);
+        PlayerPrefs.SetString(PlayerPrefsConstants.CurrentUserName, username);
+        PlayerPrefs.SetInt(PlayerPrefsConstants.NumberOfUserNames, usernamesNr + 1);
         PlayerPrefs.Save();
     }
 
@@ -77,7 +75,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!silent) audioSource.Play();
 
-        var levelName = PlayerPrefs.GetString("SelectedLevelName");
+        var levelName = PlayerPrefs.GetString(PlayerPrefsConstants.SelectedLevelName);
 
         if (levelName == "") levelName = "Level1";
         SceneManager.LoadScene(levelName);
@@ -157,7 +155,7 @@ public class MainMenu : MonoBehaviour
     public void SelectCharacter(int characterIndex)
     {
         audioSource.Play();
-        PlayerPrefs.SetInt("SelectedCharacterIndex", characterIndex);
+        PlayerPrefs.SetInt(PlayerPrefsConstants.SelectedCharacterIndex, characterIndex);
         PlayerPrefs.Save();
     }
 
@@ -174,7 +172,7 @@ public class MainMenu : MonoBehaviour
     public void SelectLevel(string levelName)
     {
         audioSource.Play();
-        PlayerPrefs.SetString("SelectedLevelName", levelName);
+        PlayerPrefs.SetString(PlayerPrefsConstants.SelectedLevelName, levelName);
         PlayerPrefs.Save();
     }
 

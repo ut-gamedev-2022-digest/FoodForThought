@@ -4,10 +4,17 @@ public class FinishLine : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Timer>() != null)
-        {
-            Events.ReachFinish();
-            Events.EndGame();
-        }
+        if (!other.gameObject.CompareTag("Player")) return;
+        
+        Events.ReachFinish();
+        Events.EndGame();
+
+        UnlockNextLevel();
+    }
+
+    private static void UnlockNextLevel()
+    {
+        var nextLevel = Game.UnlockNextLevelForCurrentUser();
+        Debug.Log("Level unlocked: " + nextLevel);
     }
 }
