@@ -7,12 +7,9 @@ public class ObstacleWaypointFollower : MonoBehaviour
     public float Speed = 2f;
     public float DistanceToWaypoint = 0f;
     public float GravityModifier = 0.01f;
-    public float Damage = 30f;
-    public float CooldownTime = 1f;
     public float DistanceToPlayerToPlaySound = 10f;
     public GameObject Player;
     private Rigidbody rb;
-    private float nextDamageTime = 0f;
 
     private void Awake()
     {
@@ -61,15 +58,6 @@ public class ObstacleWaypointFollower : MonoBehaviour
         if (Vector3.Distance(transform.position, Player.transform.position) < DistanceToPlayerToPlaySound && !AudioSource.isPlaying)
         {
             AudioSource.Play();
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.GetComponent<Timer>() != null && Time.time > nextDamageTime)
-        {
-            Events.CollisionWithEnemy(Damage);
-            nextDamageTime = Time.time + CooldownTime;
         }
     }
     
