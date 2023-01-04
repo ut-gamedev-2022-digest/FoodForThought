@@ -60,7 +60,7 @@ public class UI : MonoBehaviour
         var minutes = Mathf.FloorToInt(currentTime / 60);
         var seconds = Mathf.FloorToInt(currentTime % 60);
         var prevTime = $"{minutes:00}:{seconds:00}";
-        var prevUsername = PlayerPrefs.GetString("current_username", "default");
+        var prevUsername = PlayerPrefs.GetString(PlayerPrefsConstants.CurrentUserName, "default");
         var found = false;
         var place = 0;
         for (var i = 1; i <= 5; i++)
