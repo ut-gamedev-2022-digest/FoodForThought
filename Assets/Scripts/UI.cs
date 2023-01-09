@@ -14,6 +14,7 @@ public class UI : MonoBehaviour
     public GameObject WinLosePanel;
     public Text WinLoseMsg;
     public Text RemainingTimeMsg;
+    public Animator animator;
 
     private void Awake()
     {
@@ -119,6 +120,7 @@ public class UI : MonoBehaviour
     {
         SetWinLoseMsg(endState, place);
         WinLosePanel.SetActive(true);
+        animator.SetTrigger("Open");
     }
 
     private void HideWinLosePanel()

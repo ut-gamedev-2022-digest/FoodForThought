@@ -549,6 +549,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1514672153}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Close
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &144555328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1424,18 +1436,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2144871121}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2144871123}
         m_TargetAssemblyTypeName: Educational, Assembly-CSharp
         m_MethodName: ResumeGame
@@ -1458,6 +1458,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Close
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2144871121}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &340900058
@@ -24156,6 +24168,7 @@ MonoBehaviour:
   WinLosePanel: {fileID: 1514672149}
   WinLoseMsg: {fileID: 285345444}
   RemainingTimeMsg: {fileID: 1031445890}
+  animator: {fileID: 1514672153}
 --- !u!114 &1211771232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25206,13 +25219,14 @@ GameObject:
   - component: {fileID: 1514672150}
   - component: {fileID: 1514672152}
   - component: {fileID: 1514672151}
+  - component: {fileID: 1514672153}
   m_Layer: 0
   m_Name: WinLose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1514672150
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25275,6 +25289,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514672149}
   m_CullTransparentMesh: 1
+--- !u!95 &1514672153
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514672149}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 72a1c21fbf4f46b4c91f0d7d3c4d263b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1515466798
 GameObject:
   m_ObjectHideFlags: 0
@@ -26494,6 +26528,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1514672153}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Close
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2067939071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26736,7 +26782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2144871122
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27062,6 +27108,10 @@ PrefabInstance:
       propertyPath: TimeText
       value: 
       objectReference: {fileID: 641346119}
+    - target: {fileID: 7441308557363780653, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
+      propertyPath: TimeRemaining
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 7441308557363780655, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
       propertyPath: m_Height
       value: 0.2
