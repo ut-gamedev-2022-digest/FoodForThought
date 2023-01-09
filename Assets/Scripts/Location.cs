@@ -15,6 +15,7 @@ public class Location : MonoBehaviour
     public bool educated;
     public Image organ;
     public Sprite organSprite;
+    public Animator animator;
 
     private void Awake()
     {
@@ -38,6 +39,7 @@ public class Location : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            animator.SetTrigger("Close");
             Events.EducationalWindowClose();
         }
     }
@@ -60,6 +62,7 @@ public class Location : MonoBehaviour
 
     private void OnEducationalWindowOpen()
     {
+        animator.SetTrigger("Open");
         Time.timeScale = 0f;
         educational.SetActive(true);
     }
@@ -67,6 +70,6 @@ public class Location : MonoBehaviour
     private void OnEducationalWindowClose()
     {
         Time.timeScale = 1f;
-        educational.SetActive(false);
+        //educational.SetActive(false);
     }
 }

@@ -1448,6 +1448,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2144871124}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Close
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &340900058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22287,6 +22299,7 @@ MonoBehaviour:
   educated: 0
   organ: {fileID: 56781081}
   organSprite: {fileID: 21300000, guid: 5a2e4aa9cb6019046a7396c218f674af, type: 3}
+  animator: {fileID: 2144871124}
 --- !u!65 &812512247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25704,6 +25717,7 @@ MonoBehaviour:
   educated: 0
   organ: {fileID: 56781081}
   organSprite: {fileID: 21300000, guid: c34b0a43c43e1bf43a7cc8decd3ac5bf, type: 3}
+  animator: {fileID: 2144871124}
 --- !u!65 &1740088080
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26253,6 +26267,7 @@ MonoBehaviour:
   educated: 0
   organ: {fileID: 56781081}
   organSprite: {fileID: 21300000, guid: 5711c09544db34641b02e4af200f68cb, type: 3}
+  animator: {fileID: 2144871124}
 --- !u!65 &2037994718
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26714,13 +26729,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2144871122}
   - component: {fileID: 2144871123}
+  - component: {fileID: 2144871124}
   m_Layer: 0
   m_Name: Educational
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2144871122
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26730,7 +26746,7 @@ RectTransform:
   m_GameObject: {fileID: 2144871121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 263915215}
@@ -26759,6 +26775,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 557512625}
+--- !u!95 &2144871124
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144871121}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c75024e4d016d644a0610046c4722d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &543450651681388541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7786448987658012318, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
