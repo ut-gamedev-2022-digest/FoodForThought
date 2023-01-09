@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public bool _isShielded = false;
 
     private float shieldCounter;
+    public GameObject shield;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class Health : MonoBehaviour
     {
         Debug.Log("Initial health: " + health);
         healthBar.SetHealth(health);
+        shield.SetActive(false);
     }
 
     private void OnDestroy()
@@ -35,12 +37,14 @@ public class Health : MonoBehaviour
         if (_isShielded)
         {
             shieldCounter += Time.deltaTime;
+            shield.SetActive(true);
         }
 
         if (shieldCounter > 5f)
         {
             shieldCounter = 0;
             _isShielded = false;
+            shield.SetActive(false);
         }
     }
 
