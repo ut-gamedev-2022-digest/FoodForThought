@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Banana
   m_EditorClassIdentifier: 
   characterPrefab: {fileID: 644587859017075134, guid: 0d5a0b123e7104386ad7fabdb1f52e71, type: 3}
-  characterControllerCenter: {x: 0, y: 1.25, z: 0}
-  characterControllerRadius: 0.4
-  characterControllerHeight: 2.89
+  characterControllerCenter: {x: 0, y: 2.6, z: 0}
+  cameraBodyRigShoulderOffset: {x: 0, y: -4, z: -11}
+  characterControllerRadius: 1
+  characterControllerHeight: 6
