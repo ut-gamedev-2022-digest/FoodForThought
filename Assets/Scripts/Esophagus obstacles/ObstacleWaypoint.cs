@@ -37,12 +37,5 @@ public class ObstacleWaypoint : MonoBehaviour
         Gizmos.DrawLine(transform.position, Next.transform.position);
         
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.GetComponent<Timer>() != null && ObstacleSpawner.Instance != null)
-        {
-            ObstacleSpawner.Instance.Active = false;
-        }
-    }
 
 }
