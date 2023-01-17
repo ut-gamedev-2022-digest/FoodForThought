@@ -22,7 +22,7 @@ public class DoorOpen : MonoBehaviour
 
     private void Update()
     {
-        if ((animator != null) && !Automatic && (Time.time > _openTime))
+        if ((animator != null) && Automatic && (Time.time > _openTime))
         {
             animator.SetTrigger("Open");
             _openTime = Time.time + CooldownTime;
@@ -31,7 +31,7 @@ public class DoorOpen : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if((animator != null) && CheckCollisionType(collision) && Automatic)
+        if((animator != null) && CheckCollisionType(collision) && !Automatic)
         {
             animator.SetTrigger("Open");
         }
@@ -40,7 +40,6 @@ public class DoorOpen : MonoBehaviour
     private bool CheckCollisionType(Collision collision)
     {
         var obstacleFollower = collision.gameObject.GetComponent<ObstacleWaypointFollower>();
-        var timer = collision.gameObject.GetComponent<Timer>();
-        return obstacleFollower != null || timer != null;
+        return obstacleFollower != null || collision.gameObject.CompareTag("Player");
     }
 }

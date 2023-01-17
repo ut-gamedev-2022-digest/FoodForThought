@@ -11,11 +11,6 @@ public class NPCSpawn : MonoBehaviour
     private float timeTillNextSpawn;
     private bool activated = false;
 
-    private void Awake()
-    {
-        npcSpawnData = LoadLevel.Instance.Level.GetNPCSpawnDataByName(Key);
-    }
-
     private void SpawnObject(Vector3 position)
     {
         var prefabs = npcSpawnData.Prefabs;
@@ -54,6 +49,7 @@ public class NPCSpawn : MonoBehaviour
     }
     void Start()
     {
+        npcSpawnData = LoadLevel.Instance.Level.GetNPCSpawnDataByName(Key);
         if (StartTiggerWall == null)
         {
             activated = true;
