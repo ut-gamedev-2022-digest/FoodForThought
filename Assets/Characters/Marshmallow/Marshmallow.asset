@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Marshmallow
   m_EditorClassIdentifier: 
   characterPrefab: {fileID: 6917894355591770555, guid: edefe592e39f34c05ae8d7f4e70c7e87, type: 3}
-  characterControllerCenter: {x: 0, y: 0, z: 0}
-  characterControllerRadius: 1
+  characterControllerCenter: {x: 0, y: 1, z: 0}
+  cameraBodyRigShoulderOffset: {x: 0, y: 3, z: -11}
+  characterControllerRadius: 1.2
   characterControllerHeight: 1
