@@ -123,8 +123,6 @@ public class UI : MonoBehaviour
         WinLosePanel.SetActive(true);
         animator.SetTrigger("Open");
         Time.timeScale = 0f;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
     }
 
     private void HideWinLosePanel()
