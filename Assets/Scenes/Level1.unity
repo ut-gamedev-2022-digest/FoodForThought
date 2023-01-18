@@ -25088,13 +25088,14 @@ GameObject:
   - component: {fileID: 1514672152}
   - component: {fileID: 1514672151}
   - component: {fileID: 1514672153}
+  - component: {fileID: 1514672154}
   m_Layer: 0
   m_Name: WinLose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1514672150
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25177,6 +25178,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &1514672154
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514672149}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1515466798
 GameObject:
   m_ObjectHideFlags: 0
@@ -26415,6 +26428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2057120806}
   - component: {fileID: 2057120807}
+  - component: {fileID: 2057120808}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -26468,6 +26482,18 @@ MonoBehaviour:
   ResultsNr: 5
   charactersPanel: {fileID: 0}
   levelsPanel: {fileID: 0}
+--- !u!225 &2057120808
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057120805}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &2059781790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26828,13 +26854,14 @@ GameObject:
   - component: {fileID: 2144871122}
   - component: {fileID: 2144871123}
   - component: {fileID: 2144871124}
+  - component: {fileID: 2144871125}
   m_Layer: 0
   m_Name: Educational
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2144871122
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26844,7 +26871,7 @@ RectTransform:
   m_GameObject: {fileID: 2144871121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 263915215}
@@ -26893,6 +26920,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &2144871125
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144871121}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!4 &543450651681388541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7786448987658012318, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
