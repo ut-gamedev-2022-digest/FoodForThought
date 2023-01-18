@@ -29,12 +29,14 @@ public class Stamina : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && stamina>=0f)
         {
             trdPersonController.SprintSpeed = sprintSpeed;
-            stamina = slider.value - 0.1f;
+            stamina = slider.value;
+            stamina -= (10f * Time.deltaTime);
             staminaBar.SetStamina(stamina);
         }
         if ((stamina<=100f) && (!Input.GetKey(KeyCode.LeftShift)))
         {
-            stamina = slider.value + 0.02f;
+            stamina = slider.value;
+            stamina += Time.deltaTime * 50f / 40f;
             staminaBar.SetStamina(stamina);
         }
     }

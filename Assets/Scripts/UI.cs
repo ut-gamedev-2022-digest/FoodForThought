@@ -35,6 +35,7 @@ public class UI : MonoBehaviour
     private void Start()
     {
         WinLosePanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     private void Lost(LoseReason loseReason)
@@ -121,6 +122,7 @@ public class UI : MonoBehaviour
         SetWinLoseMsg(endState, place);
         WinLosePanel.SetActive(true);
         animator.SetTrigger("Open");
+        Time.timeScale = 0f;
     }
 
     private void HideWinLosePanel()
