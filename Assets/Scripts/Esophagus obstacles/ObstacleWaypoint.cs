@@ -7,10 +7,12 @@ public class ObstacleWaypoint : MonoBehaviour
     public ObstacleWaypoint Next;
     public float PositionBoundary;
     public Vector3 OriginalPosition;
+    public bool ChangePosition = false;
 
     private void Awake()
     {
         OriginalPosition = transform.position;
+        ChangePosition = false;
     }
 
     private Vector3 GetNewPosition(Vector3 originalPosition)
@@ -23,7 +25,7 @@ public class ObstacleWaypoint : MonoBehaviour
 
     public ObstacleWaypoint GetNextObstacleWaypoint()
     {
-        if (Next != null) {
+        if (Next != null && ChangePosition) {
             Next.gameObject.transform.position = GetNewPosition(Next.OriginalPosition);
         }
         return Next;
