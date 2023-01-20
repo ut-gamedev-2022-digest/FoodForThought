@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class Worm : MonoBehaviour
 {
-    private Rigidbody rigidbody;
-    
+    public bool Fly = true;
+    private Animator animator;
 
+    private void Awake()
+    {
+        Fly = true;
+        animator = GetComponent<Animator>();
+    }
+    // Start is called before the first frame update
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        if (animator != null)
+        {
+            if (Fly) {
+                animator.SetTrigger("Fly");
+            }
+            else
+            {
+                animator.SetTrigger("Walk");
+            }
+        }
     }
 
-    void Update()
-    {
-       // rigidbody.AddForce(new Vector3(0, -1.0f, 0)); 
-    }
- 
 }

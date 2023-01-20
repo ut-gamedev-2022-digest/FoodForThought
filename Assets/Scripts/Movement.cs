@@ -8,7 +8,6 @@ public class Movement : MonoBehaviour
     public AudioSource AudioSource;
     public float Speed = 12f;
     public float DistanceToWaypoint = 5f;
-    public float GravityModifier = 0.01f;
     public float DistanceToPlayerToPlaySound = 10f;
     public GameObject Player;
 
@@ -40,8 +39,6 @@ public class Movement : MonoBehaviour
             float distance = Vector3.SqrMagnitude(transform.position - ObstacleWaypoint.transform.position);
             if (distance <= DistanceToWaypoint + float.Epsilon)
             {
-                var rot = transform.rotation;
-                transform.Rotate(180, rot.y, rot.z);
                 ObstacleWaypoint = ObstacleWaypoint.GetNextObstacleWaypoint();
             }
         }

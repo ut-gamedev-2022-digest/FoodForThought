@@ -260,6 +260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4513445438720171695}
   - component: {fileID: 4118616402258606402}
+  - component: {fileID: 3457910566522009207}
   m_Layer: 0
   m_Name: Hammer_Head_WORM(LP)
   m_TagString: Untagged
@@ -304,6 +305,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3457910566522009207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3884682444786730005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7773aadd2311d114da3ffbcc3e1a7b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fly: 1
 --- !u!1 &4118616400666971861
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7773aadd2311d114da3ffbcc3e1a7b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Fly: 1
 --- !u!1 &5304733448660546004
 GameObject:
   m_ObjectHideFlags: 0
