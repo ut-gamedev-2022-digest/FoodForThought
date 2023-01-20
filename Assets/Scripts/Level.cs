@@ -10,7 +10,7 @@ public class Level : ScriptableObject {
     {
         foreach (var npcSpawnData in NPCSpawnData)
         {
-            if (npcSpawnData.name.Equals(name))
+            if (npcSpawnData.ObjectName.Equals(name))
             {
                 return npcSpawnData;
             }

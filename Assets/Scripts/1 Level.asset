@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3929b7c43db470244bdba3eb629086b1, type: 3}
   m_Name: 1 Level
   m_EditorClassIdentifier: 
-  BacteriaPrebabs: []
-  ObstacleFromBehindPrefabs: []
-  WormPrefabs: []
-  DoorPrefab: {fileID: 0}
+  NPCSpawnData:
+  - {fileID: 11400000, guid: 59b96ee2fb39646458c3fd0747d3b1c6, type: 2}
