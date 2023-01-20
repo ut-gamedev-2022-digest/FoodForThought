@@ -7,12 +7,25 @@ public class DamageOnCollision : MonoBehaviour
     public float CooldownTime = 1f;
     public float Damage = 10f;
     private float nextDamageTime = 0f;
+    private Collider collider;
+
+    private void Awake()
+    {
+        collider = GetComponent<Collider>();
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Events.CollisionWithEnemy(Damage);
-            nextDamageTime = Time.time + CooldownTime;
+            if (Time.time > nextDamageTime)
+            {
+                Events.CollisionWithEnemy(Damage);
+                nextDamageTime = Time.time + CooldownTime;
+            }
+        }
+        else if (collision.gameObject.CompareTag("Bacteria"))
+        {
+            Physics.IgnoreCollision(collider, collision.collider);
         }
     }
 

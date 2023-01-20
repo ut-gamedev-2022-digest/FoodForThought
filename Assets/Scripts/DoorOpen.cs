@@ -7,6 +7,7 @@ public class DoorOpen : MonoBehaviour
     public float CooldownTime = 10f;
     public float AnimationSpeed = 1f;
     public bool Automatic;
+    public TriggerWall TriggerWall;
     
     
     Animator animator;
@@ -27,19 +28,10 @@ public class DoorOpen : MonoBehaviour
             animator.SetTrigger("Open");
             _openTime = Time.time + CooldownTime;
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if((animator != null) && CheckCollisionType(collision) && !Automatic)
+        else if ((animator != null) && !Automatic && (TriggerWall != null) && TriggerWall.Activated)
         {
             animator.SetTrigger("Open");
+            TriggerWall.Activated = false;
         }
-    }
-
-    private bool CheckCollisionType(Collision collision)
-    {
-        var obstacleFollower = collision.gameObject.GetComponent<ObstacleWaypointFollower>();
-        return obstacleFollower != null || collision.gameObject.CompareTag("Player");
     }
 }

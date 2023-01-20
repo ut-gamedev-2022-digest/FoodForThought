@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8656225051487290828}
   m_Layer: 0
   m_Name: Obstacle2
-  m_TagString: Untagged
+  m_TagString: FoodFromBehind
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,9 +120,7 @@ MonoBehaviour:
   AudioSource: {fileID: 7075526131923479742}
   Speed: 35
   DistanceToWaypoint: 0.5
-  GravityModifier: 7
   DistanceToPlayerToPlaySound: 10
-  Player: {fileID: 919132149155446097, guid: e007a2833dbd34f45a55861145c442a7, type: 3}
 --- !u!65 &2751933435343141203
 BoxCollider:
   m_ObjectHideFlags: 0

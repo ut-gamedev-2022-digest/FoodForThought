@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TriggerWall : MonoBehaviour
 {
+    public string Tag = "Player";
     public bool Activated = false;
 
     private void Awake()
@@ -13,7 +14,7 @@ public class TriggerWall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag(Tag))
         {
             Activated = !Activated;
         }

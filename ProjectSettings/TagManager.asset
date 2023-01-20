@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CinemachineTarget
   - CinemachineCamera
+  - Bacteria
+  - FoodFromBehind
   layers:
   - Default
   - TransparentFX
