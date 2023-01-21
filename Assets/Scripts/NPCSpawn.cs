@@ -7,27 +7,40 @@ public class NPCSpawn : MonoBehaviour
     public string Key;
     public GameObject StartTiggerWall;
     public GameObject EndTriggerWall;
+    public bool SameType = true;
     private NPCSpawnData npcSpawnData;
     private float timeTillNextSpawn;
     private bool activated = false;
+    private int prefabIndex = -1;
 
     private void SpawnObject(Vector3 position)
     {
-        var prefabs = npcSpawnData.Prefabs;
-        GameObject prefab = null;
-        if(prefabs.Count == 1)
-        {
-            prefab = prefabs[0];
-        }
-        else if (prefabs.Count > 1)
-        {
-            int idx = Random.Range(0, prefabs.Count);
-            prefab = prefabs[idx];
-        }
+        var prefab = GetPrefab();
         if (prefab != null)
         {
             Instantiate(prefab, position, Quaternion.identity);
         }
+    }
+
+    private GameObject GetPrefab()
+    {
+        var prefabs = npcSpawnData.Prefabs;
+        if (prefabIndex < 0)
+        {
+            if (prefabs.Count > 1)
+            {
+                prefabIndex = Random.Range(0, prefabs.Count);
+            }
+            else
+            {
+                prefabIndex = 0;
+            }
+        }
+        else if (!SameType)
+        {
+            prefabIndex = Random.Range(0, prefabs.Count);
+        }
+        return prefabs[prefabIndex];
     }
 
     private void SpawnObjects()
