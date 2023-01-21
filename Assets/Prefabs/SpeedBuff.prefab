@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2799868300321298374}
   - component: {fileID: 6384888704223703654}
   - component: {fileID: 6202708817609792018}
+  - component: {fileID: 3838770828650829271}
   m_Layer: 0
   m_Name: SpeedBuff
   m_TagString: Untagged
@@ -63,6 +64,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerupEffect: {fileID: 11400000, guid: 1c2793f7d9425024bba69f7b55d5d0f3, type: 2}
   audioSource: {fileID: 0}
+--- !u!114 &3838770828650829271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3283389995824926076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e599673ace3b46ffa9e4749140b3e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSourcePrefab: {fileID: 8825427555124516481, guid: 6fc686e2be0254914ab1250e54126f67, type: 3}
+  clipOnEnter: {fileID: 8300000, guid: 5e000c531fb21dd478ae431aaa526e06, type: 3}
+  clipOnExit: {fileID: 0}
 --- !u!1 &8544928520825263145
 GameObject:
   m_ObjectHideFlags: 0

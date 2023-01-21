@@ -8,8 +8,8 @@ public class Powerup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        
-        audioSource.Play();
+
+        if (audioSource != null) audioSource.Play();
         Destroy(gameObject);
         powerupEffect.Apply(other.gameObject);
     }
