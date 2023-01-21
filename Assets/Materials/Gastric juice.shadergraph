@@ -1614,9 +1614,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -270.5,
-            "y": 511.5,
-            "width": 130.500244140625,
+            "x": -282.00006103515627,
+            "y": 494.5,
+            "width": 130.50006103515626,
             "height": 34.0
         }
     },
@@ -2639,8 +2639,8 @@
     "m_ShaderOutputName": "Emission",
     "m_StageCapability": 2,
     "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
+        "x": 0.09433960914611817,
+        "y": 0.06003429740667343,
         "z": 0.0
     },
     "m_DefaultValue": {
@@ -2784,7 +2784,7 @@
     "m_Hidden": false,
     "m_Value": {
         "r": 1.0,
-        "g": 0.9638131856918335,
+        "g": 0.8353391289710999,
         "b": 0.0,
         "a": 1.0
     },
@@ -3386,7 +3386,7 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -478.5,
+            "x": -473.5,
             "y": 115.5,
             "width": 208.0,
             "height": 302.0
