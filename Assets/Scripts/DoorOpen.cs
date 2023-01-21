@@ -13,12 +13,22 @@ public class DoorOpen : MonoBehaviour
     Animator animator;
 
     private float _openTime;
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
         animator.speed = AnimationSpeed;
         _openTime = Time.time;
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void PlayAudioSource()
+    {
+        if (audioSource != null && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
     }
 
     private void Update()
@@ -26,11 +36,13 @@ public class DoorOpen : MonoBehaviour
         if ((animator != null) && Automatic && (Time.time > _openTime))
         {
             animator.SetTrigger("Open");
+            PlayAudioSource();
             _openTime = Time.time + CooldownTime;
         }
         else if ((animator != null) && !Automatic && (TriggerWall != null) && TriggerWall.Activated)
         {
             animator.SetTrigger("Open");
+            PlayAudioSource();
             TriggerWall.Activated = false;
         }
     }
