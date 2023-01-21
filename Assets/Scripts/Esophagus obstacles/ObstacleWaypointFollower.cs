@@ -7,6 +7,7 @@ public class ObstacleWaypointFollower : MonoBehaviour
     public float Speed = 2f;
     public float DistanceToWaypoint = 0f;
     public float DistanceToPlayerToPlaySound = 10f;
+    public bool FoodFromBehind = false;
 
     private void Awake()
     {
@@ -23,7 +24,10 @@ public class ObstacleWaypointFollower : MonoBehaviour
     private void Start()
     {
         AudioSource.volume = 0.7f;
-        ObstacleWaypoint = LoadLevel.Instance.FirstObstacleWaypoint;
+        if (FoodFromBehind)
+        {
+            ObstacleWaypoint = LoadLevel.Instance.FirstObstacleWaypoint;
+        }
     }
 
     void Update()

@@ -121,6 +121,7 @@ MonoBehaviour:
   Speed: 35
   DistanceToWaypoint: 0.5
   DistanceToPlayerToPlaySound: 10
+  FoodFromBehind: 1
 --- !u!135 &3545696665898701924
 SphereCollider:
   m_ObjectHideFlags: 0
