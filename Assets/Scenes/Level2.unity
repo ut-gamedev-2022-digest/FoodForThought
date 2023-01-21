@@ -23554,6 +23554,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 919132147961048391}
+    - target: {fileID: 5680809115978486041, guid: 966f4a74b25d3474cad8bd005cbbe671, type: 3}
+      propertyPath: DistanceToPlayerToPlaySound
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6459881798557288528, guid: 966f4a74b25d3474cad8bd005cbbe671, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.95
@@ -24725,6 +24729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level: {fileID: 11400000, guid: 6528d5f5ff6697d4c86e74cb15b1c941, type: 2}
   FirstObstacleWaypoint: {fileID: 871339897}
+  Player: {fileID: 919132147961048391}
 --- !u!1 &1215383403
 GameObject:
   m_ObjectHideFlags: 0
@@ -26672,6 +26677,14 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 919132147961048391}
+    - target: {fileID: 5680809115978486041, guid: 88ec8d69855a096459911c1560a32d0b, type: 3}
+      propertyPath: DistanceToWaypoint
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680809115978486041, guid: 88ec8d69855a096459911c1560a32d0b, type: 3}
+      propertyPath: DistanceToPlayerToPlaySound
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6459881800282503847, guid: 88ec8d69855a096459911c1560a32d0b, type: 3}
       propertyPath: m_LocalPosition.z
       value: -148
@@ -26773,6 +26786,14 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 919132147961048391}
+    - target: {fileID: 5680809115978486041, guid: 88ec8d69855a096459911c1560a32d0b, type: 3}
+      propertyPath: DistanceToWaypoint
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680809115978486041, guid: 88ec8d69855a096459911c1560a32d0b, type: 3}
+      propertyPath: DistanceToPlayerToPlaySound
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6459881800282503847, guid: 88ec8d69855a096459911c1560a32d0b, type: 3}
       propertyPath: m_LocalPosition.y
       value: -24.51
@@ -26914,6 +26935,14 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 919132147961048391}
+    - target: {fileID: 5680809115978486041, guid: 88ec8d69855a096459911c1560a32d0b, type: 3}
+      propertyPath: DistanceToWaypoint
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680809115978486041, guid: 88ec8d69855a096459911c1560a32d0b, type: 3}
+      propertyPath: DistanceToPlayerToPlaySound
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6459881800282503847, guid: 88ec8d69855a096459911c1560a32d0b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 34.5

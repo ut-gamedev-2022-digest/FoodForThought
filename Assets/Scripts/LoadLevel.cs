@@ -6,6 +6,7 @@ public class LoadLevel : MonoBehaviour
 {
     public Level Level;
     public ObstacleWaypoint FirstObstacleWaypoint;
+    public GameObject Player;
     public static LoadLevel Instance;
 
     private void Awake()
