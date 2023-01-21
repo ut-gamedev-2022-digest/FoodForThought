@@ -1,5 +1,5 @@
 ﻿using System;
-using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
@@ -81,7 +81,7 @@ namespace StarterAssets
         // player
         private float _speed;
         private float _animationBlend;
-        private float _targetRotation = 0.0f;
+        private float _targetRotation;
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocityPositive = 10.0f;
@@ -111,6 +111,7 @@ namespace StarterAssets
 
         private bool _hasAnimator;
         private static readonly int Speed = Animator.StringToHash("Speed");
+        private static readonly int Jumping = Animator.StringToHash("Jumping");
 
         private float _speedUpFactor = 1.0f;
 
@@ -152,8 +153,7 @@ namespace StarterAssets
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
 
-            _hasAnimator =
-                TryGetComponent(out _animator); // NOTE: switched off because we don't use Starter Asset animator
+            // _hasAnimator = TryGetComponent(out _animator); // NOTE: switched off because we don't use Starter Asset animator
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -311,7 +311,8 @@ namespace StarterAssets
             if (_input.jump && _jumpTimeoutDelta <= 0.0f)
             {
                 // the square root of H * -2 * G = how much velocity needed to reach desired height
-                _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                _verticalVelocity = Mathf.Sqrt(Math.Abs(JumpHeight * -2f * Gravity));
+                if (_verticalVelocity.IsUnityNull()) _verticalVelocity = 0f;
                 _input.jump = false;
             }
 
@@ -320,11 +321,13 @@ namespace StarterAssets
             {
                 _jumpTimeoutDelta -= Time.deltaTime;
             }
-            
+
             // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
             var value = _verticalVelocity + Gravity * Time.deltaTime;
             _verticalVelocity = Mathf.Clamp(value, _terminalVelocityNegative, _terminalVelocityPositive);
-            
+
+            if (_animator != null) _animator.SetBool(Jumping, _verticalVelocity > 0.0f);
+
             // if (Grounded)
             // {
             //     // reset the fall timeout timer
@@ -419,7 +422,7 @@ namespace StarterAssets
             {
                 if (FootstepAudioClips.Length > 0)
                 {
-                     var index = Random.Range(0, FootstepAudioClips.Length);
+                    var index = Random.Range(0, FootstepAudioClips.Length);
                     AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center),
                         FootstepAudioVolume);
                 }
@@ -453,13 +456,19 @@ namespace StarterAssets
             // When gravity changes to positive, we reset the vertical velocity closer to 0 to make the positive
             // gravity effect appear faster.
             if (gravity > 0 && _verticalVelocity < -2f) _verticalVelocity = -2f;
-            
+
             return previousGravity;
         }
 
         private void ChangeSpeed(float speedUpFactor)
         {
             _speedUpFactor = speedUpFactor;
+        }
+
+        public void SetAnimator(Animator animator)
+        {
+            _animator = animator;
+            _hasAnimator = _animator != null;
         }
     }
 }

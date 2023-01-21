@@ -69,6 +69,12 @@ namespace Player
             }
 
             _thirdPersonController.CinemachineCameraTarget = _lookAtTargetInstance;
+
+            var animator = _characterInstance.GetComponent<Animator>();
+            if (animator != null)
+            {
+                _thirdPersonController.SetAnimator(animator);
+            }
         }
 
         private void SetUpCharacter()
