@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     public AudioSource AudioSource;
     public float Speed = 12f;
     public float DistanceToWaypoint = 5f;
-    public float DistanceToPlayerToPlaySound = 10f;
+    public float DistanceToPlayerToPlaySound = 30f;
     public GameObject Player;
 
 
