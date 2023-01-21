@@ -326,7 +326,7 @@ namespace StarterAssets
             var value = _verticalVelocity + Gravity * Time.deltaTime;
             _verticalVelocity = Mathf.Clamp(value, _terminalVelocityNegative, _terminalVelocityPositive);
 
-            _animator.SetBool(Jumping, _verticalVelocity > 0.0f);
+            if (_animator != null) _animator.SetBool(Jumping, _verticalVelocity > 0.0f);
 
             // if (Grounded)
             // {
