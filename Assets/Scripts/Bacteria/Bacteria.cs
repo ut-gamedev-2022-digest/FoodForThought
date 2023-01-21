@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Bacteria : MonoBehaviour
 {
-    public AudioSource audioSource;
     public bool Attached;
     public float Damage;
     public float TimeBetweenDamage;
 
     private Rigidbody rigidbody;
-    private Collider collider;
     private float nextDamageTime;
     private RandomMovement randomMovement;
 
@@ -19,7 +17,6 @@ public class Bacteria : MonoBehaviour
         Attached = false;
         nextDamageTime = 0.0f;
         rigidbody = GetComponent<Rigidbody>();
-        collider = GetComponent<Collider>();
         randomMovement = GetComponent<RandomMovement>();
     }
 
@@ -34,6 +31,10 @@ public class Bacteria : MonoBehaviour
 
     private void DoDamage()
     {
+        if (LoadLevel.Instance.BacteriaAudioSource != null && !LoadLevel.Instance.BacteriaAudioSource.isPlaying)
+        {
+            LoadLevel.Instance.BacteriaAudioSource.Play();
+        }
         Events.CollisionWithEnemy(Damage);
     }
 
@@ -42,7 +43,6 @@ public class Bacteria : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && !Attached)
         {
             Attached = true;
-            audioSource.Play();
             DoDamage();
             transform.localScale = transform.localScale * 0.4f;
             transform.SetParent(other.gameObject.transform);

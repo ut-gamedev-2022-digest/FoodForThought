@@ -75,7 +75,7 @@ public class WaypointFollower : MonoBehaviour
         if (bacteria != null && !bacteria.Attached)
         {
             bacteria.Attached = true;
-            bacteria.audioSource.Play();
+            //bacteria.audioSource.Play();
             var fj = gameObject.AddComponent<FixedJoint>();
             fj.connectedBody = other.gameObject.GetComponent<Rigidbody>();
 
