@@ -6,11 +6,11 @@ public class DestroyAttachedBacterias : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        var fixedJoints = other.GetComponents<FixedJoint>();
-        if (fixedJoints != null) {
-            foreach (var fixedJoint in fixedJoints) {
-                Destroy(fixedJoint.connectedBody.gameObject);
-                Destroy(fixedJoint);
+        foreach(Transform children in other.gameObject.transform)
+        {
+            if(children.gameObject.GetComponent<Bacteria>() != null)
+            {
+                Destroy(children.gameObject);
             }
         }
     }

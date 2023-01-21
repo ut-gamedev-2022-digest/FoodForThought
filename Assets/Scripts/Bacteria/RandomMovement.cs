@@ -6,6 +6,7 @@ public class RandomMovement : MonoBehaviour
 {
     public float Speed = 1f;
     public float RotationSpeed = 3.0f;
+    public bool Active = true;
 
     private Quaternion desiredQuat;
     private float timer = 0.0f;
@@ -35,16 +36,19 @@ public class RandomMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer > 2)
+        if (Active)
         {
-            SetNewRandomRotation();
-            timer = 0.0f;
-        }
-        transform.rotation = Quaternion.Slerp(transform.rotation, desiredQuat, Time.deltaTime * RotationSpeed);
-        transform.position = Vector3.Lerp(transform.position, desiredPos, Time.deltaTime * Speed);
-        if (Vector3.Distance(transform.position, desiredPos) <= 0.02f)
-        {
-            SetNewRandomDesiredPos();
+            if (timer > 2)
+            {
+                SetNewRandomRotation();
+                timer = 0.0f;
+            }
+            transform.rotation = Quaternion.Slerp(transform.rotation, desiredQuat, Time.deltaTime * RotationSpeed);
+            transform.position = Vector3.Lerp(transform.position, desiredPos, Time.deltaTime * Speed);
+            if (Vector3.Distance(transform.position, desiredPos) <= 0.02f)
+            {
+                SetNewRandomDesiredPos();
+            }
         }
     }
 }

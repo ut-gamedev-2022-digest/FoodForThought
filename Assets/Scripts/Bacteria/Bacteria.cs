@@ -9,27 +9,20 @@ public class Bacteria : MonoBehaviour
     public float Damage;
     public float TimeBetweenDamage;
 
+    private Rigidbody rigidbody;
+    private Collider collider;
     private float nextDamageTime;
+    private RandomMovement randomMovement;
 
     private void Awake()
     {
         Attached = false;
-        nextDamageTime = 0;
-        CheckLaunchMode();
+        nextDamageTime = 0.0f;
+        rigidbody = GetComponent<Rigidbody>();
+        collider = GetComponent<Collider>();
+        randomMovement = GetComponent<RandomMovement>();
     }
 
-    private void CheckLaunchMode()
-    {
-        int mode = PlayerPrefs.GetInt("LaunchMode", 1);
-        if (mode == 0)
-        {
-            gameObject.SetActive(false);
-        }
-        else if (mode == 1)
-        {
-            gameObject.SetActive(true);
-        }
-    }
     private void Update()
     {
         if (Attached && Time.time > nextDamageTime)
@@ -46,14 +39,18 @@ public class Bacteria : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var timer = other.gameObject.GetComponent<Timer>();
-        if (timer != null && !Attached)
+        if (other.gameObject.CompareTag("Player") && !Attached)
         {
             Attached = true;
             audioSource.Play();
-            var fj = other.gameObject.AddComponent<FixedJoint>();
-            fj.connectedBody = gameObject.GetComponent<Rigidbody>();
-
+            DoDamage();
+            transform.localScale = transform.localScale * 0.4f;
+            transform.SetParent(other.gameObject.transform);
+            rigidbody.detectCollisions = false;
+            if (randomMovement != null)
+            {
+                randomMovement.Active = false;
+            }
         }
     }
 }
