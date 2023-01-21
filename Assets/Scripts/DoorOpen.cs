@@ -34,4 +34,18 @@ public class DoorOpen : MonoBehaviour
             TriggerWall.Activated = false;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(animator != null && collision.gameObject.CompareTag("Player"))
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("DoorsAnimation"))
+            {
+                var currentPosition = collision.gameObject.transform.position;
+                collision.gameObject.transform.position = new Vector3(currentPosition.x + 5.0f, currentPosition.y, currentPosition.z);
+            }
+        }
+    }
+
+
 }
