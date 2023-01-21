@@ -6,6 +6,8 @@ public class DamageOnCollision : MonoBehaviour
 {
     public float CooldownTime = 1f;
     public float Damage = 10f;
+    public AudioSource AudioSource;
+
     private float nextDamageTime = 0f;
     private Collider collider;
 
@@ -20,6 +22,10 @@ public class DamageOnCollision : MonoBehaviour
             if (Time.time > nextDamageTime)
             {
                 Events.CollisionWithEnemy(Damage);
+                if (AudioSource != null && !AudioSource.isPlaying)
+                {
+                    AudioSource.Play();
+                }
                 nextDamageTime = Time.time + CooldownTime;
             }
         }

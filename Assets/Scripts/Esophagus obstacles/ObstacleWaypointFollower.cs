@@ -57,9 +57,10 @@ public class ObstacleWaypointFollower : MonoBehaviour
 
     private void ManageSound()
     {
-
         if (Vector3.Distance(transform.position, Player.transform.position) < DistanceToPlayerToPlaySound && !AudioSource.isPlaying)
         {
+            Debug.Log("Played");
+            Debug.Log(AudioSource.clip.name);
             AudioSource.Play();
         }
 

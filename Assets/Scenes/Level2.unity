@@ -25321,6 +25321,10 @@ PrefabInstance:
       value: FoodFromBehindSpawn
       objectReference: {fileID: 0}
     - target: {fileID: 8393142237096678633, guid: 7e75db628f344fe4fb6a1925c4ceca6d, type: 3}
+      propertyPath: SameType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393142237096678633, guid: 7e75db628f344fe4fb6a1925c4ceca6d, type: 3}
       propertyPath: EndTriggerWall
       value: 
       objectReference: {fileID: 446598923}
