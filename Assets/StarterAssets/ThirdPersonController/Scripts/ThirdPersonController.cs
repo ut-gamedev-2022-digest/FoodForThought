@@ -1,5 +1,4 @@
 ﻿using System;
-using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -112,6 +111,7 @@ namespace StarterAssets
 
         private bool _hasAnimator;
         private static readonly int Speed = Animator.StringToHash("Speed");
+        private static readonly int Jumping = Animator.StringToHash("Jumping");
 
         private float _speedUpFactor = 1.0f;
 
@@ -153,8 +153,7 @@ namespace StarterAssets
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
 
-            _hasAnimator =
-                TryGetComponent(out _animator); // NOTE: switched off because we don't use Starter Asset animator
+            // _hasAnimator = TryGetComponent(out _animator); // NOTE: switched off because we don't use Starter Asset animator
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
@@ -327,6 +326,8 @@ namespace StarterAssets
             var value = _verticalVelocity + Gravity * Time.deltaTime;
             _verticalVelocity = Mathf.Clamp(value, _terminalVelocityNegative, _terminalVelocityPositive);
 
+            _animator.SetBool(Jumping, _verticalVelocity > 0.0f);
+
             // if (Grounded)
             // {
             //     // reset the fall timeout timer
@@ -462,6 +463,12 @@ namespace StarterAssets
         private void ChangeSpeed(float speedUpFactor)
         {
             _speedUpFactor = speedUpFactor;
+        }
+
+        public void SetAnimator(Animator animator)
+        {
+            _animator = animator;
+            _hasAnimator = _animator != null;
         }
     }
 }
