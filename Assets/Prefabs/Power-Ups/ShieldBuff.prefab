@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3846018093981099296, guid: 3795e86b70c19ef41b87363edff6a1a5, type: 3}
+  - {fileID: 2100000, guid: e12bddcb1a023420c89d42e63896a8d1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: 3795e86b70c19ef41b87363edff6a1a5, type: 3}
+  - {fileID: 2100000, guid: 3279f770339c440a5a5588dc280429b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 5368976526818140528}
   - component: {fileID: 578966723240043851}
   - component: {fileID: 423193879843513653}
+  - component: {fileID: -4264002428011555291}
   m_Layer: 0
   m_Name: ShieldBuff
   m_TagString: Untagged
@@ -229,3 +230,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerupEffect: {fileID: 11400000, guid: 3315500c69646904aa2797ee932a3d0a, type: 2}
   audioSource: {fileID: 0}
+--- !u!114 &-4264002428011555291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4740530193034623946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e599673ace3b46ffa9e4749140b3e55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSourcePrefab: {fileID: 8825427555124516481, guid: 6fc686e2be0254914ab1250e54126f67, type: 3}
+  clipOnEnter: {fileID: 8300000, guid: 5e000c531fb21dd478ae431aaa526e06, type: 3}
+  clipOnExit: {fileID: 0}
