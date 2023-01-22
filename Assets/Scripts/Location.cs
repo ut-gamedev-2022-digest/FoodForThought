@@ -19,13 +19,13 @@ public class Location : MonoBehaviour
 
     private void Awake()
     {
-        Events.OnEducationalWindowOpen += OnEducationalWindowOpen;
+        // Events.OnEducationalWindowOpen += OnEducationalWindowOpen;
         Events.OnEducationalWindowClose += OnEducationalWindowClose;
     }
 
     private void OnDestroy()
     {
-        Events.OnEducationalWindowOpen -= OnEducationalWindowOpen;
+        // Events.OnEducationalWindowOpen -= OnEducationalWindowOpen;
         Events.OnEducationalWindowClose -= OnEducationalWindowClose;
     }
 
@@ -47,6 +47,7 @@ public class Location : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
         Events.EducationalWindowOpen();
+        OnEducationalWindowOpen();
     }
 
     private void OnEducationalWindowOpen()
