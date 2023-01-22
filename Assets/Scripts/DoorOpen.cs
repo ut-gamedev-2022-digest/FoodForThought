@@ -15,6 +15,22 @@ public class DoorOpen : MonoBehaviour
     private float _openTime;
     private AudioSource audioSource;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        Events.OnPauseGame += OnPauseGame;
+        Events.OnResumeGame += OnResumeGame;
+        Events.OnLost += OnLost;
+        Events.OnEndGame += OnPauseGame;
+    }
+
+    private void OnDestroy()
+    {
+        Events.OnPauseGame -= OnPauseGame;
+        Events.OnResumeGame -= OnResumeGame;
+        Events.OnLost -= OnLost;
+        Events.OnEndGame -= OnPauseGame;
+    }
+
     void Start()
     {
         animator = gameObject.GetComponent<Animator>();
@@ -57,6 +73,21 @@ public class DoorOpen : MonoBehaviour
                 collision.gameObject.transform.position = new Vector3(currentPosition.x + 5.0f, currentPosition.y, currentPosition.z);
             }
         }
+    }
+
+    private void OnLost(LoseReason _)
+    {
+        audioSource.Pause();
+    }
+
+    private void OnPauseGame()
+    {
+        audioSource.Pause();
+    }
+
+    private void OnResumeGame()
+    {
+        audioSource.UnPause();
     }
 
 
