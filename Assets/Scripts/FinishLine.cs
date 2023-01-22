@@ -2,14 +2,27 @@ using UnityEngine;
 
 public class FinishLine : MonoBehaviour
 {
+    private void Awake()
+    {
+        Events.OnReachFinish += OnReachFinish;
+    }
+
+    private void OnDestroy()
+    {
+        Events.OnReachFinish -= OnReachFinish;
+    }
+
+    private void OnReachFinish()
+    {
+        UnlockNextLevel();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("Player")) return;
-        
+        if (!other.CompareTag("Player")) return;
+
         Events.ReachFinish();
         Events.EndGame();
-
-        UnlockNextLevel();
     }
 
     private static void UnlockNextLevel()

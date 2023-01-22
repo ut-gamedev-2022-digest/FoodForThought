@@ -9,8 +9,6 @@ public class MainMenu : MonoBehaviour
 
     public GameObject MainMenuPanel;
 
-    public GameObject PausePanel;
-
     public TMP_InputField UsernameInputField;
     public GameObject RecordsPanel;
     public GameObject RecordsTable;
@@ -22,10 +20,6 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         recordsRows = new List<GameObject>();
-        if (PausePanel != null)
-        {
-            PausePanel.SetActive(false);
-        }
 
         if (UsernameInputField != null)
         {
@@ -84,30 +78,8 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         audioSource.Play();
+        Game.ResetLevelsUnlockedForCurrentUser();
         Application.Quit();
-    }
-
-    public void BackToMenu()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        Time.timeScale = 1f;
-        audioSource.Play();
-    }
-
-    public void ResumeGame()
-    {
-        Time.timeScale = 1f;
-        PausePanel.SetActive(false);
-        audioSource.Play();
-        Events.ResumeGame();
-    }
-
-    public void RestartGame()
-    {
-        Time.timeScale = 1f;
-        audioSource.Play();
-        PausePanel.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void LoadRecords()

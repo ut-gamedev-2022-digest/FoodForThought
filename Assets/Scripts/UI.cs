@@ -85,7 +85,7 @@ public class UI : MonoBehaviour
         if (_input != null)
         {
             _input.cursorLocked = false;
-            _input.cursorInputForLook = false;
+            // _input.cursorInputForLook = false;
         }
     }
 
@@ -118,7 +118,7 @@ public class UI : MonoBehaviour
         if (_input != null)
         {
             _input.cursorLocked = false;
-            _input.cursorInputForLook = false;
+            // _input.cursorInputForLook = false;
         }
     }
 
@@ -243,6 +243,7 @@ public class UI : MonoBehaviour
     public void RestartGameButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Events.RestartGame();
     }
     
     public void ResumeGameButton()

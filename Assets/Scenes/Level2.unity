@@ -1751,7 +1751,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2144871123}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Educational, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -3608,9 +3608,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2057120807}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: ResumeGame
+      - m_Target: {fileID: 1211771231}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: ResumeGameButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23583,9 +23583,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2057120807}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: RestartGame
+      - m_Target: {fileID: 1211771231}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: RestartGameButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26211,9 +26211,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2057120807}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: BackToMenu
+      - m_Target: {fileID: 1211771231}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: BackToMenuButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28842,7 +28842,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 557512625}
   MainMenuPanel: {fileID: 0}
-  PausePanel: {fileID: 2057120805}
   UsernameInputField: {fileID: 0}
   RecordsPanel: {fileID: 0}
   RecordsTable: {fileID: 0}
@@ -29070,7 +29069,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2144871122}
-  - component: {fileID: 2144871123}
   m_Layer: 0
   m_Name: Educational
   m_TagString: Untagged
@@ -29103,19 +29101,6 @@ RectTransform:
   m_AnchoredPosition: {x: 2.1663, y: 0.0539}
   m_SizeDelta: {x: 774.27, y: 329.4023}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2144871123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144871121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f76d4b887eb124f89fe40aa2363864, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 557512625}
 --- !u!4 &543450651681388541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7786448987658012318, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}

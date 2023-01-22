@@ -27,7 +27,14 @@ public static class Game
         var key = UserDependentPlayerPrefsKey(PlayerPrefsConstants.LevelsUnlocked);
         var levelsUnlocked = PlayerPrefs.GetInt(key, 1);
         var value = levelsUnlocked + 1;
+        Debug.Log($"Levels unlocked for current user: {value}");
         PlayerPrefs.SetInt(key, value);
         return value;
+    }
+    
+    public static void ResetLevelsUnlockedForCurrentUser()
+    {
+        var key = UserDependentPlayerPrefsKey(PlayerPrefsConstants.LevelsUnlocked);
+        PlayerPrefs.SetInt(key, 1);
     }
 }

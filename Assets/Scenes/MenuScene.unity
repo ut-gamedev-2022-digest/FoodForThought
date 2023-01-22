@@ -267,7 +267,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 68264564}
-  - component: {fileID: 68264565}
   m_Layer: 5
   m_Name: Characters
   m_TagString: Untagged
@@ -299,28 +298,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.1649, y: -10.9024}
   m_SizeDelta: {x: 271.9236, y: 334.6252}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &68264565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68264563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebac4914bdd9be94db48c3177efefa96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 911802165}
-  MainMenuPanel: {fileID: 0}
-  PausePanel: {fileID: 0}
-  UsernameInputField: {fileID: 0}
-  RecordsPanel: {fileID: 0}
-  RecordsTable: {fileID: 0}
-  RecordsRowPrefab: {fileID: 0}
-  ResultsNr: 5
-  charactersPanel: {fileID: 0}
-  levelsPanel: {fileID: 0}
 --- !u!1 &69439145
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +442,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 69607211}
-  - component: {fileID: 69607212}
   m_Layer: 5
   m_Name: Levels
   m_TagString: Untagged
@@ -497,28 +473,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.1649, y: -10.9024}
   m_SizeDelta: {x: 271.9236, y: 334.6252}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &69607212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69607210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebac4914bdd9be94db48c3177efefa96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 911802165}
-  MainMenuPanel: {fileID: 0}
-  PausePanel: {fileID: 0}
-  UsernameInputField: {fileID: 0}
-  RecordsPanel: {fileID: 0}
-  RecordsTable: {fileID: 0}
-  RecordsRowPrefab: {fileID: 0}
-  ResultsNr: 5
-  charactersPanel: {fileID: 0}
-  levelsPanel: {fileID: 0}
 --- !u!1 &75580877
 GameObject:
   m_ObjectHideFlags: 0
@@ -6014,7 +5968,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1165934528}
-  - component: {fileID: 1165934529}
   m_Layer: 5
   m_Name: Tutorials
   m_TagString: Untagged
@@ -6046,28 +5999,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.1649, y: -10.9024}
   m_SizeDelta: {x: 271.9236, y: 334.6252}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1165934529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165934527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebac4914bdd9be94db48c3177efefa96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 911802165}
-  MainMenuPanel: {fileID: 0}
-  PausePanel: {fileID: 0}
-  UsernameInputField: {fileID: 0}
-  RecordsPanel: {fileID: 0}
-  RecordsTable: {fileID: 0}
-  RecordsRowPrefab: {fileID: 0}
-  ResultsNr: 5
-  charactersPanel: {fileID: 0}
-  levelsPanel: {fileID: 0}
 --- !u!1 &1173992629
 GameObject:
   m_ObjectHideFlags: 0
@@ -6518,7 +6449,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 911802165}
   MainMenuPanel: {fileID: 1245102801}
-  PausePanel: {fileID: 0}
   UsernameInputField: {fileID: 2092028237}
   RecordsPanel: {fileID: 1932406025}
   RecordsTable: {fileID: 820394833}
@@ -7075,7 +7005,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1488506679}
   - component: {fileID: 1488506680}
-  - component: {fileID: 1488506681}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -7129,21 +7058,6 @@ MonoBehaviour:
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
   m_ConstraintCount: 2
---- !u!114 &1488506681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488506678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddd9c4a4185c424f9ff2f0e3de276232, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelButtons:
-  - {fileID: 101162406}
-  - {fileID: 678022325}
 --- !u!1 &1545947260
 GameObject:
   m_ObjectHideFlags: 0
@@ -8719,7 +8633,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1932406026}
-  - component: {fileID: 1932406027}
   m_Layer: 5
   m_Name: Records
   m_TagString: Untagged
@@ -8751,28 +8664,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.1649, y: -10.9024}
   m_SizeDelta: {x: 271.9236, y: 334.6252}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1932406027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1932406025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebac4914bdd9be94db48c3177efefa96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 911802165}
-  MainMenuPanel: {fileID: 0}
-  PausePanel: {fileID: 0}
-  UsernameInputField: {fileID: 0}
-  RecordsPanel: {fileID: 0}
-  RecordsTable: {fileID: 0}
-  RecordsRowPrefab: {fileID: 0}
-  ResultsNr: 5
-  charactersPanel: {fileID: 0}
-  levelsPanel: {fileID: 0}
 --- !u!1 &1934004924
 GameObject:
   m_ObjectHideFlags: 0
