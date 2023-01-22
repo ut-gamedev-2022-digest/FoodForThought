@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18386847, g: 0.22872771, b: 0.30143872, a: 1}
+  m_IndirectSpecularColor: {r: 0.18386877, g: 0.22872801, b: 0.30143926, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24965,6 +24965,7 @@ GameObject:
   - component: {fileID: 1211771232}
   - component: {fileID: 1211771233}
   - component: {fileID: 1211771234}
+  - component: {fileID: 1211771235}
   m_Layer: 0
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -25289,6 +25290,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1211771235
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211771226}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 72a1c21fbf4f46b4c91f0d7d3c4d263b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1215383403
 GameObject:
   m_ObjectHideFlags: 0
@@ -29118,6 +29139,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1171160295}
     m_Modifications:
+    - target: {fileID: -2260175511626774345, guid: 87eb2dc79294a5a4d9e8fd130c589520, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].time
+      value: 0.9708252
+      objectReference: {fileID: 0}
+    - target: {fileID: -2260175511626774345, guid: 87eb2dc79294a5a4d9e8fd130c589520, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[3].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2769718637820933539, guid: 87eb2dc79294a5a4d9e8fd130c589520, type: 3}
       propertyPath: m_Mass
       value: 0.0000001

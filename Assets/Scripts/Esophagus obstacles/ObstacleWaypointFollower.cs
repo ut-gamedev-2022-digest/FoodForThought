@@ -14,12 +14,14 @@ public class ObstacleWaypointFollower : MonoBehaviour
     {
         Events.OnPauseGame += OnPauseGame;
         Events.OnResumeGame += OnResumeGame;
+        Events.OnLost += OnLost;
     }
 
     private void OnDestroy()
     {
         Events.OnPauseGame -= OnPauseGame;
         Events.OnResumeGame -= OnResumeGame;
+        Events.OnLost -= OnLost;
     }
 
     private void Start()
@@ -62,6 +64,11 @@ public class ObstacleWaypointFollower : MonoBehaviour
             AudioSource.Play();
         }
 
+    }
+
+    private void OnLost(LoseReason _)
+    {
+        AudioSource.Pause();
     }
     
     private void OnPauseGame()

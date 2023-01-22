@@ -36,6 +36,10 @@ public class UI : MonoBehaviour
         Events.OnStartGame += OnStartGame;
         Events.OnEducationalWindowOpen += OnEducationalWindowOpen;
         Events.OnEducationalWindowClose += OnEducationalWindowClose;
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
         
         var audioSources = GetComponents<AudioSource>();
         win = audioSources[0];
@@ -231,8 +235,10 @@ public class UI : MonoBehaviour
     {
         SetWinLoseMsg(endState, place);
         WinLosePanel.SetActive(true);
-
-        animator.SetTrigger("Open");
+        if (animator != null)
+        {
+            animator.SetTrigger("Open");
+        }
         Time.timeScale = 0f;
     }
 
