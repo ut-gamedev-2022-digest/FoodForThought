@@ -212,7 +212,7 @@ MonoBehaviour:
   Speed: 20
   DistanceToWaypoint: 5
   DistanceToPlayerToPlaySound: 30
-  Player: {fileID: 0}
+  Player: {fileID: 7441308557363780644, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
 --- !u!1001 &921864446476787016
 PrefabInstance:
   m_ObjectHideFlags: 0

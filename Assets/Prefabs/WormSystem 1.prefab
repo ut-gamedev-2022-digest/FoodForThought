@@ -84,7 +84,7 @@ MonoBehaviour:
   Speed: 25
   DistanceToWaypoint: 0.1
   DistanceToPlayerToPlaySound: 30
-  Player: {fileID: 0}
+  Player: {fileID: 7441308557363780644, guid: bba8136ef45114a059b3eb9b984fbe69, type: 3}
 --- !u!1 &6596888845888502221
 GameObject:
   m_ObjectHideFlags: 0
