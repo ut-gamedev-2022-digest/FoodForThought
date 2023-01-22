@@ -16,12 +16,18 @@ public class UI : MonoBehaviour
     public Text RemainingTimeMsg;
     public Animator animator;
 
+    private AudioSource win;
+    private AudioSource lose;
+
     private void Awake()
     {
         Events.OnLost += Lost;
         Events.OnRestartGame += HideWinLosePanel;
         Events.OnReachFinish += ReachFinish;
         Events.OnShowTime += ShowTime;
+        var audioSources = GetComponents<AudioSource>();
+        win = audioSources[0];
+        lose = audioSources[1];
     }
 
     private void OnDestroy()
@@ -96,6 +102,14 @@ public class UI : MonoBehaviour
     private void SetWinLoseMsg(EndState endState, int place)
     {
         WinLoseMsg.text = ConstructWinLoseMsg(endState, place);
+        if (endState.Equals(EndState.Win) || endState.Equals(EndState.WinWithRecord))
+        {
+            win.Play();
+        }
+        else
+        {
+            lose.Play();
+        }
     }
 
     private static string ConstructWinLoseMsg(EndState endState, int place)
@@ -121,6 +135,7 @@ public class UI : MonoBehaviour
     {
         SetWinLoseMsg(endState, place);
         WinLosePanel.SetActive(true);
+
         animator.SetTrigger("Open");
         Time.timeScale = 0f;
     }
