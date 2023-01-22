@@ -8,6 +8,8 @@ public enum LoseReason
 
 public static class Game
 {
+    public static bool IsPaused { get; set; }
+    
     public static string UserDependentPlayerPrefsKey(string key)
     {
         var name = PlayerPrefs.GetString(PlayerPrefsConstants.CurrentUserName);

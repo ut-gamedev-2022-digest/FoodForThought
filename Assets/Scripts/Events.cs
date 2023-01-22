@@ -19,7 +19,7 @@ public static class Events
 
     public static event Action OnResumeGame;
     public static void ResumeGame() => OnResumeGame?.Invoke();
-
+    
     public static event Action OnEndGame;
     public static void EndGame() => OnEndGame?.Invoke();
 

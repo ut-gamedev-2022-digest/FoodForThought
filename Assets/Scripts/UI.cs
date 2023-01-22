@@ -1,3 +1,4 @@
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,6 +13,9 @@ public enum EndState
 public class UI : MonoBehaviour
 {
     public GameObject WinLosePanel;
+    public GameObject PausePanel;
+    public GameObject EducationalPanel;
+    public GameObject PlayerWrapper;
     public Text WinLoseMsg;
     public Text RemainingTimeMsg;
     public Animator animator;
@@ -19,15 +23,28 @@ public class UI : MonoBehaviour
     private AudioSource win;
     private AudioSource lose;
 
+    private StarterAssetsInputs _input;
+
     private void Awake()
     {
         Events.OnLost += Lost;
         Events.OnRestartGame += HideWinLosePanel;
         Events.OnReachFinish += ReachFinish;
         Events.OnShowTime += ShowTime;
+        Events.OnPauseGame += OnPauseGame;
+        Events.OnResumeGame += OnResumeGame;
+        Events.OnStartGame += OnStartGame;
+        Events.OnEducationalWindowOpen += OnEducationalWindowOpen;
+        Events.OnEducationalWindowClose += OnEducationalWindowClose;
+        
         var audioSources = GetComponents<AudioSource>();
         win = audioSources[0];
         lose = audioSources[1];
+
+        if (PlayerWrapper != null)
+        {
+            _input = PlayerWrapper.GetComponent<StarterAssetsInputs>();
+        }
     }
 
     private void OnDestroy()
@@ -36,6 +53,73 @@ public class UI : MonoBehaviour
         Events.OnRestartGame -= HideWinLosePanel;
         Events.OnReachFinish -= ReachFinish;
         Events.OnShowTime -= ShowTime;
+        Events.OnPauseGame -= OnPauseGame;
+        Events.OnResumeGame -= OnResumeGame;
+        Events.OnStartGame -= OnStartGame;
+        Events.OnEducationalWindowOpen -= OnEducationalWindowOpen;
+        Events.OnEducationalWindowClose -= OnEducationalWindowClose;
+    }
+
+    private void OnEducationalWindowClose()
+    {
+        if (EducationalPanel == null) return;
+        EducationalPanel.SetActive(false);
+        Time.timeScale = 1f;
+        
+        if (_input != null)
+        {
+            _input.cursorLocked = true;
+            _input.cursorInputForLook = true;
+        }
+        
+        Game.IsPaused = false;
+    }
+
+    private void OnEducationalWindowOpen()
+    {
+        if (EducationalPanel == null) return;
+        Game.IsPaused = true;
+        EducationalPanel.SetActive(true);
+        Time.timeScale = 0f;
+        
+        if (_input != null)
+        {
+            _input.cursorLocked = false;
+            _input.cursorInputForLook = false;
+        }
+    }
+
+    private void OnStartGame()
+    {
+        Game.IsPaused = false;
+    }
+
+    private void OnResumeGame()
+    {
+        if (PausePanel == null) return;
+        Game.IsPaused = false;
+        PausePanel.SetActive(false);
+        Time.timeScale = 1f;
+        
+        if (_input != null)
+        {
+            _input.cursorLocked = true;
+            _input.cursorInputForLook = true;
+        }
+    }
+
+    private void OnPauseGame()
+    {
+        if (PausePanel == null) return;
+        Game.IsPaused = true;
+        PausePanel.SetActive(true);
+        Time.timeScale = 0f;
+        
+        if (_input != null)
+        {
+            _input.cursorLocked = false;
+            _input.cursorInputForLook = false;
+        }
     }
 
     private void Start()
@@ -151,8 +235,23 @@ public class UI : MonoBehaviour
         Events.RestartGame();
     }
 
-    public void BackToMenu()
+    public void BackToMenuButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("MenuScene");
+    }
+    
+    public void RestartGameButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
+    public void ResumeGameButton()
+    {
+        Events.ResumeGame();
+    }
+    
+    public void CloseEducationalPanelButton()
+    {
+        Events.EducationalWindowClose();
     }
 }

@@ -178,6 +178,18 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (!Game.IsPaused)
+                {
+                    Events.PauseGame();
+                }
+                else
+                {
+                    Events.ResumeGame();
+                }
+            }
         }
 
         private void LateUpdate()

@@ -39,7 +39,6 @@ public class Location : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            animator.SetTrigger("Close");
             Events.EducationalWindowClose();
         }
     }
@@ -47,7 +46,13 @@ public class Location : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+        Events.EducationalWindowOpen();
+    }
 
+    private void OnEducationalWindowOpen()
+    {
+        animator.SetTrigger("Open");
+        
         locationLabel.text = locationLabel.text == locationText ? backwardsLocationText : locationText;
 
         if (educated) return;
@@ -56,20 +61,10 @@ public class Location : MonoBehaviour
         educationalLabel.text = educationalText;
         organ.sprite = organSprite;
         copyrightLabel.text = copyrightText;
-
-        Events.EducationalWindowOpen();
-    }
-
-    private void OnEducationalWindowOpen()
-    {
-        animator.SetTrigger("Open");
-        Time.timeScale = 0f;
-        educational.SetActive(true);
     }
 
     private void OnEducationalWindowClose()
     {
-        Time.timeScale = 1f;
-        //educational.SetActive(false);
+        animator.SetTrigger("Close");
     }
 }
