@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
     {
         Debug.Log("Initial health: " + health);
         healthBar.SetHealth(health);
-        shield.SetActive(false);
+        if (shield != null) shield.SetActive(false);
     }
 
     private void OnDestroy()
@@ -37,14 +37,14 @@ public class Health : MonoBehaviour
         if (_isShielded)
         {
             shieldCounter += Time.deltaTime;
-            shield.SetActive(true);
+            if (shield != null) shield.SetActive(true);
         }
 
         if (shieldCounter > 5f)
         {
             shieldCounter = 0;
             _isShielded = false;
-            shield.SetActive(false);
+            if (shield != null) shield.SetActive(false);
         }
     }
 
