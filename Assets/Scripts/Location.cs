@@ -53,7 +53,7 @@ public class Location : MonoBehaviour
     {
         if (animator != null) animator.SetTrigger("Open");
         
-        locationLabel.text = locationLabel.text == locationText ? backwardsLocationText : locationText;
+        locationLabel.text = locationText;
 
         if (educated) return;
 

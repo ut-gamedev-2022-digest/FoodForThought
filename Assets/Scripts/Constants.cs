@@ -8,4 +8,5 @@ public static class PlayerPrefsConstants
     
     public const string CharactersUnlocked = "CharactersUnlocked";
     public const string LevelsUnlocked = "LevelsUnlocked";
+    public const string IsGamePaused = "IsGamePaused";
 }

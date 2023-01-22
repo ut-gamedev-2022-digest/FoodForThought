@@ -9,7 +9,7 @@ public enum LoseReason
 public static class Game
 {
     public static bool IsPaused { get; set; }
-    
+
     public static string UserDependentPlayerPrefsKey(string key)
     {
         var name = PlayerPrefs.GetString(PlayerPrefsConstants.CurrentUserName);
@@ -21,7 +21,7 @@ public static class Game
         var key = UserDependentPlayerPrefsKey(PlayerPrefsConstants.LevelsUnlocked);
         return PlayerPrefs.GetInt(key, 1);
     }
-    
+
     public static int UnlockNextLevelForCurrentUser()
     {
         var key = UserDependentPlayerPrefsKey(PlayerPrefsConstants.LevelsUnlocked);
@@ -31,10 +31,20 @@ public static class Game
         PlayerPrefs.SetInt(key, value);
         return value;
     }
-    
+
     public static void ResetLevelsUnlockedForCurrentUser()
     {
         var key = UserDependentPlayerPrefsKey(PlayerPrefsConstants.LevelsUnlocked);
         PlayerPrefs.SetInt(key, 1);
+    }
+
+    public static void SaveIsGamePaused(bool isPaused)
+    {
+        PlayerPrefs.SetInt(PlayerPrefsConstants.IsGamePaused, isPaused ? 1 : 0);
+    }
+
+    public static bool GetIsGamePaused()
+    {
+        return PlayerPrefs.GetInt(PlayerPrefsConstants.IsGamePaused, 0) == 1;
     }
 }
