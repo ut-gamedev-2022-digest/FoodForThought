@@ -51,7 +51,7 @@ public class Location : MonoBehaviour
 
     private void OnEducationalWindowOpen()
     {
-        animator.SetTrigger("Open");
+        if (animator != null) animator.SetTrigger("Open");
         
         locationLabel.text = locationLabel.text == locationText ? backwardsLocationText : locationText;
 
@@ -65,6 +65,6 @@ public class Location : MonoBehaviour
 
     private void OnEducationalWindowClose()
     {
-        animator.SetTrigger("Close");
+        if (animator != null) animator.SetTrigger("Close");
     }
 }
