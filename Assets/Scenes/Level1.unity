@@ -508,7 +508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MOUTH
+  m_text: Mouth
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1553b2ad29302f74d94a309a89d74f50, type: 2}
   m_sharedMaterial: {fileID: 5924891552135372888, guid: 1553b2ad29302f74d94a309a89d74f50, type: 2}

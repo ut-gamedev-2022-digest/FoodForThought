@@ -115,6 +115,7 @@ namespace StarterAssets
 
         private float _speedUpFactor = 1.0f;
 
+        private bool _isGamePaused = false;
 
         private bool IsCurrentDeviceMouse
         {
@@ -169,6 +170,8 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
 
             _input.jump = false;
+
+            _isGamePaused = Game.GetIsGamePaused();
         }
 
         private void Update()
@@ -181,12 +184,16 @@ namespace StarterAssets
             
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (!Game.IsPaused)
+                if (!Game.GetIsGamePaused() && !_isGamePaused)
                 {
+                    Debug.Log("Controller: game not paused");
+                    _isGamePaused = true;
                     Events.PauseGame();
                 }
                 else
                 {
+                    Debug.Log("Controller: game paused");
+                    _isGamePaused = false;
                     Events.ResumeGame();
                 }
             }

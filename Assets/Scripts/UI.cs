@@ -72,13 +72,13 @@ public class UI : MonoBehaviour
             _input.cursorInputForLook = true;
         }
         
-        Game.IsPaused = false;
+        Game.SaveIsGamePaused(false);
     }
 
     private void OnEducationalWindowOpen()
     {
         if (EducationalPanel == null) return;
-        Game.IsPaused = true;
+        Game.SaveIsGamePaused(true);
         EducationalPanel.SetActive(true);
         Time.timeScale = 0f;
         
@@ -91,13 +91,13 @@ public class UI : MonoBehaviour
 
     private void OnStartGame()
     {
-        Game.IsPaused = false;
+        Game.SaveIsGamePaused(false);
     }
 
     private void OnResumeGame()
     {
         if (PausePanel == null) return;
-        Game.IsPaused = false;
+        Game.SaveIsGamePaused(false);
         PausePanel.SetActive(false);
         Time.timeScale = 1f;
         
@@ -111,7 +111,7 @@ public class UI : MonoBehaviour
     private void OnPauseGame()
     {
         if (PausePanel == null) return;
-        Game.IsPaused = true;
+        Game.SaveIsGamePaused(true);
         PausePanel.SetActive(true);
         Time.timeScale = 0f;
         
