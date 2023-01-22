@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     public GameObject RecordsPanel;
     public GameObject RecordsTable;
     public GameObject RecordsRowPrefab;
-    public int ResultsNr = 5;
+    public int ResultsNr = 6;
 
     private List<GameObject> recordsRows;
 
@@ -89,6 +89,7 @@ public class MainMenu : MonoBehaviour
         {
             MainMenuPanel.SetActive(false);
             RecordsPanel.SetActive(true);
+            var level = "1 lvl";
             for (var i = 1; i <= ResultsNr; i++)
             {
                 var username = PlayerPrefs.GetString("username_" + i, "-");
@@ -96,9 +97,16 @@ public class MainMenu : MonoBehaviour
                 var row = Instantiate(RecordsRowPrefab, RecordsTable.transform);
                 recordsRows.Add(row);
                 var fields = row.GetComponentsInChildren<TextMeshProUGUI>();
-                fields[0].text = i + ".";
-                fields[1].text = username;
-                fields[2].text = time;
+                var nr = i;
+                if (i > 3)
+                {
+                    level = "2 lvl";
+                    nr = i - 3;
+                }
+                fields[0].text = nr + ".";
+                fields[1].text = level;
+                fields[2].text = username;
+                fields[3].text = time;
             }
         }
     }

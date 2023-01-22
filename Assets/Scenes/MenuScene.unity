@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -334,7 +334,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0.70427, y: -23.4406}
-  m_SizeDelta: {x: 240, y: 26.6813}
+  m_SizeDelta: {x: 230, y: 26.6813}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &69439147
 MonoBehaviour:
@@ -3819,8 +3819,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.70416, y: -121}
-  m_SizeDelta: {x: 240, y: 50.5}
+  m_AnchoredPosition: {x: 0.70416, y: -140}
+  m_SizeDelta: {x: 230, y: 50.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &804085217
 MonoBehaviour:
@@ -4164,7 +4164,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.7041168, y: 16.977402}
-  m_SizeDelta: {x: 240, y: 200}
+  m_SizeDelta: {x: 350, y: 234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &820394835
 MonoBehaviour:
@@ -6453,7 +6453,7 @@ MonoBehaviour:
   RecordsPanel: {fileID: 1932406025}
   RecordsTable: {fileID: 820394833}
   RecordsRowPrefab: {fileID: 9052794355863831280, guid: 23c91f1c035e3694aaa4b56c74603800, type: 3}
-  ResultsNr: 5
+  ResultsNr: 6
   charactersPanel: {fileID: 68264563}
   levelsPanel: {fileID: 69607210}
 --- !u!1 &1260491093
@@ -8661,8 +8661,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.1649, y: -10.9024}
-  m_SizeDelta: {x: 271.9236, y: 334.6252}
+  m_AnchoredPosition: {x: -0.1649, y: -1}
+  m_SizeDelta: {x: 400, y: 360}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1934004924
 GameObject:

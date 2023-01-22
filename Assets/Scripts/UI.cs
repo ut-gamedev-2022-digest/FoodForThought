@@ -149,23 +149,37 @@ public class UI : MonoBehaviour
     private static int CheckTimeForRecord()
     {
         var currentTime = Events.GetTime();
+        var level = PlayerPrefs.GetString("SelectedLevelName");
         var minutes = Mathf.FloorToInt(currentTime / 60);
         var seconds = Mathf.FloorToInt(currentTime % 60);
         var prevTime = $"{minutes:00}:{seconds:00}";
         var prevUsername = PlayerPrefs.GetString(PlayerPrefsConstants.CurrentUserName, "default");
         var found = false;
         var place = 0;
-        for (var i = 1; i <= 5; i++)
+        int startI = 1;
+        int finishI = 3;
+        if (level.Equals("Level2"))
+        {
+            startI = 4;
+            finishI = 6;
+        }
+        for (var i = startI; i <= finishI; i++)
         {
             var tmpTime = PlayerPrefs.GetString("time_" + i, "-");
             if (!found && (string.Compare(prevTime, tmpTime) < 0 || tmpTime.Equals("-")))
             {
                 found = true;
-                place = i;
+                if (i > 3)
+                {
+                    place = i - 3;
+                }
+                else {
+                    place = i;
+                }
             }
 
             if (!found) continue;
-            var tmpUsername = PlayerPrefs.GetString("username_" + i, "username_" + i);
+            var tmpUsername = PlayerPrefs.GetString("username_" + i, "-");
             PlayerPrefs.SetString("username_" + i, prevUsername);
             PlayerPrefs.SetString("time_" + i, prevTime);
             prevUsername = tmpUsername;
@@ -207,8 +221,6 @@ public class UI : MonoBehaviour
                 1 => "You won!\n1-st best time!",
                 2 => "You won!\n2-nd best time!",
                 3 => "You won!\n3-rd best time!",
-                4 => "You won!\n4-th best time!",
-                5 => "You won!\n5-th best time!",
                 _ => "You won!"
             },
             _ => "You lost!"
