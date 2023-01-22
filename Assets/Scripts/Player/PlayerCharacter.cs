@@ -53,6 +53,11 @@ namespace Player
             SetUpThirdPersonController();
         }
 
+        public PlayerCharacterDataItem GetCurrentDataItem()
+        {
+            return _dataItem;
+        }
+
 
         private void SetUpThirdPersonController()
         {

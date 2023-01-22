@@ -17,3 +17,4 @@ MonoBehaviour:
   cameraBodyRigShoulderOffset: {x: 0, y: 3, z: -11}
   characterControllerRadius: 1.2
   characterControllerHeight: 1
+  shieldYOffset: 1

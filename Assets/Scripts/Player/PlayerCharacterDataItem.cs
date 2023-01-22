@@ -19,5 +19,7 @@ namespace Player
 
         [Tooltip("Character controller's height.")]
         public float characterControllerHeight = 2f;
+
+        public float shieldYOffset = 0.0f;
     }
 }

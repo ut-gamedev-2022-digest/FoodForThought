@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,8 @@ public class Health : MonoBehaviour
     private float shieldCounter;
     public GameObject shield;
 
+    private PlayerCharacter _playerCharacter;
+
     private void Awake()
     {
         Events.OnCollisionWithEnemy += OnCollisionWithEnemy;
@@ -24,7 +27,26 @@ public class Health : MonoBehaviour
     {
         Debug.Log("Initial health: " + health);
         healthBar.SetHealth(health);
-        if (shield != null) shield.SetActive(false);
+        if (shield != null)
+        {
+            shield.SetActive(false);
+        }
+        
+        _playerCharacter = GetComponent<PlayerCharacter>();
+        if (_playerCharacter != null)
+        {
+            var data = _playerCharacter.GetCurrentDataItem();
+            if (data != null)
+            {
+                var position = shield.transform.localPosition;
+                position.y = data.shieldYOffset;
+                shield.transform.localPosition = position;
+            }
+            else
+            {
+                Debug.LogError("Data is null");
+            }
+        }
     }
 
     private void OnDestroy()
